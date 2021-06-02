@@ -1,0 +1,16 @@
+# Ignore all including executables
+*
+
+# Unignore all files with extensions
+!*.*
+
+# Unignore all dirs
+!*/
+
+# Ignoring all internal/build files and folders.
+.*/*
+*.out
+build/
+lib/*
+bin/*
+*/.*
