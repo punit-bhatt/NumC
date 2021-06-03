@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['view_94',['View',['../classNumC_1_1Core_1_1View.html',1,'NumC::Core']]],
-  ['viewiterator_95',['ViewIterator',['../classNumC_1_1Core_1_1ViewIterator.html',1,'NumC::Core']]]
+  ['slicedview_99',['SlicedView',['../classNumC_1_1Core_1_1SlicedView.html',1,'NumC::Core']]]
 ];
