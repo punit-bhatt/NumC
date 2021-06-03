@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NumC: /home/punit13/personal/projects/personal_libs/cpp/NumC/src/NumC/Core/Iterator.hpp File Reference</title>
+<title>NumC: /home/punit13/personal/projects/personal_libs/cpp/NumC/src/NumC/Core/Iterator/Iterator.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -62,7 +62,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0092fb005e13298748be1c21c4570eec.html">NumC</a></li><li class="navelem"><a class="el" href="dir_9ad597a4ee1fab993138e62792ff6142.html">Core</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_0092fb005e13298748be1c21c4570eec.html">NumC</a></li><li class="navelem"><a class="el" href="dir_9ad597a4ee1fab993138e62792ff6142.html">Core</a></li><li class="navelem"><a class="el" href="dir_a2ba050e13a4521d3b7e8b09540c90a0.html">Iterator</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -74,16 +74,16 @@ $(function() {
 <div class="title">Iterator.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="Type_8hpp_source.html">Core/Type.hpp</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="Type_8hpp_source.html">NumC/Core/Type.hpp</a>&gt;</code><br />
 <code>#include &lt;numeric&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Iterator.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="Iterator_8hpp__incl.png" border="0" usemap="#_2home_2punit13_2personal_2projects_2personal__libs_2cpp_2NumC_2src_2NumC_2Core_2Iterator_8hpp" alt=""/></div>
-<map name="_2home_2punit13_2personal_2projects_2personal__libs_2cpp_2NumC_2src_2NumC_2Core_2Iterator_8hpp" id="_2home_2punit13_2personal_2projects_2personal__libs_2cpp_2NumC_2src_2NumC_2Core_2Iterator_8hpp">
-<area shape="rect" title=" " alt="" coords="135,5,329,76"/>
-<area shape="rect" href="Type_8hpp.html" title=" " alt="" coords="116,124,231,151"/>
-<area shape="rect" title=" " alt="" coords="255,124,329,151"/>
+<div class="center"><img src="Iterator_8hpp__incl.png" border="0" usemap="#_2home_2punit13_2personal_2projects_2personal__libs_2cpp_2NumC_2src_2NumC_2Core_2Iterator_2Iterator_8hpp" alt=""/></div>
+<map name="_2home_2punit13_2personal_2projects_2personal__libs_2cpp_2NumC_2src_2NumC_2Core_2Iterator_2Iterator_8hpp" id="_2home_2punit13_2personal_2projects_2personal__libs_2cpp_2NumC_2src_2NumC_2Core_2Iterator_2Iterator_8hpp">
+<area shape="rect" title=" " alt="" coords="147,5,341,76"/>
+<area shape="rect" href="Type_8hpp.html" title=" " alt="" coords="94,124,253,151"/>
+<area shape="rect" title=" " alt="" coords="277,124,352,151"/>
 <area shape="rect" title=" " alt="" coords="5,199,85,225"/>
 <area shape="rect" title=" " alt="" coords="109,199,160,225"/>
 <area shape="rect" title=" " alt="" coords="184,199,243,225"/>
@@ -93,12 +93,15 @@ Include dependency graph for Iterator.hpp:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="Iterator_8hpp__dep__incl.png" border="0" usemap="#_2home_2punit13_2personal_2projects_2personal__libs_2cpp_2NumC_2src_2NumC_2Core_2Iterator_8hppdep" alt=""/></div>
-<map name="_2home_2punit13_2personal_2projects_2personal__libs_2cpp_2NumC_2src_2NumC_2Core_2Iterator_8hppdep" id="_2home_2punit13_2personal_2projects_2personal__libs_2cpp_2NumC_2src_2NumC_2Core_2Iterator_8hppdep">
-<area shape="rect" title=" " alt="" coords="5,5,200,76"/>
-<area shape="rect" href="NdArray_8hpp.html" title=" " alt="" coords="5,124,200,195"/>
-<area shape="rect" href="ContainerUtils_8hpp.html" title=" " alt="" coords="5,243,200,313"/>
-<area shape="rect" href="NumC_8hpp.html" title=" " alt="" coords="9,361,197,417"/>
+<div class="center"><img src="Iterator_8hpp__dep__incl.png" border="0" usemap="#_2home_2punit13_2personal_2projects_2personal__libs_2cpp_2NumC_2src_2NumC_2Core_2Iterator_2Iterator_8hppdep" alt=""/></div>
+<map name="_2home_2punit13_2personal_2projects_2personal__libs_2cpp_2NumC_2src_2NumC_2Core_2Iterator_2Iterator_8hppdep" id="_2home_2punit13_2personal_2projects_2personal__libs_2cpp_2NumC_2src_2NumC_2Core_2Iterator_2Iterator_8hppdep">
+<area shape="rect" title=" " alt="" coords="115,5,309,76"/>
+<area shape="rect" href="ViewIterator_8hpp.html" title=" " alt="" coords="5,243,200,313"/>
+<area shape="rect" href="NdArray_8hpp.html" title=" " alt="" coords="203,124,397,195"/>
+<area shape="rect" href="SlicedView_8hpp.html" title=" " alt="" coords="115,361,309,432"/>
+<area shape="rect" href="ContainerUtils_8hpp.html" title=" " alt="" coords="115,480,309,551"/>
+<area shape="rect" href="NumC_8hpp.html" title=" " alt="" coords="118,599,306,655"/>
+<area shape="rect" href="View_8hpp.html" title=" " alt="" coords="224,243,419,313"/>
 </map>
 </div>
 </div>

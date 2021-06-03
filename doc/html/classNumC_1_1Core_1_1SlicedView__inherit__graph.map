@@ -1,0 +1,5 @@
+<map id="NumC::Core::SlicedView&lt; T &gt;" name="NumC::Core::SlicedView&lt; T &gt;">
+<area shape="rect" id="node1" title="Sliced view of the array object." alt="" coords="5,155,223,181"/>
+<area shape="rect" id="node2" href="$classNumC_1_1Core_1_1View.html" title="The base class for a modified view of an N&#45;D base array." alt="" coords="25,80,203,107"/>
+<area shape="rect" id="node3" href="$classNumC_1_1Core_1_1NdArray.html" title="The basic N&#45;D array class that defines the way data is stored and traversed." alt="" coords="15,5,213,32"/>
+</map>

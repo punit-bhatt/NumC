@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rtrim_96',['rtrim',['../namespaceNumC_1_1Utils.html#ad71497400d2d65194fb09cae46d84a33',1,'NumC::Utils']]]
+  ['print_5farray_127',['print_array',['../namespaceNumC_1_1Utils.html#a1f477395504e4c4548300c5e4cc6fda4',1,'NumC::Utils']]]
 ];

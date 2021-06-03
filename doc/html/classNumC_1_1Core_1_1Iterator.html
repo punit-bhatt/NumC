@@ -69,7 +69,7 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classNumC_1_1Core_1_1Iterator-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">NumC::Core::Iterator&lt; T &gt; Class Template Reference</div>  </div>
@@ -80,6 +80,15 @@ $(function() {
  <a href="classNumC_1_1Core_1_1Iterator.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Iterator_8hpp_source.html">Iterator.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for NumC::Core::Iterator&lt; T &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="classNumC_1_1Core_1_1Iterator__inherit__graph.png" border="0" usemap="#NumC_1_1Core_1_1Iterator_3_01T_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="NumC_1_1Core_1_1Iterator_3_01T_01_4_inherit__map" id="NumC_1_1Core_1_1Iterator_3_01T_01_4_inherit__map">
+<area shape="rect" title="Iterator for any array." alt="" coords="21,5,216,32"/>
+<area shape="rect" href="classNumC_1_1Core_1_1ViewIterator.html" title="Iterator for any view." alt="" coords="5,80,232,107"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -130,17 +139,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa662ff6fbf60d3816547e6fd5f563304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default assignment operator.  <a href="classNumC_1_1Core_1_1Iterator.html#aa662ff6fbf60d3816547e6fd5f563304">More...</a><br /></td></tr>
 <tr class="separator:aa662ff6fbf60d3816547e6fd5f563304"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:ae2207d852e81b58dc77d34d66e1a0bfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#a863bf044e40255ad0222b27b0480e908">dtype_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#ae2207d852e81b58dc77d34d66e1a0bfb">__ptr</a></td></tr>
-<tr class="memdesc:ae2207d852e81b58dc77d34d66e1a0bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the array data.  <a href="classNumC_1_1Core_1_1Iterator.html#ae2207d852e81b58dc77d34d66e1a0bfb">More...</a><br /></td></tr>
-<tr class="separator:ae2207d852e81b58dc77d34d66e1a0bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6a3ed3bb5e77588ebf525745114cef9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#ac6a3ed3bb5e77588ebf525745114cef9">__nunits</a></td></tr>
-<tr class="memdesc:ac6a3ed3bb5e77588ebf525745114cef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of elements in the array.  <a href="classNumC_1_1Core_1_1Iterator.html#ac6a3ed3bb5e77588ebf525745114cef9">More...</a><br /></td></tr>
-<tr class="separator:ac6a3ed3bb5e77588ebf525745114cef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8fb676e31376a6d4496228105413e48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#ab8fb676e31376a6d4496228105413e48">__index</a></td></tr>
-<tr class="memdesc:ab8fb676e31376a6d4496228105413e48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current array index being pointed to.  <a href="classNumC_1_1Core_1_1Iterator.html#ab8fb676e31376a6d4496228105413e48">More...</a><br /></td></tr>
-<tr class="separator:ab8fb676e31376a6d4496228105413e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:af66702ef4332ef1b4f92a59f8601053a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#a863bf044e40255ad0222b27b0480e908">dtype_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#af66702ef4332ef1b4f92a59f8601053a">_ptr</a></td></tr>
+<tr class="memdesc:af66702ef4332ef1b4f92a59f8601053a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the array data.  <a href="classNumC_1_1Core_1_1Iterator.html#af66702ef4332ef1b4f92a59f8601053a">More...</a><br /></td></tr>
+<tr class="separator:af66702ef4332ef1b4f92a59f8601053a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9395ed69dd4cb9e548d07972ac6dc479"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#a9395ed69dd4cb9e548d07972ac6dc479">_nunits</a></td></tr>
+<tr class="memdesc:a9395ed69dd4cb9e548d07972ac6dc479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of elements in the array.  <a href="classNumC_1_1Core_1_1Iterator.html#a9395ed69dd4cb9e548d07972ac6dc479">More...</a><br /></td></tr>
+<tr class="separator:a9395ed69dd4cb9e548d07972ac6dc479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a826feeb5b55122a6821a530bed200f52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#a826feeb5b55122a6821a530bed200f52">_index</a></td></tr>
+<tr class="memdesc:a826feeb5b55122a6821a530bed200f52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current array/view index being pointed to.  <a href="classNumC_1_1Core_1_1Iterator.html#a826feeb5b55122a6821a530bed200f52">More...</a><br /></td></tr>
+<tr class="separator:a826feeb5b55122a6821a530bed200f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -596,8 +605,8 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ab8fb676e31376a6d4496228105413e48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8fb676e31376a6d4496228105413e48">&#9670;&nbsp;</a></span>__index</h2>
+<a id="a826feeb5b55122a6821a530bed200f52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a826feeb5b55122a6821a530bed200f52">&#9670;&nbsp;</a></span>_index</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -608,22 +617,22 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a> <a class="el" href="classNumC_1_1Core_1_1Iterator.html">NumC::Core::Iterator</a>&lt; T &gt;::__index</td>
+          <td class="memname"><a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a> <a class="el" href="classNumC_1_1Core_1_1Iterator.html">NumC::Core::Iterator</a>&lt; T &gt;::_index</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Current array index being pointed to. </p>
+<p>Current array/view index being pointed to. </p>
 
 </div>
 </div>
-<a id="ac6a3ed3bb5e77588ebf525745114cef9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6a3ed3bb5e77588ebf525745114cef9">&#9670;&nbsp;</a></span>__nunits</h2>
+<a id="a9395ed69dd4cb9e548d07972ac6dc479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9395ed69dd4cb9e548d07972ac6dc479">&#9670;&nbsp;</a></span>_nunits</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -634,12 +643,12 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a> <a class="el" href="classNumC_1_1Core_1_1Iterator.html">NumC::Core::Iterator</a>&lt; T &gt;::__nunits</td>
+          <td class="memname"><a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a> <a class="el" href="classNumC_1_1Core_1_1Iterator.html">NumC::Core::Iterator</a>&lt; T &gt;::_nunits</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -648,8 +657,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ae2207d852e81b58dc77d34d66e1a0bfb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2207d852e81b58dc77d34d66e1a0bfb">&#9670;&nbsp;</a></span>__ptr</h2>
+<a id="af66702ef4332ef1b4f92a59f8601053a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af66702ef4332ef1b4f92a59f8601053a">&#9670;&nbsp;</a></span>_ptr</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -660,12 +669,12 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#a863bf044e40255ad0222b27b0480e908">dtype_ptr</a> <a class="el" href="classNumC_1_1Core_1_1Iterator.html">NumC::Core::Iterator</a>&lt; T &gt;::__ptr</td>
+          <td class="memname"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#a863bf044e40255ad0222b27b0480e908">dtype_ptr</a> <a class="el" href="classNumC_1_1Core_1_1Iterator.html">NumC::Core::Iterator</a>&lt; T &gt;::_ptr</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -675,7 +684,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/punit13/personal/projects/personal_libs/cpp/NumC/src/NumC/Core/<a class="el" href="Iterator_8hpp_source.html">Iterator.hpp</a></li>
+<li>/home/punit13/personal/projects/personal_libs/cpp/NumC/src/NumC/Core/Iterator/<a class="el" href="Iterator_8hpp_source.html">Iterator.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

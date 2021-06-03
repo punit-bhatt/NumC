@@ -1,8 +1,11 @@
 <map id="/home/punit13/personal/projects/personal_libs/cpp/NumC/src/NumC/Core/Type.hpp" name="/home/punit13/personal/projects/personal_libs/cpp/NumC/src/NumC/Core/Type.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="115,5,309,76"/>
-<area shape="rect" id="node2" href="$Iterator_8hpp.html" title=" " alt="" coords="27,124,221,195"/>
-<area shape="rect" id="node6" href="$StringUtils_8hpp.html" title=" " alt="" coords="224,243,419,313"/>
-<area shape="rect" id="node3" href="$NdArray_8hpp.html" title=" " alt="" coords="5,243,200,313"/>
-<area shape="rect" id="node4" href="$ContainerUtils_8hpp.html" title=" " alt="" coords="115,361,309,432"/>
-<area shape="rect" id="node5" href="$NumC_8hpp.html" title=" " alt="" coords="118,480,306,536"/>
+<area shape="rect" id="node1" title=" " alt="" coords="291,5,485,76"/>
+<area shape="rect" id="node2" href="$Iterator_8hpp.html" title=" " alt="" coords="224,124,419,195"/>
+<area shape="rect" id="node9" href="$StringUtils_8hpp.html" title=" " alt="" coords="359,361,553,432"/>
+<area shape="rect" id="node3" href="$ViewIterator_8hpp.html" title=" " alt="" coords="5,243,200,313"/>
+<area shape="rect" id="node7" href="$NdArray_8hpp.html" title=" " alt="" coords="224,243,419,313"/>
+<area shape="rect" id="node4" href="$SlicedView_8hpp.html" title=" " alt="" coords="140,480,335,551"/>
+<area shape="rect" id="node5" href="$ContainerUtils_8hpp.html" title=" " alt="" coords="207,599,401,669"/>
+<area shape="rect" id="node6" href="$NumC_8hpp.html" title=" " alt="" coords="210,717,398,773"/>
+<area shape="rect" id="node8" href="$View_8hpp.html" title=" " alt="" coords="140,361,335,432"/>
 </map>

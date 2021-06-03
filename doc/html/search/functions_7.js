@@ -1,9 +1,4 @@
 var searchData=
 [
-  ['operator_21_3d_89',['operator!=',['../classNumC_1_1Core_1_1Iterator.html#aff6f2e9e8450c91e2348d34dffd53930',1,'NumC::Core::Iterator']]],
-  ['operator_2a_90',['operator*',['../classNumC_1_1Core_1_1Iterator.html#ad187a32a2537fc0f058785019c15d21e',1,'NumC::Core::Iterator']]],
-  ['operator_2b_2b_91',['operator++',['../classNumC_1_1Core_1_1Iterator.html#a91b89fd5bd186f52bb260c3bef10db6f',1,'NumC::Core::Iterator::operator++()'],['../classNumC_1_1Core_1_1Iterator.html#a0839d500b374627f0662898e352c18f6',1,'NumC::Core::Iterator::operator++(int)']]],
-  ['operator_2d_2d_92',['operator--',['../classNumC_1_1Core_1_1Iterator.html#ab47dea6e727ecb8d748f83590b758be6',1,'NumC::Core::Iterator::operator--()'],['../classNumC_1_1Core_1_1Iterator.html#a71cda93e0b50eca67fd8a912deeb68f8',1,'NumC::Core::Iterator::operator--(int)']]],
-  ['operator_3d_93',['operator=',['../classNumC_1_1Core_1_1Iterator.html#aa662ff6fbf60d3816547e6fd5f563304',1,'NumC::Core::Iterator::operator=()'],['../classNumC_1_1Core_1_1NdArray.html#af60460a3cef95a298347bc1fc219ffa1',1,'NumC::Core::NdArray::operator=()']]],
-  ['operator_3d_3d_94',['operator==',['../classNumC_1_1Core_1_1Iterator.html#a353c0dbc25150cf386a429040150581e',1,'NumC::Core::Iterator']]]
+  ['ndarray_120',['NdArray',['../classNumC_1_1Core_1_1NdArray.html#af99c4a7cd8cac0e03e8b6cf7ff829f09',1,'NumC::Core::NdArray::NdArray()'],['../classNumC_1_1Core_1_1NdArray.html#adca88ddbcba5c365b191e2a4d2caf605',1,'NumC::Core::NdArray::NdArray(shape_t &amp;shape)'],['../classNumC_1_1Core_1_1NdArray.html#a34861c748e848b5def9db3220fa37f7a',1,'NumC::Core::NdArray::NdArray(init_1d list)'],['../classNumC_1_1Core_1_1NdArray.html#a2973273408d6781f033b48b6eb7470bd',1,'NumC::Core::NdArray::NdArray(init_2d list_2d)'],['../classNumC_1_1Core_1_1NdArray.html#ac258eca4531c501f8e51e9ae6a945a93',1,'NumC::Core::NdArray::NdArray(init_3d list_3d)']]]
 ];

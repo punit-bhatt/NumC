@@ -72,8 +72,8 @@ $(function() {
 <div class="contents">
 <a href="ContainerUtils_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="NdArray_8hpp.html">Core/NdArray.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="StringUtils_8hpp.html">Utils/StringUtils.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="SlicedView_8hpp.html">NumC/Core/View/SlicedView.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="StringUtils_8hpp.html">NumC/Utils/StringUtils.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceNumC.html">NumC</a></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
@@ -159,16 +159,26 @@ $(function() {
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            std::cout &lt;&lt; output;</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html#aa89c0d433bfdc3c4c435e5cf385fa7ac">  115</a></span>&#160;        SLICED_VIEW&lt;T&gt; <a class="code" href="namespaceNumC_1_1Utils.html#aa89c0d433bfdc3c4c435e5cf385fa7ac">slice</a>(ND_ARRAY&lt;T&gt;&amp; array, <a class="code" href="namespaceNumC.html#a4b90682f6b2099d98c0c94e7dc814eb3">indices_t_v</a>&amp; slices)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keywordflow">return</span> SLICED_VIEW&lt;T&gt;(&amp;array, slices);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespaceNumC_1_1Utils_html_ac26ad8ea7357cb5b0baa682835adf308"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#ac26ad8ea7357cb5b0baa682835adf308">NumC::Utils::to_string</a></div><div class="ttdeci">static std::string to_string(const T *ptr, size_t len)</div><div class="ttdoc">Utility function to stringify array.</div><div class="ttdef"><b>Definition:</b> StringUtils.hpp:20</div></div>
+<div class="ttc" id="anamespaceNumC_1_1Utils_html_aa89c0d433bfdc3c4c435e5cf385fa7ac"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#aa89c0d433bfdc3c4c435e5cf385fa7ac">NumC::Utils::slice</a></div><div class="ttdeci">SLICED_VIEW&lt; T &gt; slice(ND_ARRAY&lt; T &gt; &amp;array, indices_t_v &amp;slices)</div><div class="ttdoc">Iterator pointing to last element + 1.</div><div class="ttdef"><b>Definition:</b> ContainerUtils.hpp:115</div></div>
 <div class="ttc" id="aStringUtils_8hpp_html"><div class="ttname"><a href="StringUtils_8hpp.html">StringUtils.hpp</a></div></div>
+<div class="ttc" id="anamespaceNumC_html_a4b90682f6b2099d98c0c94e7dc814eb3"><div class="ttname"><a href="namespaceNumC.html#a4b90682f6b2099d98c0c94e7dc814eb3">NumC::indices_t_v</a></div><div class="ttdeci">std::vector&lt; indices_t &gt; indices_t_v</div><div class="ttdef"><b>Definition:</b> Type.hpp:30</div></div>
 <div class="ttc" id="anamespaceNumC_1_1Utils_html_a1f477395504e4c4548300c5e4cc6fda4"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#a1f477395504e4c4548300c5e4cc6fda4">NumC::Utils::print_array</a></div><div class="ttdeci">static void print_array(ArrayType &amp;array)</div><div class="ttdoc">Prints the array.</div><div class="ttdef"><b>Definition:</b> ContainerUtils.hpp:71</div></div>
-<div class="ttc" id="aNdArray_8hpp_html"><div class="ttname"><a href="NdArray_8hpp.html">NdArray.hpp</a></div></div>
 <div class="ttc" id="anamespaceNumC_html"><div class="ttname"><a href="namespaceNumC.html">NumC</a></div><div class="ttdef"><b>Definition:</b> Iterator.hpp:9</div></div>
 <div class="ttc" id="anamespaceNumC_1_1Utils_html_a03882a2d279d96630a931d76f5c2b597"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#a03882a2d279d96630a931d76f5c2b597">NumC::Utils::stringify_array</a></div><div class="ttdeci">static void stringify_array(std::string &amp;output, ArrayType &amp;array, IteratorType &amp;iter, int axis)</div><div class="ttdoc">Helper to stringify array content.</div><div class="ttdef"><b>Definition:</b> ContainerUtils.hpp:21</div></div>
 <div class="ttc" id="anamespaceNumC_1_1Utils_html_ad71497400d2d65194fb09cae46d84a33"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#ad71497400d2d65194fb09cae46d84a33">NumC::Utils::rtrim</a></div><div class="ttdeci">static void rtrim(std::string &amp;s, std::vector&lt; char &gt; &amp;chars)</div><div class="ttdoc">Trims the string of the listed unwanted characters from the right end.</div><div class="ttdef"><b>Definition:</b> StringUtils.hpp:176</div></div>
+<div class="ttc" id="aSlicedView_8hpp_html"><div class="ttname"><a href="SlicedView_8hpp.html">SlicedView.hpp</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

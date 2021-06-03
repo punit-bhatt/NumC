@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['to_5fstring_101',['to_string',['../namespaceNumC_1_1Utils.html#ac26ad8ea7357cb5b0baa682835adf308',1,'NumC::Utils::to_string(const T *ptr, size_t len)'],['../namespaceNumC_1_1Utils.html#a1f4685713f5d1559e4f8779ed787ed3d',1,'NumC::Utils::to_string(const std::pair&lt; T, T &gt; *ptr, size_t len)'],['../namespaceNumC_1_1Utils.html#a7e83c82963ce5302fb71b2d7b9e94469',1,'NumC::Utils::to_string(const std::vector&lt; std::pair&lt; T, T &gt;&gt; &amp;vctr)'],['../namespaceNumC_1_1Utils.html#ac5556aa3ec30560d8ab022a12e7f8abb',1,'NumC::Utils::to_string(const std::vector&lt; T &gt; &amp;vctr)']]],
-  ['trim_102',['trim',['../namespaceNumC_1_1Utils.html#a2827be2d5abb1b4cf7f56a663e707104',1,'NumC::Utils']]]
+  ['set_129',['set',['../classNumC_1_1Core_1_1NdArray.html#af1db19cc5d948316416fff85e21a8e64',1,'NumC::Core::NdArray::set()'],['../classNumC_1_1Core_1_1SlicedView.html#ac033d97d9fb66979d32c6eb82207ff0f',1,'NumC::Core::SlicedView::set()']]],
+  ['shape_130',['shape',['../classNumC_1_1Core_1_1NdArray.html#a53e0847b76c70fb20d168941200e0716',1,'NumC::Core::NdArray::shape()'],['../classNumC_1_1Core_1_1SlicedView.html#aa758ff1bbc6c95f00201574642b4ebc1',1,'NumC::Core::SlicedView::shape()']]],
+  ['slice_131',['slice',['../namespaceNumC_1_1Utils.html#aa89c0d433bfdc3c4c435e5cf385fa7ac',1,'NumC::Utils']]],
+  ['slicedview_132',['SlicedView',['../classNumC_1_1Core_1_1SlicedView.html#a1ea783ebe5cd3a26853deb2ff4cb33af',1,'NumC::Core::SlicedView']]],
+  ['strides_133',['strides',['../classNumC_1_1Core_1_1NdArray.html#a4957b70b484f38ab4fd6bc8b451c1357',1,'NumC::Core::NdArray::strides()'],['../classNumC_1_1Core_1_1SlicedView.html#a519cd5ea95a37e1236d1a3263f548af4',1,'NumC::Core::SlicedView::strides()']]],
+  ['stringify_5farray_134',['stringify_array',['../namespaceNumC_1_1Utils.html#a03882a2d279d96630a931d76f5c2b597',1,'NumC::Utils']]]
 ];

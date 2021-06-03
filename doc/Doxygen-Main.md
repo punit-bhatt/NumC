@@ -11,13 +11,12 @@
 
 ---
 
-```bash
-mkdir build | cd build
-cmake ..
+    mkdir build | cd build
+    cmake ..
 
-# <u>Currently this wont install it in the /usr/lib
-make | make install
-```
+    # Currently this wont install it in the /usr/lib
+    make | make install
+
 
 ## Usage
 
@@ -45,6 +44,16 @@ make | make install
         *it *= 10;
         std::cout << *it << std::endl;
     }
+
+### Array Slicing
+
+    nc::slices_t slices = { nc::indices_t(2, -1), nc::indices_t(0, -1), nc::indices_t(1, -1)};
+    auto s1 = nc::Utils::slice(arr, slices);
+
+    // Nested slicing
+    nc::slices_t slices2 = {nc::indices_t(1, 3), nc::indices_t(1, -1)};
+    auto s2 = nc::Utils::slice(s1, slices2);
+
 
 ### Display Array
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['typename_139',['TYPENAME',['../Type_8hpp.html#a9114a9c42fc7f790a38a67a7a3340ea9',1,'Type.hpp']]]
+  ['sliced_5fview_182',['SLICED_VIEW',['../SlicedView_8hpp.html#afd1cc3a5f649a7b61edbaa8d2b918cdb',1,'SlicedView.hpp']]]
 ];

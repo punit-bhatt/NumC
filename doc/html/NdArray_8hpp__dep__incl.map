@@ -1,5 +1,7 @@
 <map id="/home/punit13/personal/projects/personal_libs/cpp/NumC/src/NumC/Core/NdArray.hpp" name="/home/punit13/personal/projects/personal_libs/cpp/NumC/src/NumC/Core/NdArray.hpp">
 <area shape="rect" id="node1" title=" " alt="" coords="5,5,200,76"/>
-<area shape="rect" id="node2" href="$ContainerUtils_8hpp.html" title=" " alt="" coords="5,124,200,195"/>
-<area shape="rect" id="node3" href="$NumC_8hpp.html" title=" " alt="" coords="9,243,197,299"/>
+<area shape="rect" id="node2" href="$View_8hpp.html" title=" " alt="" coords="5,124,200,195"/>
+<area shape="rect" id="node3" href="$SlicedView_8hpp.html" title=" " alt="" coords="5,243,200,313"/>
+<area shape="rect" id="node4" href="$ContainerUtils_8hpp.html" title=" " alt="" coords="5,361,200,432"/>
+<area shape="rect" id="node5" href="$NumC_8hpp.html" title=" " alt="" coords="9,480,197,536"/>
 </map>

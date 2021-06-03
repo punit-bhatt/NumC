@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['end_83',['end',['../classNumC_1_1Core_1_1NdArray.html#a788dec050a6520e6088a3c59476e794f',1,'NumC::Core::NdArray']]]
+  ['data_112',['data',['../classNumC_1_1Core_1_1NdArray.html#a1931cca07c44bba60e00dbd5daeefa53',1,'NumC::Core::NdArray']]]
 ];
