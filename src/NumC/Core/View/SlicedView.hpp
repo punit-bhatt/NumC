@@ -48,7 +48,7 @@ namespace NumC
                  * @param array Pointer to array object.
                  * @param slices The slice indices along each dimension.
                  */
-                SlicedView(NdArray<dtype>* array, slices_t& slices)
+                SlicedView(NdArray<dtype>* array, const slices_t& slices)
                 {
                     // Slicing only works directly on memory containers or on
                     // other sliced views.
@@ -145,71 +145,13 @@ namespace NumC
                 ~SlicedView() = default;
 
                 /**
-                 * @copydoc NdArray::shape()
-                 *
-                 * Overridden function.
-                 */
-                const shape_t& shape() const override
-                {
-                    return this->_dims;
-                }
-
-                /**
-                 * @copydoc NdArray::strides()
-                 *
-                 * Overridden function.
-                 */
-                const stride_t& strides() const override
-                {
-                    return this->_strides;
-                }
-
-                /**
-                 * @copydoc NdArray::indices()
-                 *
-                 * Overridden function.
-                 */
-                const indices_t_v& indices() const override
-                {
-                    return this->_indices;
-                }
-
-                /**
-                 * @copydoc NdArray::get()
-                 *
-                 * Overridden function.
-                 */
-                dtype get(size_t index) override
-                {
-                    if (index < 0 && index >= this->_nunits)
-                    {
-                        std::cout << "ERROR - slice - 1" << std::endl;
-                        // throw error
-                    }
-
-                    return this->_arr->get(this->get_memory_index(index));
-                }
-
-                /**
-                 * @copydoc NdArray::set()
-                 *
-                 * Overridden function.
-                 */
-                void set(size_t index, dtype value) override
-                {
-                    if (index < 0 && index >= this->_nunits)
-                    {
-                        std::cout << "ERROR - slice - 2" << std::endl;
-                        // throw error
-                    }
-
-                    this->_arr->set(this->get_memory_index(index), value);
-                }
-
-                /**
                  * @copydoc NdArray::begin()
                  *
                  * Overridden function.
+                 *
+                 * @note This iterator type differs from the ndarray one as
+                 * getting the next element for a sliced view requires few
+                 * additional steps.
                  */
                 ViewIterator<dtype> begin()
                 {
@@ -224,6 +166,10 @@ namespace NumC
                  * @copydoc NdArray::end()
                  *
                  * Overridden function.
+                 *
+                 * @note This iterator type differs from the ndarray one as
+                 * getting the next element for a sliced view requires few
+                 * additional steps.
                  */
                 ViewIterator<dtype> end()
                 {

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <NumC/Core/View/ReshapedView.hpp>
 #include <NumC/Core/View/SlicedView.hpp>
 #include <NumC/Utils/StringUtils.hpp>
 
@@ -103,19 +104,34 @@ namespace NumC
             std::cout << output;
         }
 
-
         /**
-         * @brief Iterator pointing to last element + 1.
+         * @brief Slices the required indices off of an array.
          *
          * @tparam T Array element data type.
+         * @param array Reference to the array object.
+         * @param slices Indices to slice the array object.
          *
          * @return Sliced view of the array/view.
          */
         template<typename T>
-        SLICED_VIEW<T> slice(ND_ARRAY<T>& array, indices_t_v& slices)
+        SLICED_VIEW<T> slice(ND_ARRAY<T>& array, slices_t& slices)
         {
             return SLICED_VIEW<T>(&array, slices);
         }
 
+        /**
+         * @brief Reshapes the array.
+         *
+         * @tparam T Array element data type.
+         * @param array Reference to the array object.
+         * @param newShape New shape to reshape the array to.
+         *
+         * @return Reshaped view of the array/view.
+         */
+        template<typename T>
+        RESHAPED_VIEW<T> reshape(ND_ARRAY<T>& array, shape_t& newShape)
+        {
+            return RESHAPED_VIEW<T>(&array, newShape);
+        }
     }
 }

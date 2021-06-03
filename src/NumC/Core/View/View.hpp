@@ -47,6 +47,68 @@ namespace NumC
                     return this->_arr;
                 }
 
+                /**
+                 * @copydoc NdArray::shape()
+                 *
+                 * Overridden function.
+                 */
+                const shape_t& shape() const override
+                {
+                    return this->_dims;
+                }
+
+                /**
+                 * @copydoc NdArray::strides()
+                 *
+                 * Overridden function.
+                 */
+                const stride_t& strides() const override
+                {
+                    return this->_strides;
+                }
+
+                /**
+                 * @copydoc NdArray::indices()
+                 *
+                 * Overridden function.
+                 */
+                const indices_t_v& indices() const override
+                {
+                    return this->_indices;
+                }
+
+                /**
+                 * @copydoc NdArray::get()
+                 *
+                 * Overridden function.
+                 */
+                dtype get(size_t index) override
+                {
+                    if (index < 0 && index >= this->_nunits)
+                    {
+                        std::cout << "ERROR - view - 1" << std::endl;
+                        // throw error
+                    }
+
+                    return this->_arr->get(this->get_memory_index(index));
+                }
+
+                /**
+                 * @copydoc NdArray::set()
+                 *
+                 * Overridden function.
+                 */
+                void set(size_t index, dtype value) override
+                {
+                    if (index < 0 && index >= this->_nunits)
+                    {
+                        std::cout << "ERROR - view - 2" << std::endl;
+                        // throw error
+                    }
+
+                    this->_arr->set(this->get_memory_index(index), value);
+                }
+
             protected:
 
                 /// @brief Pointer to the array object.

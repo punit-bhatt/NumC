@@ -303,9 +303,7 @@ namespace NumC
                  */
                 Iterator<dtype> end()
                 {
-                    return Iterator<dtype>(
-                        this->__data.get() + this->_nunits,
-                        0);
+                    return Iterator<dtype>(this->__data.get() + this->_nunits);
                 }
 
                 /**

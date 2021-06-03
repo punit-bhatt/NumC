@@ -33,7 +33,7 @@ namespace NumC
                  * @param ptr Pointer to the array data.
                  * @param nunits Total number of elements in the array.
                  */
-                Iterator(dtype_ptr ptr, size_t nunits)
+                Iterator(dtype_ptr ptr, size_t nunits = 0)
                 {
                     if (ptr == nullptr)
                     {
