@@ -14,6 +14,8 @@ set(NUMC_PRIVATE_UTILS_FOLDER "src/NumC/Utils")
 
 set(NUMC_SOURCE_FILES "src/main.cpp")
 
+add_subdirectory(src/)
+
 add_library(${PROJECT_NAME} INTERFACE)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER "${NUMC_PUBLIC_INCLUDE_FILES}")
