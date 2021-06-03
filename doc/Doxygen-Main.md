@@ -4,20 +4,6 @@
 
 - Library for N-D array manipulation in C++.
 
-## Install
-
----
-**NOTE** - Currently installation only gets the headers into the ./lib folder.
-
----
-
-    mkdir build | cd build
-    cmake ..
-
-    # Currently this wont install it in the /usr/lib
-    make | make install
-
-
 ## Usage
 
 ### Array Creation
