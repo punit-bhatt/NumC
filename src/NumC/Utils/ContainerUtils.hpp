@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Core/NdArray.hpp"
-#include "Utils/StringUtils.hpp"
+#include <NumC/Core/View/SlicedView.hpp>
+#include <NumC/Utils/StringUtils.hpp>
 
 namespace NumC
 {
@@ -102,5 +102,20 @@ namespace NumC
 
             std::cout << output;
         }
+
+
+        /**
+         * @brief Iterator pointing to last element + 1.
+         *
+         * @tparam T Array element data type.
+         *
+         * @return Sliced view of the array/view.
+         */
+        template<typename T>
+        SLICED_VIEW<T> slice(ND_ARRAY<T>& array, indices_t_v& slices)
+        {
+            return SLICED_VIEW<T>(&array, slices);
+        }
+
     }
 }

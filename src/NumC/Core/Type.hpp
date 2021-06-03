@@ -28,4 +28,5 @@ namespace NumC
     using stride_t = size_t_v;
     using indices_t = std::pair<size_t, size_t>;
     using indices_t_v = std::vector<indices_t>;
+    using slices_t = indices_t_v;
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/Type.hpp"
+#include <NumC/Core/Type.hpp>
 
 #include <algorithm>
 

@@ -2,8 +2,7 @@
 
 #define ND_ARRAY NumC::Core::NdArray
 
-#include "Core/Iterator.hpp"
-
+#include <NumC/Core/Iterator/Iterator.hpp>
 #include <memory>
 
 namespace NumC
@@ -223,7 +222,7 @@ namespace NumC
                  *
                  * @return List of shape/dimensions.
                  */
-                const shape_t& shape() const
+                virtual const shape_t& shape() const
                 {
                     return this->_dims;
                 }
@@ -233,7 +232,7 @@ namespace NumC
                  *
                  * @return List of strides along each dimensions.
                  */
-                const stride_t& strides() const
+                virtual const stride_t& strides() const
                 {
                     return this->_strides;
                 }
@@ -244,7 +243,7 @@ namespace NumC
                  *
                  * @return List of indices.
                  */
-                const indices_t_v& indices() const
+                virtual const indices_t_v& indices() const
                 {
                     return this->_indices;
                 }
@@ -257,7 +256,7 @@ namespace NumC
                  * @param index Index of element to be read.
                  * @return Value at the index.
                  */
-                dtype get(size_t index)
+                virtual dtype get(size_t index)
                 {
                     if (index < 0 && index >= this->_nunits)
                     {
@@ -265,7 +264,7 @@ namespace NumC
                         // throw error
                     }
 
-                    return this->__data[index];
+                    return this->__data.get()[index];
                 }
 
                 /**
@@ -276,7 +275,7 @@ namespace NumC
                  * @param index Index of element to be updated.
                  * @param value Value to be set.
                  */
-                void set(size_t index, dtype value)
+                virtual void set(size_t index, dtype value)
                 {
                     if (index < 0 && index >= this->_nunits)
                     {
@@ -309,6 +308,16 @@ namespace NumC
                         0);
                 }
 
+                /**
+                 * @brief Gets the pointer to the data array.
+                 *
+                 * @return Pointer to the data array.
+                 */
+                dtype_ptr data()
+                {
+                    return this->__data.get();
+                }
+
                 /// @brief Default assignment operator.
                 NdArray<dtype>&
                 operator=(const NdArray<dtype>& other) = default;
@@ -331,6 +340,7 @@ namespace NumC
                 indices_t_v _indices;
 
             private:
+
                 /// @brief 1-D array storing the actual data.
                 dtype_shrd_ptr __data;
 

@@ -2,7 +2,7 @@
 
 #define ITERATOR NumC::Core::Iterator
 
-#include <Core/Type.hpp>
+#include <NumC/Core/Type.hpp>
 
 #include <numeric>
 
@@ -48,9 +48,9 @@ namespace NumC
                         // throw error or add asserts.
                     }
 
-                    this->__index = 0;
-                    this->__ptr = ptr;
-                    this->__nunits = nunits;
+                    this->_index = 0;
+                    this->_ptr = ptr;
+                    this->_nunits = nunits;
                 }
 
                 /// @brief Default copy constructor.
@@ -66,7 +66,7 @@ namespace NumC
                  */
                 dtype& operator*() const
                 {
-                    return *(this->__ptr);
+                    return *(this->_ptr);
                 }
 
                 /**
@@ -75,14 +75,14 @@ namespace NumC
                 void operator++()
                 {
                     // Not equating as that would be the end() scenario.
-                    if (this->__index + 1 > this->__nunits)
+                    if (this->_index + 1 > this->_nunits)
                     {
                         std::cout << "ERROR - iter - 3" << std::endl;
                         // throw error or add asserts.
                     }
 
-                    ++(this->__index);
-                    ++(this->__ptr);
+                    ++(this->_index);
+                    ++(this->_ptr);
                 }
 
                 /**
@@ -103,14 +103,14 @@ namespace NumC
                  */
                 void operator--()
                 {
-                    if (this->__index - 1 < 0)
+                    if (this->_index - 1 < 0)
                     {
                         std::cout << "ERROR - iter - 4" << std::endl;
                         // throw error.
                     }
 
-                    --(this->__index);
-                    --(this->__ptr);
+                    --(this->_index);
+                    --(this->_ptr);
                 }
 
                 /**
@@ -134,7 +134,7 @@ namespace NumC
                  */
                 bool operator==(Iterator<dtype> const& other) const
                 {
-                    return this->__ptr == other.__ptr;
+                    return this->_ptr == other._ptr;
                 }
 
                 /**
@@ -152,16 +152,16 @@ namespace NumC
                 Iterator<dtype>&
                 operator=(const Iterator<dtype>& other) = default;
 
-            private:
+            protected:
 
                 /// @brief Pointer to the array data.
-                dtype_ptr __ptr;
+                dtype_ptr _ptr;
 
                 /// @brief Total number of elements in the array.
-                size_t __nunits;
+                size_t _nunits;
 
-                /// @brief Current array index being pointed to.
-                size_t __index;
+                /// @brief Current array/view index being pointed to.
+                size_t _index;
         };
     }
 }
