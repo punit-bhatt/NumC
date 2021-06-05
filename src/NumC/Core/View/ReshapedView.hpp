@@ -3,7 +3,6 @@
 #define RESHAPED_VIEW NumC::Core::ReshapedView
 
 #include <NumC/Core/View/View.hpp>
-#include <NumC/Core/Iterator/ViewIterator.hpp>
 
 namespace NumC
 {
@@ -28,7 +27,7 @@ namespace NumC
                 /**
                  * @brief Construct a new Reshaped View object.
                  *
-                 * @note Reshaped VIew can have different shape/dimensions
+                 * @note Reshaped View can have different shape/dimensions
                  * along with the overall number of dimensions. However, the
                  * number of elements/units can't differ from that of the
                  * array being reshaped.
@@ -44,7 +43,7 @@ namespace NumC
                 ReshapedView(NdArray<dtype>* array, const shape_t& newShape)
                 {
                     // Reshaping only works directly on memory containers or on
-                    // other sliced views.
+                    // other reshaped views.
                     // Reshape of other views not supported at the moment.
                     if (dynamic_cast<View<dtype>*>(array) != nullptr &&
                         dynamic_cast<ReshapedView<dtype>*>(array) == nullptr)

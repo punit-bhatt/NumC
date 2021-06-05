@@ -2,6 +2,7 @@
 
 #include <NumC/Core/View/ReshapedView.hpp>
 #include <NumC/Core/View/SlicedView.hpp>
+#include <NumC/Core/View/TransposedView.hpp>
 #include <NumC/Utils/StringUtils.hpp>
 
 namespace NumC
@@ -132,6 +133,35 @@ namespace NumC
         RESHAPED_VIEW<T> reshape(ND_ARRAY<T>& array, shape_t& newShape)
         {
             return RESHAPED_VIEW<T>(&array, newShape);
+        }
+
+        /**
+         * @brief Transposes the array to default reverse order axes.
+         *
+         * @tparam T Array element data type.
+         * @param array Reference to the array object.
+         *
+         * @return Transposed view of the array/view.
+         */
+        template<typename T>
+        TRANSPOSED_VIEW<T> transpose(ND_ARRAY<T>& array)
+        {
+            return TRANSPOSED_VIEW<T>(&array);
+        }
+
+        /**
+         * @brief Transposes the array.
+         *
+         * @tparam T Array element data type.
+         * @param array Reference to the array object.
+         * @param axes The axes order to transpose to.
+         *
+         * @return Transposed view of the array/view.
+         */
+        template<typename T>
+        TRANSPOSED_VIEW<T> transpose(ND_ARRAY<T>& array, size_t_v& axes)
+        {
+            return TRANSPOSED_VIEW<T>(&array, axes);
         }
     }
 }

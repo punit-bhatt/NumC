@@ -58,11 +58,11 @@ namespace NumC
 
             for (int i = 0; i < len; ++i)
             {
-                output += '<';
+                output += '[';
                 output += std::to_string(ptr[i].first);
                 output += ", ";
                 output += std::to_string(ptr[i].second);
-                output += ">, ";
+                output += "), ";
             }
 
             int slen = output.length();
@@ -93,11 +93,11 @@ namespace NumC
 
             for (auto element: vctr)
             {
-                output += '<';
+                output += '[';
                 output += std::to_string(element.first);
                 output += ", ";
                 output += std::to_string(element.second);
-                output += ">, ";
+                output += "), ";
             }
 
             int slen = output.length();

@@ -4,14 +4,11 @@ namespace nc = NumC;
 
 int main()
 {
-    nc::shape_t shape = {5, 3, 3, 2};
-    nc::shape_t newShape1 = {10, 9};
-    nc::slices_t slices1 = {nc::indices_t(2, 5), nc::indices_t(1, -1)};
-
     auto arr1 = ND_ARRAY<nc::float32>({0, 1, 2, 3, 4, 5, 6, 7, 8, 9});
     auto arr2 = ND_ARRAY<nc::float32>({{0, 1, 2}, {3, 4, 5}, {6, 7, 8}});
     auto arr3 = ND_ARRAY<nc::float32>({{{0, 1, 2}}, {{3, 4, 5}}, {{6, 7, 8}}});
 
+    nc::shape_t shape = {5, 3, 3, 2};
     auto arr4 = ND_ARRAY<nc::float32>(shape);
     auto it = arr4.begin(), ite = arr4.end();
 
@@ -30,15 +27,23 @@ int main()
     std::cout << "\nShape based array\n";
     nc::Utils::print_array(arr4);
 
+    nc::slices_t slices1 = {nc::indices_t(2, 5), nc::indices_t(1, -1)};
     auto s1 = nc::Utils::slice(arr4, slices1);
 
     std::cout << "\nSlice(array)\n";
     nc::Utils::print_array(s1);
 
+    nc::shape_t newShape1 = {10, 9};
     auto r1 = nc::Utils::reshape(arr4, newShape1);
 
     std::cout << "\nReshape(array)\n";
     nc::Utils::print_array(r1);
+
+    nc::size_t_v axes = {1, 0, 2, 3};
+    auto t1 = nc::Utils::transpose(arr4, axes);
+
+    std::cout << "\nTransposed(array)\n";
+    nc::Utils::print_array(t1);
 
     return 0;
 }
