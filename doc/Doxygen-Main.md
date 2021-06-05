@@ -49,6 +49,14 @@
     nc::shape_t newShape2 = {15, 6, 1, 1};
     auto r2 = nc::Utils::reshape(r1, newShape2);
 
+### Array Transposing
+
+    nc::size_t_v axes = {1, 0, 2, 3};
+    auto t1 = nc::Utils::transpose(arr, axes);
+
+    // Default transposing.
+    auto t2 = nc::Utils::transpose(arr);
+
 ### Display Array
 
     nc::Utils::print_array(arr);
@@ -58,7 +66,7 @@
     array(
         shape(3, 3),
 
-        indices(<0, 3>, <0, 3>),
+        indices([0, 3), [0, 3)),
 
         strides(3, 1),
 

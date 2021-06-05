@@ -75,28 +75,30 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="ReshapedView_8hpp_source.html">NumC/Core/View/ReshapedView.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="SlicedView_8hpp_source.html">NumC/Core/View/SlicedView.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="TransposedView_8hpp_source.html">NumC/Core/View/TransposedView.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="StringUtils_8hpp_source.html">NumC/Utils/StringUtils.hpp</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ContainerUtils.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="ContainerUtils_8hpp__incl.png" border="0" usemap="#ContainerUtils_8hpp" alt=""/></div>
 <map name="ContainerUtils_8hpp" id="ContainerUtils_8hpp">
-<area shape="rect" title=" " alt="" coords="322,5,465,32"/>
-<area shape="rect" href="ReshapedView_8hpp.html" title=" " alt="" coords="264,80,523,107"/>
-<area shape="rect" href="SlicedView_8hpp.html" title=" " alt="" coords="5,80,240,107"/>
-<area shape="rect" href="StringUtils_8hpp.html" title=" " alt="" coords="547,80,743,107"/>
-<area shape="rect" href="View_8hpp.html" title=" " alt="" coords="100,162,295,189"/>
-<area shape="rect" href="ViewIterator_8hpp.html" title=" " alt="" coords="319,155,467,196"/>
-<area shape="rect" href="NdArray_8hpp.html" title=" " alt="" coords="137,244,316,271"/>
-<area shape="rect" href="Iterator_8hpp.html" title=" " alt="" coords="319,319,467,360"/>
-<area shape="rect" title=" " alt="" coords="188,326,265,353"/>
-<area shape="rect" href="Type_8hpp.html" title=" " alt="" coords="470,408,629,435"/>
-<area shape="rect" title=" " alt="" coords="356,408,431,435"/>
-<area shape="rect" title=" " alt="" coords="380,483,460,509"/>
-<area shape="rect" title=" " alt="" coords="484,483,535,509"/>
-<area shape="rect" title=" " alt="" coords="559,483,617,509"/>
-<area shape="rect" title=" " alt="" coords="642,483,705,509"/>
-<area shape="rect" title=" " alt="" coords="603,162,688,189"/>
+<area shape="rect" title=" " alt="" coords="457,5,599,32"/>
+<area shape="rect" href="ReshapedView_8hpp.html" title=" " alt="" coords="5,87,264,114"/>
+<area shape="rect" href="SlicedView_8hpp.html" title=" " alt="" coords="288,87,523,114"/>
+<area shape="rect" href="TransposedView_8hpp.html" title=" " alt="" coords="547,80,757,121"/>
+<area shape="rect" href="StringUtils_8hpp.html" title=" " alt="" coords="781,87,977,114"/>
+<area shape="rect" href="View_8hpp.html" title=" " alt="" coords="333,177,528,203"/>
+<area shape="rect" href="NdArray_8hpp.html" title=" " alt="" coords="383,259,561,285"/>
+<area shape="rect" href="Iterator_8hpp.html" title=" " alt="" coords="565,333,713,375"/>
+<area shape="rect" title=" " alt="" coords="433,341,511,367"/>
+<area shape="rect" href="Type_8hpp.html" title=" " alt="" coords="747,423,906,449"/>
+<area shape="rect" title=" " alt="" coords="601,423,676,449"/>
+<area shape="rect" title=" " alt="" coords="657,497,737,524"/>
+<area shape="rect" title=" " alt="" coords="761,497,812,524"/>
+<area shape="rect" title=" " alt="" coords="836,497,895,524"/>
+<area shape="rect" title=" " alt="" coords="919,497,982,524"/>
+<area shape="rect" href="ViewIterator_8hpp.html" title=" " alt="" coords="565,169,713,211"/>
+<area shape="rect" title=" " alt="" coords="747,177,832,203"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -136,6 +138,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a76d98a55809f73c086f9ec2e943d313b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="ReshapedView_8hpp.html#a3b535ec41748aa20690f7a9b052c5c33">RESHAPED_VIEW</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceNumC_1_1Utils.html#a76d98a55809f73c086f9ec2e943d313b">NumC::Utils::reshape</a> (<a class="el" href="NdArray_8hpp.html#a5242c72468b624f35038d35eb8814cba">ND_ARRAY</a>&lt; T &gt; &amp;array, shape_t &amp;newShape)</td></tr>
 <tr class="memdesc:a76d98a55809f73c086f9ec2e943d313b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reshapes the array.  <a href="namespaceNumC_1_1Utils.html#a76d98a55809f73c086f9ec2e943d313b">More...</a><br /></td></tr>
 <tr class="separator:a76d98a55809f73c086f9ec2e943d313b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4bf98a1ade480938ee3e249acf2ae2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3b4bf98a1ade480938ee3e249acf2ae2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="TransposedView_8hpp.html#a24e53afb4d8e187667a41a1dbead8df9">TRANSPOSED_VIEW</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceNumC_1_1Utils.html#a3b4bf98a1ade480938ee3e249acf2ae2">NumC::Utils::transpose</a> (<a class="el" href="NdArray_8hpp.html#a5242c72468b624f35038d35eb8814cba">ND_ARRAY</a>&lt; T &gt; &amp;array)</td></tr>
+<tr class="memdesc:a3b4bf98a1ade480938ee3e249acf2ae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes the array to default reverse order axes.  <a href="namespaceNumC_1_1Utils.html#a3b4bf98a1ade480938ee3e249acf2ae2">More...</a><br /></td></tr>
+<tr class="separator:a3b4bf98a1ade480938ee3e249acf2ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a888c927f90a8cce3b64a130bb2842663"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a888c927f90a8cce3b64a130bb2842663"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="TransposedView_8hpp.html#a24e53afb4d8e187667a41a1dbead8df9">TRANSPOSED_VIEW</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceNumC_1_1Utils.html#a888c927f90a8cce3b64a130bb2842663">NumC::Utils::transpose</a> (<a class="el" href="NdArray_8hpp.html#a5242c72468b624f35038d35eb8814cba">ND_ARRAY</a>&lt; T &gt; &amp;array, size_t_v &amp;axes)</td></tr>
+<tr class="memdesc:a888c927f90a8cce3b64a130bb2842663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes the array.  <a href="namespaceNumC_1_1Utils.html#a888c927f90a8cce3b64a130bb2842663">More...</a><br /></td></tr>
+<tr class="separator:a888c927f90a8cce3b64a130bb2842663"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

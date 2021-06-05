@@ -91,6 +91,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a76d98a55809f73c086f9ec2e943d313b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="ReshapedView_8hpp.html#a3b535ec41748aa20690f7a9b052c5c33">RESHAPED_VIEW</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceNumC_1_1Utils.html#a76d98a55809f73c086f9ec2e943d313b">reshape</a> (<a class="el" href="NdArray_8hpp.html#a5242c72468b624f35038d35eb8814cba">ND_ARRAY</a>&lt; T &gt; &amp;array, <a class="el" href="namespaceNumC.html#aeab21d471debe10045ae35500f987f70">shape_t</a> &amp;newShape)</td></tr>
 <tr class="memdesc:a76d98a55809f73c086f9ec2e943d313b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reshapes the array.  <a href="namespaceNumC_1_1Utils.html#a76d98a55809f73c086f9ec2e943d313b">More...</a><br /></td></tr>
 <tr class="separator:a76d98a55809f73c086f9ec2e943d313b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b4bf98a1ade480938ee3e249acf2ae2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3b4bf98a1ade480938ee3e249acf2ae2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="TransposedView_8hpp.html#a24e53afb4d8e187667a41a1dbead8df9">TRANSPOSED_VIEW</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceNumC_1_1Utils.html#a3b4bf98a1ade480938ee3e249acf2ae2">transpose</a> (<a class="el" href="NdArray_8hpp.html#a5242c72468b624f35038d35eb8814cba">ND_ARRAY</a>&lt; T &gt; &amp;array)</td></tr>
+<tr class="memdesc:a3b4bf98a1ade480938ee3e249acf2ae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes the array to default reverse order axes.  <a href="namespaceNumC_1_1Utils.html#a3b4bf98a1ade480938ee3e249acf2ae2">More...</a><br /></td></tr>
+<tr class="separator:a3b4bf98a1ade480938ee3e249acf2ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a888c927f90a8cce3b64a130bb2842663"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a888c927f90a8cce3b64a130bb2842663"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="TransposedView_8hpp.html#a24e53afb4d8e187667a41a1dbead8df9">TRANSPOSED_VIEW</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceNumC_1_1Utils.html#a888c927f90a8cce3b64a130bb2842663">transpose</a> (<a class="el" href="NdArray_8hpp.html#a5242c72468b624f35038d35eb8814cba">ND_ARRAY</a>&lt; T &gt; &amp;array, <a class="el" href="namespaceNumC.html#a4f3e4fde1b144f84d1bd9f6cd7ff25fa">size_t_v</a> &amp;axes)</td></tr>
+<tr class="memdesc:a888c927f90a8cce3b64a130bb2842663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transposes the array.  <a href="namespaceNumC_1_1Utils.html#a888c927f90a8cce3b64a130bb2842663">More...</a><br /></td></tr>
+<tr class="separator:a888c927f90a8cce3b64a130bb2842663"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac26ad8ea7357cb5b0baa682835adf308"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ac26ad8ea7357cb5b0baa682835adf308"><td class="memTemplItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceNumC_1_1Utils.html#ac26ad8ea7357cb5b0baa682835adf308">to_string</a> (const T *ptr, <a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a> len)</td></tr>
 <tr class="memdesc:ac26ad8ea7357cb5b0baa682835adf308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility function to stringify array.  <a href="namespaceNumC_1_1Utils.html#ac26ad8ea7357cb5b0baa682835adf308">More...</a><br /></td></tr>
@@ -595,6 +603,87 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Output string. </dd></dl>
+
+</div>
+</div>
+<a id="a3b4bf98a1ade480938ee3e249acf2ae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b4bf98a1ade480938ee3e249acf2ae2">&#9670;&nbsp;</a></span>transpose() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="TransposedView_8hpp.html#a24e53afb4d8e187667a41a1dbead8df9">TRANSPOSED_VIEW</a>&lt;T&gt; NumC::Utils::transpose </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NdArray_8hpp.html#a5242c72468b624f35038d35eb8814cba">ND_ARRAY</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>array</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transposes the array to default reverse order axes. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Array element data type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>Reference to the array object.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Transposed view of the array/view. </dd></dl>
+
+</div>
+</div>
+<a id="a888c927f90a8cce3b64a130bb2842663"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a888c927f90a8cce3b64a130bb2842663">&#9670;&nbsp;</a></span>transpose() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="TransposedView_8hpp.html#a24e53afb4d8e187667a41a1dbead8df9">TRANSPOSED_VIEW</a>&lt;T&gt; NumC::Utils::transpose </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="NdArray_8hpp.html#a5242c72468b624f35038d35eb8814cba">ND_ARRAY</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceNumC.html#a4f3e4fde1b144f84d1bd9f6cd7ff25fa">size_t_v</a> &amp;&#160;</td>
+          <td class="paramname"><em>axes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transposes the array. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Array element data type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>Reference to the array object. </td></tr>
+    <tr><td class="paramname">axes</td><td>The axes order to transpose to.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Transposed view of the array/view. </dd></dl>
 
 </div>
 </div>

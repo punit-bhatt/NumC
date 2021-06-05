@@ -56,16 +56,25 @@
     auto r2 = nc::Utils::reshape(r1, newShape2);
     ```
 
+- ### <u>Array Transposing</u>
+    ```c++
+    nc::size_t_v axes = {1, 0, 2, 3};
+    auto t1 = nc::Utils::transpose(arr, axes);
+
+    // Default transposing.
+    auto t2 = nc::Utils::transpose(arr);
+    ```
+
 - ### <u>Display Array</u>
     ```c++
     nc::Utils::print_array(arr);
     ```
-    ```json
+    ```
     [OUT]:
         array(
             shape(3, 3),
 
-            indices(<0, 3>, <0, 3>),
+            indices([0, 3), [0, 3)),
 
             strides(3, 1),
 
