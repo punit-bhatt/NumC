@@ -88,112 +88,141 @@ $(function() {
 <div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classNumC_1_1Core_1_1ReshapedView.html#a965aa80667c2dbe03a84142846ed4f1c">   24</a></span>&#160;                <span class="keyword">using</span> <a class="code" href="classNumC_1_1Core_1_1NdArray.html#a16e2e9178309f3637de71dcd9d0e1c2a">dtype_ptr</a> = <a class="code" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a>*;</div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classNumC_1_1Core_1_1ReshapedView.html#a5eaefefdfea486d9bb4e3eb98bbe306e">   25</a></span>&#160;                <span class="keyword">using</span> <a class="code" href="classNumC_1_1Core_1_1NdArray.html#adc3e8729a4bab366bd24dd0ab6c64aba">dtype_ref</a> = <a class="code" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a>&amp;;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classNumC_1_1Core_1_1ReshapedView.html#a508a9f794ee5e1ce896ccf33ae84d0bb">   43</a></span>&#160;                <a class="code" href="classNumC_1_1Core_1_1ReshapedView.html#a508a9f794ee5e1ce896ccf33ae84d0bb">ReshapedView</a>(<a class="code" href="classNumC_1_1Core_1_1NdArray.html">NdArray&lt;dtype&gt;</a>* array, <span class="keyword">const</span> <a class="code" href="namespaceNumC.html#aeab21d471debe10045ae35500f987f70">shape_t</a>&amp; newShape)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    <span class="comment">// Reshaping only works directly on memory containers or on</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    <span class="comment">// other reshaped views.</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                    <span class="comment">// Reshape of other views not supported at the moment.</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    <span class="keywordflow">if</span> (<span class="keyword">dynamic_cast&lt;</span><a class="code" href="classNumC_1_1Core_1_1View.html">View&lt;dtype&gt;</a>*<span class="keyword">&gt;</span>(array) != <span class="keyword">nullptr</span> &amp;&amp;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                        <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classNumC_1_1Core_1_1ReshapedView.html">ReshapedView&lt;dtype&gt;</a>*<span class="keyword">&gt;</span>(array) == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                        std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR - reshape - 1&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        <span class="comment">// throw error.</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    <span class="keywordflow">if</span> (newShape.empty())</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                        std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR - reshape - 2&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                        <span class="comment">// throw error</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    <span class="keywordtype">size_t</span> nunits = 1;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> element: newShape)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                        <span class="keywordflow">if</span> (element &lt;= 0)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                            std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR - reshape - 3&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                            <span class="comment">// throw error.</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                        }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                        nunits *= element;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    <span class="keyword">auto</span> arr_shape = array-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a53e0847b76c70fb20d168941200e0716">shape</a>();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    <span class="keywordtype">size_t</span> arr_nunits =</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        std::accumulate(</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                            arr_shape.begin(),</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                            arr_shape.end(),</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                            1,</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                            std::multiplies&lt;size_t&gt;());</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                    <span class="keywordflow">if</span> (arr_nunits != nunits)</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR - reshape - 4&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                        <span class="comment">// throw error.</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    <span class="keywordtype">size_t</span> prev_dims = 1;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a681a876c827f845b49a101cdf59cbc57">_nunits</a> = nunits;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> element: newShape)</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                    {</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        prev_dims *= element;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a380b6e8e32a979bb4c19c6a0fdeccf9a">_strides</a>.push_back(this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a681a876c827f845b49a101cdf59cbc57">_nunits</a> / prev_dims);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a58a22ba963ed40301cd8a2a5f213bdfd">_dims</a>.push_back(element);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a3cdcf4f9f35bae295db251afd63d644a">_indices</a>.push_back(<a class="code" href="namespaceNumC.html#a56c454d8163394c927590b20d39f45b2">indices_t</a>(0, element));</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classNumC_1_1Core_1_1ReshapedView.html#a508a9f794ee5e1ce896ccf33ae84d0bb">   46</a></span>&#160;                <a class="code" href="classNumC_1_1Core_1_1ReshapedView.html#a508a9f794ee5e1ce896ccf33ae84d0bb">ReshapedView</a>(<a class="code" href="classNumC_1_1Core_1_1NdArray.html">NdArray&lt;dtype&gt;</a>* array, <span class="keyword">const</span> <a class="code" href="namespaceNumC.html#aeab21d471debe10045ae35500f987f70">shape_t</a>&amp; newShape)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    <span class="comment">// Reshaping only works directly on memory containers or on</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    <span class="comment">// other reshaped views.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    <span class="comment">// Reshape of other views not supported at the moment.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keywordflow">if</span> (<span class="keyword">dynamic_cast&lt;</span><a class="code" href="classNumC_1_1Core_1_1View.html">View&lt;dtype&gt;</a>*<span class="keyword">&gt;</span>(array) != <span class="keyword">nullptr</span> &amp;&amp;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                        <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classNumC_1_1Core_1_1ReshapedView.html">ReshapedView&lt;dtype&gt;</a>*<span class="keyword">&gt;</span>(array) == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                        std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR - reshape - 1&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                        <span class="comment">// throw error.</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <span class="keywordflow">if</span> (newShape.empty())</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                    {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                        std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR - reshape - 2&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                        <span class="comment">// throw error</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    <span class="keyword">auto</span> arr_shape = array-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a53e0847b76c70fb20d168941200e0716">shape</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    <span class="keywordtype">size_t</span> arr_nunits =</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                        std::accumulate(</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                            arr_shape.begin(),</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                            arr_shape.end(),</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                            1,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                            std::multiplies&lt;size_t&gt;());</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    <span class="keywordtype">size_t</span> n_pos_units = 1;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    <span class="keywordtype">size_t</span> negative_index = -1;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; newShape.size(); ++i)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                        <span class="keywordflow">if</span> (newShape[i] == 0)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                        {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                            std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR - reshape - 3&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                            <span class="comment">// throw error.</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                        }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (newShape[i] &lt; 0)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                            <span class="keywordflow">if</span> (negative_index == -1)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                            {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                                negative_index = i;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                            }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                            {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                                std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR - reshape - 5&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                                <span class="comment">// throw error.</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                            }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                        }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                            n_pos_units *= newShape[i];</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                        }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    }</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    this-&gt;<a class="code" href="classNumC_1_1Core_1_1View.html#aaf1395d9abaa8985ceeed673f2f7702f">_arr</a> = array;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    <span class="keywordflow">if</span> (<span class="keyword">dynamic_cast&lt;</span><a class="code" href="classNumC_1_1Core_1_1View.html">View&lt;dtype&gt;</a>*<span class="keyword">&gt;</span>(array) != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                    {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1View.html#aaf1395d9abaa8985ceeed673f2f7702f">_arr</a> =</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                            <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classNumC_1_1Core_1_1View.html">View&lt;dtype&gt;</a>*<span class="keyword">&gt;</span>(array)-&gt;<a class="code" href="classNumC_1_1Core_1_1View.html#a592a7f749f5e12600383193a3be46b1a">get_arr</a>();</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                    }</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <a class="code" href="classNumC_1_1Core_1_1ReshapedView.html#a1e74ad393df5322d35ee8cdbff23e233">~ReshapedView</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classNumC_1_1Core_1_1ReshapedView.html#a5fd5a090fd32caca32cb0d4592a2c8f2">  119</a></span>&#160;                <a class="code" href="classNumC_1_1Core_1_1Iterator.html">Iterator&lt;dtype&gt;</a> <a class="code" href="classNumC_1_1Core_1_1ReshapedView.html#a5fd5a090fd32caca32cb0d4592a2c8f2">begin</a>()</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                {</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                    <span class="keywordflow">return</span> <a class="code" href="classNumC_1_1Core_1_1Iterator.html">Iterator&lt;dtype&gt;</a>(</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1View.html#aaf1395d9abaa8985ceeed673f2f7702f">_arr</a>-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a1931cca07c44bba60e00dbd5daeefa53">data</a>() + this-&gt;get_memory_index(0),</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                        this-&gt;_nunits);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classNumC_1_1Core_1_1ReshapedView.html#a229f36762ddaa1f7a19ec076a6542d56">  131</a></span>&#160;                <a class="code" href="classNumC_1_1Core_1_1Iterator.html">Iterator&lt;dtype&gt;</a> <a class="code" href="classNumC_1_1Core_1_1ReshapedView.html#a229f36762ddaa1f7a19ec076a6542d56">end</a>()</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                    <span class="keywordflow">return</span> <a class="code" href="classNumC_1_1Core_1_1Iterator.html">Iterator&lt;dtype&gt;</a>(</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1View.html#aaf1395d9abaa8985ceeed673f2f7702f">_arr</a>-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a1931cca07c44bba60e00dbd5daeefa53">data</a>() +</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                        this-&gt;get_memory_index(this-&gt;_nunits));</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                }</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="classNumC_1_1Core_1_1ReshapedView.html#a665d63cecda2d714fc59b4187e027d35">  151</a></span>&#160;                <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="classNumC_1_1Core_1_1ReshapedView.html#a665d63cecda2d714fc59b4187e027d35">get_memory_index</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> index)<span class="keyword"> override</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keyword">                </span>{</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                    <span class="keywordflow">if</span> (index &lt; 0 || index &gt; this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a681a876c827f845b49a101cdf59cbc57">_nunits</a>)</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                    {</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                        std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR - reshape - 7&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                        <span class="comment">// throw error.</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                    }</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                    <span class="keywordflow">return</span> index;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                }</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        };</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    }</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;}</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                    <span class="keywordflow">if</span> (negative_index == -1 &amp;&amp; arr_nunits != n_pos_units)</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR - reshape - 4&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                        <span class="comment">// throw error.</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    <span class="keywordtype">size_t</span> other_dims = 1;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a681a876c827f845b49a101cdf59cbc57">_nunits</a> = n_pos_units;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                    <span class="comment">// Copying shape as is.</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> element: newShape)</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a58a22ba963ed40301cd8a2a5f213bdfd">_dims</a>.push_back(element);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                    <span class="comment">// Replacing the negative element.</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                    <span class="keywordflow">if</span> (negative_index &gt;= 0)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                    {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a58a22ba963ed40301cd8a2a5f213bdfd">_dims</a>[negative_index] = arr_nunits / n_pos_units;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                        <span class="comment">// Correcting total element count.</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a681a876c827f845b49a101cdf59cbc57">_nunits</a> *= this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a58a22ba963ed40301cd8a2a5f213bdfd">_dims</a>[negative_index];</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                    }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                    <span class="keywordtype">size_t</span> prev_dims = 1;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> element: this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a58a22ba963ed40301cd8a2a5f213bdfd">_dims</a>)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                    {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                        prev_dims *= element;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a380b6e8e32a979bb4c19c6a0fdeccf9a">_strides</a>.push_back(this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a681a876c827f845b49a101cdf59cbc57">_nunits</a> / prev_dims);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a3cdcf4f9f35bae295db251afd63d644a">_indices</a>.push_back(<a class="code" href="namespaceNumC.html#a56c454d8163394c927590b20d39f45b2">indices_t</a>(0, element));</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                    }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                    this-&gt;<a class="code" href="classNumC_1_1Core_1_1View.html#aaf1395d9abaa8985ceeed673f2f7702f">_arr</a> = array;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                    <span class="keywordflow">if</span> (<span class="keyword">dynamic_cast&lt;</span><a class="code" href="classNumC_1_1Core_1_1View.html">View&lt;dtype&gt;</a>*<span class="keyword">&gt;</span>(array) != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                    {</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1View.html#aaf1395d9abaa8985ceeed673f2f7702f">_arr</a> =</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                            <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classNumC_1_1Core_1_1View.html">View&lt;dtype&gt;</a>*<span class="keyword">&gt;</span>(array)-&gt;<a class="code" href="classNumC_1_1Core_1_1View.html#a592a7f749f5e12600383193a3be46b1a">get_arr</a>();</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                    }</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                <a class="code" href="classNumC_1_1Core_1_1ReshapedView.html#a1e74ad393df5322d35ee8cdbff23e233">~ReshapedView</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="classNumC_1_1Core_1_1ReshapedView.html#a5fd5a090fd32caca32cb0d4592a2c8f2">  151</a></span>&#160;                <a class="code" href="classNumC_1_1Core_1_1Iterator.html">Iterator&lt;dtype&gt;</a> <a class="code" href="classNumC_1_1Core_1_1ReshapedView.html#a5fd5a090fd32caca32cb0d4592a2c8f2">begin</a>()</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                {</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                    <span class="keywordflow">return</span> <a class="code" href="classNumC_1_1Core_1_1Iterator.html">Iterator&lt;dtype&gt;</a>(</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1View.html#aaf1395d9abaa8985ceeed673f2f7702f">_arr</a>-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a1931cca07c44bba60e00dbd5daeefa53">data</a>() + this-&gt;get_memory_index(0),</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                        this-&gt;_nunits);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                }</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="classNumC_1_1Core_1_1ReshapedView.html#a229f36762ddaa1f7a19ec076a6542d56">  163</a></span>&#160;                <a class="code" href="classNumC_1_1Core_1_1Iterator.html">Iterator&lt;dtype&gt;</a> <a class="code" href="classNumC_1_1Core_1_1ReshapedView.html#a229f36762ddaa1f7a19ec076a6542d56">end</a>()</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                    <span class="keywordflow">return</span> <a class="code" href="classNumC_1_1Core_1_1Iterator.html">Iterator&lt;dtype&gt;</a>(</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                        this-&gt;<a class="code" href="classNumC_1_1Core_1_1View.html#aaf1395d9abaa8985ceeed673f2f7702f">_arr</a>-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a1931cca07c44bba60e00dbd5daeefa53">data</a>() +</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                        this-&gt;get_memory_index(this-&gt;_nunits));</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                }</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="classNumC_1_1Core_1_1ReshapedView.html#a665d63cecda2d714fc59b4187e027d35">  183</a></span>&#160;                <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code" href="classNumC_1_1Core_1_1ReshapedView.html#a665d63cecda2d714fc59b4187e027d35">get_memory_index</a>(<span class="keyword">const</span> <span class="keywordtype">size_t</span> index)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="keyword">                </span>{</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                    <span class="keywordflow">if</span> (index &lt; 0 || index &gt; this-&gt;<a class="code" href="classNumC_1_1Core_1_1NdArray.html#a681a876c827f845b49a101cdf59cbc57">_nunits</a>)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                    {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                        std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR - reshape - 7&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                        <span class="comment">// throw error.</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                    }</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                    <span class="keywordflow">return</span> index;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        };</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    }</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassNumC_1_1Core_1_1View_html_a592a7f749f5e12600383193a3be46b1a"><div class="ttname"><a href="classNumC_1_1Core_1_1View.html#a592a7f749f5e12600383193a3be46b1a">NumC::Core::View::get_arr</a></div><div class="ttdeci">virtual NdArray&lt; dtype &gt; *const get_arr()</div><div class="ttdoc">Gets the nd array reference.</div><div class="ttdef"><b>Definition:</b> View.hpp:45</div></div>
-<div class="ttc" id="aclassNumC_1_1Core_1_1ReshapedView_html_a5fd5a090fd32caca32cb0d4592a2c8f2"><div class="ttname"><a href="classNumC_1_1Core_1_1ReshapedView.html#a5fd5a090fd32caca32cb0d4592a2c8f2">NumC::Core::ReshapedView::begin</a></div><div class="ttdeci">Iterator&lt; dtype &gt; begin()</div><div class="ttdoc">Iterator pointing to the first element.</div><div class="ttdef"><b>Definition:</b> ReshapedView.hpp:119</div></div>
+<div class="ttc" id="aclassNumC_1_1Core_1_1ReshapedView_html_a5fd5a090fd32caca32cb0d4592a2c8f2"><div class="ttname"><a href="classNumC_1_1Core_1_1ReshapedView.html#a5fd5a090fd32caca32cb0d4592a2c8f2">NumC::Core::ReshapedView::begin</a></div><div class="ttdeci">Iterator&lt; dtype &gt; begin()</div><div class="ttdoc">Iterator pointing to the first element.</div><div class="ttdef"><b>Definition:</b> ReshapedView.hpp:151</div></div>
 <div class="ttc" id="aclassNumC_1_1Core_1_1NdArray_html_a58a22ba963ed40301cd8a2a5f213bdfd"><div class="ttname"><a href="classNumC_1_1Core_1_1NdArray.html#a58a22ba963ed40301cd8a2a5f213bdfd">NumC::Core::NdArray::_dims</a></div><div class="ttdeci">shape_t _dims</div><div class="ttdoc">List of dimensions in array/view.</div><div class="ttdef"><b>Definition:</b> NdArray.hpp:329</div></div>
 <div class="ttc" id="aView_8hpp_html"><div class="ttname"><a href="View_8hpp.html">View.hpp</a></div></div>
 <div class="ttc" id="aclassNumC_1_1Core_1_1Iterator_html"><div class="ttname"><a href="classNumC_1_1Core_1_1Iterator.html">NumC::Core::Iterator</a></div><div class="ttdoc">Iterator for any array.</div><div class="ttdef"><b>Definition:</b> Iterator.hpp:19</div></div>
 <div class="ttc" id="anamespaceNumC_html_a56c454d8163394c927590b20d39f45b2"><div class="ttname"><a href="namespaceNumC.html#a56c454d8163394c927590b20d39f45b2">NumC::indices_t</a></div><div class="ttdeci">std::pair&lt; size_t, size_t &gt; indices_t</div><div class="ttdef"><b>Definition:</b> Type.hpp:29</div></div>
 <div class="ttc" id="anamespaceNumC_html_aeab21d471debe10045ae35500f987f70"><div class="ttname"><a href="namespaceNumC.html#aeab21d471debe10045ae35500f987f70">NumC::shape_t</a></div><div class="ttdeci">size_t_v shape_t</div><div class="ttdef"><b>Definition:</b> Type.hpp:27</div></div>
-<div class="ttc" id="aclassNumC_1_1Core_1_1ReshapedView_html_a665d63cecda2d714fc59b4187e027d35"><div class="ttname"><a href="classNumC_1_1Core_1_1ReshapedView.html#a665d63cecda2d714fc59b4187e027d35">NumC::Core::ReshapedView::get_memory_index</a></div><div class="ttdeci">const size_t get_memory_index(const size_t index) override</div><div class="ttdoc">Gets the corresponding memory block/ data array index for this index.</div><div class="ttdef"><b>Definition:</b> ReshapedView.hpp:151</div></div>
+<div class="ttc" id="aclassNumC_1_1Core_1_1ReshapedView_html_a665d63cecda2d714fc59b4187e027d35"><div class="ttname"><a href="classNumC_1_1Core_1_1ReshapedView.html#a665d63cecda2d714fc59b4187e027d35">NumC::Core::ReshapedView::get_memory_index</a></div><div class="ttdeci">const size_t get_memory_index(const size_t index) override</div><div class="ttdoc">Gets the corresponding memory block/ data array index for this index.</div><div class="ttdef"><b>Definition:</b> ReshapedView.hpp:183</div></div>
 <div class="ttc" id="aclassNumC_1_1Core_1_1NdArray_html_adc3e8729a4bab366bd24dd0ab6c64aba"><div class="ttname"><a href="classNumC_1_1Core_1_1NdArray.html#adc3e8729a4bab366bd24dd0ab6c64aba">NumC::Core::NdArray::dtype_ref</a></div><div class="ttdeci">dtype &amp; dtype_ref</div><div class="ttdef"><b>Definition:</b> NdArray.hpp:25</div></div>
 <div class="ttc" id="aclassNumC_1_1Core_1_1ReshapedView_html_a1e74ad393df5322d35ee8cdbff23e233"><div class="ttname"><a href="classNumC_1_1Core_1_1ReshapedView.html#a1e74ad393df5322d35ee8cdbff23e233">NumC::Core::ReshapedView::~ReshapedView</a></div><div class="ttdeci">~ReshapedView()=default</div><div class="ttdoc">Default Reshaped View destructor.</div></div>
-<div class="ttc" id="aclassNumC_1_1Core_1_1ReshapedView_html_a508a9f794ee5e1ce896ccf33ae84d0bb"><div class="ttname"><a href="classNumC_1_1Core_1_1ReshapedView.html#a508a9f794ee5e1ce896ccf33ae84d0bb">NumC::Core::ReshapedView::ReshapedView</a></div><div class="ttdeci">ReshapedView(NdArray&lt; dtype &gt; *array, const shape_t &amp;newShape)</div><div class="ttdoc">Construct a new Reshaped View object.</div><div class="ttdef"><b>Definition:</b> ReshapedView.hpp:43</div></div>
+<div class="ttc" id="aclassNumC_1_1Core_1_1ReshapedView_html_a508a9f794ee5e1ce896ccf33ae84d0bb"><div class="ttname"><a href="classNumC_1_1Core_1_1ReshapedView.html#a508a9f794ee5e1ce896ccf33ae84d0bb">NumC::Core::ReshapedView::ReshapedView</a></div><div class="ttdeci">ReshapedView(NdArray&lt; dtype &gt; *array, const shape_t &amp;newShape)</div><div class="ttdoc">Construct a new Reshaped View object.</div><div class="ttdef"><b>Definition:</b> ReshapedView.hpp:46</div></div>
 <div class="ttc" id="aclassNumC_1_1Core_1_1NdArray_html_a16e2e9178309f3637de71dcd9d0e1c2a"><div class="ttname"><a href="classNumC_1_1Core_1_1NdArray.html#a16e2e9178309f3637de71dcd9d0e1c2a">NumC::Core::NdArray::dtype_ptr</a></div><div class="ttdeci">dtype * dtype_ptr</div><div class="ttdef"><b>Definition:</b> NdArray.hpp:24</div></div>
 <div class="ttc" id="aclassNumC_1_1Core_1_1NdArray_html_a3cdcf4f9f35bae295db251afd63d644a"><div class="ttname"><a href="classNumC_1_1Core_1_1NdArray.html#a3cdcf4f9f35bae295db251afd63d644a">NumC::Core::NdArray::_indices</a></div><div class="ttdeci">indices_t_v _indices</div><div class="ttdoc">List of pair of indices along each dimension of array object.</div><div class="ttdef"><b>Definition:</b> NdArray.hpp:338</div></div>
 <div class="ttc" id="aclassNumC_1_1Core_1_1View_html_aaf1395d9abaa8985ceeed673f2f7702f"><div class="ttname"><a href="classNumC_1_1Core_1_1View.html#aaf1395d9abaa8985ceeed673f2f7702f">NumC::Core::View::_arr</a></div><div class="ttdeci">NdArray&lt; dtype &gt; * _arr</div><div class="ttdoc">Pointer to the array object.</div><div class="ttdef"><b>Definition:</b> View.hpp:115</div></div>
@@ -201,7 +230,7 @@ $(function() {
 <div class="ttc" id="aclassNumC_1_1Core_1_1NdArray_html_a380b6e8e32a979bb4c19c6a0fdeccf9a"><div class="ttname"><a href="classNumC_1_1Core_1_1NdArray.html#a380b6e8e32a979bb4c19c6a0fdeccf9a">NumC::Core::NdArray::_strides</a></div><div class="ttdeci">stride_t _strides</div><div class="ttdoc">of strides per dimension in array/view.</div><div class="ttdef"><b>Definition:</b> NdArray.hpp:332</div></div>
 <div class="ttc" id="aclassNumC_1_1Core_1_1NdArray_html_a3bb14cecebe68dc0e164e7c74a661f46"><div class="ttname"><a href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">NumC::Core::NdArray::dtype</a></div><div class="ttdeci">T dtype</div><div class="ttdoc">Aliases.</div><div class="ttdef"><b>Definition:</b> NdArray.hpp:23</div></div>
 <div class="ttc" id="aclassNumC_1_1Core_1_1NdArray_html"><div class="ttname"><a href="classNumC_1_1Core_1_1NdArray.html">NumC::Core::NdArray&lt; dtype &gt;</a></div></div>
-<div class="ttc" id="aclassNumC_1_1Core_1_1ReshapedView_html_a229f36762ddaa1f7a19ec076a6542d56"><div class="ttname"><a href="classNumC_1_1Core_1_1ReshapedView.html#a229f36762ddaa1f7a19ec076a6542d56">NumC::Core::ReshapedView::end</a></div><div class="ttdeci">Iterator&lt; dtype &gt; end()</div><div class="ttdoc">Iterator pointing to last element + 1.</div><div class="ttdef"><b>Definition:</b> ReshapedView.hpp:131</div></div>
+<div class="ttc" id="aclassNumC_1_1Core_1_1ReshapedView_html_a229f36762ddaa1f7a19ec076a6542d56"><div class="ttname"><a href="classNumC_1_1Core_1_1ReshapedView.html#a229f36762ddaa1f7a19ec076a6542d56">NumC::Core::ReshapedView::end</a></div><div class="ttdeci">Iterator&lt; dtype &gt; end()</div><div class="ttdoc">Iterator pointing to last element + 1.</div><div class="ttdef"><b>Definition:</b> ReshapedView.hpp:163</div></div>
 <div class="ttc" id="aclassNumC_1_1Core_1_1ReshapedView_html"><div class="ttname"><a href="classNumC_1_1Core_1_1ReshapedView.html">NumC::Core::ReshapedView</a></div><div class="ttdoc">Reshaped view of the array object.</div><div class="ttdef"><b>Definition:</b> ReshapedView.hpp:19</div></div>
 <div class="ttc" id="aclassNumC_1_1Core_1_1NdArray_html_a1931cca07c44bba60e00dbd5daeefa53"><div class="ttname"><a href="classNumC_1_1Core_1_1NdArray.html#a1931cca07c44bba60e00dbd5daeefa53">NumC::Core::NdArray::data</a></div><div class="ttdeci">dtype_ptr data()</div><div class="ttdoc">Gets the pointer to the data array.</div><div class="ttdef"><b>Definition:</b> NdArray.hpp:314</div></div>
 <div class="ttc" id="aclassNumC_1_1Core_1_1NdArray_html_a681a876c827f845b49a101cdf59cbc57"><div class="ttname"><a href="classNumC_1_1Core_1_1NdArray.html#a681a876c827f845b49a101cdf59cbc57">NumC::Core::NdArray::_nunits</a></div><div class="ttdeci">size_t _nunits</div><div class="ttdoc">Number of units/elements in the N-D array.</div><div class="ttdef"><b>Definition:</b> NdArray.hpp:326</div></div>

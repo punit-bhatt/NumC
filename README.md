@@ -52,7 +52,7 @@
     auto r1 = nc::Utils::reshape(arr, newShape1);
 
     // Nested reshaping
-    nc::shape_t newShape2 = {15, 6, 1, 1};
+    nc::shape_t newShape2 = {15, -1, 1, 1};
     auto r2 = nc::Utils::reshape(r1, newShape2);
     ```
 

@@ -112,14 +112,21 @@ auto r1 = nc::Utils::reshape(arr, newShape1);
 nc::shape_t newShape2 = {15, 6, 1, 1};
 auto r2 = nc::Utils::reshape(r1, newShape2);
 </pre><h2><a class="anchor" id="autotoc_md7"></a>
+Array Transposing</h2>
+<pre class="fragment">nc::size_t_v axes = {1, 0, 2, 3};
+auto t1 = nc::Utils::transpose(arr, axes);
+
+// Default transposing.
+auto t2 = nc::Utils::transpose(arr);
+</pre><h2><a class="anchor" id="autotoc_md8"></a>
 Display Array</h2>
 <pre class="fragment">nc::Utils::print_array(arr);
-</pre><h3><a class="anchor" id="autotoc_md8"></a>
+</pre><h3><a class="anchor" id="autotoc_md9"></a>
 [OUT]:</h3>
 <pre class="fragment">array(
     shape(3, 3),
 
-    indices(&lt;0, 3&gt;, &lt;0, 3&gt;),
+    indices([0, 3), [0, 3)),
 
     strides(3, 1),
 
