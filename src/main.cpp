@@ -33,7 +33,7 @@ int main()
     std::cout << "\nSlice(array)\n";
     nc::Utils::print_array(s1);
 
-    nc::shape_t newShape1 = {10, 9};
+    nc::shape_t newShape1 = {-1, 9};
     auto r1 = nc::Utils::reshape(arr4, newShape1);
 
     std::cout << "\nReshape(array)\n";

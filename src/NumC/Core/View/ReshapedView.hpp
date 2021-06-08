@@ -39,6 +39,9 @@ namespace NumC
                  *
                  * @param array Pointer to the array object.
                  * @param newShape The new shape/dims to reshape the array to.
+                 * One shape dimension can be -1. In this case, the value is
+                 * inferred from the length of the array and remaining
+                 * dimensions.
                  */
                 ReshapedView(NdArray<dtype>* array, const shape_t& newShape)
                 {
@@ -58,19 +61,6 @@ namespace NumC
                         // throw error
                     }
 
-                    size_t nunits = 1;
-
-                    for (auto element: newShape)
-                    {
-                        if (element <= 0)
-                        {
-                            std::cout << "ERROR - reshape - 3" << std::endl;
-                            // throw error.
-                        }
-
-                        nunits *= element;
-                    }
-
                     auto arr_shape = array->shape();
                     size_t arr_nunits =
                         std::accumulate(
@@ -79,21 +69,63 @@ namespace NumC
                             1,
                             std::multiplies<size_t>());
 
-                    if (arr_nunits != nunits)
+                    size_t n_pos_units = 1;
+                    size_t negative_index = -1;
+
+                    for (size_t i = 0; i < newShape.size(); ++i)
+                    {
+                        if (newShape[i] == 0)
+                        {
+                            std::cout << "ERROR - reshape - 3" << std::endl;
+                            // throw error.
+                        }
+                        else if (newShape[i] < 0)
+                        {
+                            if (negative_index == -1)
+                            {
+                                negative_index = i;
+                            }
+                            else
+                            {
+                                std::cout << "ERROR - reshape - 5" << std::endl;
+                                // throw error.
+                            }
+                        }
+                        else
+                        {
+                            n_pos_units *= newShape[i];
+                        }
+                    }
+
+                    if (negative_index == -1 && arr_nunits != n_pos_units)
                     {
                         std::cout << "ERROR - reshape - 4" << std::endl;
                         // throw error.
                     }
 
-                    size_t prev_dims = 1;
-                    this->_nunits = nunits;
+                    size_t other_dims = 1;
+                    this->_nunits = n_pos_units;
 
+                    // Copying shape as is.
                     for (auto element: newShape)
+                        this->_dims.push_back(element);
+
+                    // Replacing the negative element.
+                    if (negative_index >= 0)
+                    {
+                        this->_dims[negative_index] = arr_nunits / n_pos_units;
+
+                        // Correcting total element count.
+                        this->_nunits *= this->_dims[negative_index];
+                    }
+
+                    size_t prev_dims = 1;
+
+                    for (auto element: this->_dims)
                     {
                         prev_dims *= element;
 
                         this->_strides.push_back(this->_nunits / prev_dims);
-                        this->_dims.push_back(element);
                         this->_indices.push_back(indices_t(0, element));
                     }
 
