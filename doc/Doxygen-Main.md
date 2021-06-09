@@ -31,6 +31,15 @@
         std::cout << *it << std::endl;
     }
 
+### Array Arithmetic
+
+    auto arr1 = ND_ARRAY<nc::float32>({0, 1, 2, 3, 4});
+    auto arr2 = ND_ARRAY<nc::int32>({5, 6, 7, 8, 9});
+    auto arr3 = ND_ARRAY<nc::uint16>({10, 11, 12, 13, 14});
+    auto arr4 = ND_ARRAY<nc::float64>({100, 100, 100, 100, 100});
+
+    auto res1 = (arr1 + arr2 - arr3) * arr3 / arr4;
+
 ### Array Slicing
 
     nc::slices_t slices = { nc::indices_t(2, -1), nc::indices_t(0, -1), nc::indices_t(1, -1)};

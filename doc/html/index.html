@@ -96,6 +96,14 @@ for (auto it = arr.begin(); it != arr.end(); ++it)
     std::cout &lt;&lt; *it &lt;&lt; std::endl;
 }
 </pre><h2><a class="anchor" id="autotoc_md5"></a>
+Array Arithmetic</h2>
+<pre class="fragment">auto arr1 = ND_ARRAY&lt;nc::float32&gt;({0, 1, 2, 3, 4});
+auto arr2 = ND_ARRAY&lt;nc::int32&gt;({5, 6, 7, 8, 9});
+auto arr3 = ND_ARRAY&lt;nc::uint16&gt;({10, 11, 12, 13, 14});
+auto arr4 = ND_ARRAY&lt;nc::float64&gt;({100, 100, 100, 100, 100});
+
+auto res1 = (arr1 + arr2 - arr3) * arr3 / arr4;
+</pre><h2><a class="anchor" id="autotoc_md6"></a>
 Array Slicing</h2>
 <pre class="fragment">nc::slices_t slices = { nc::indices_t(2, -1), nc::indices_t(0, -1), nc::indices_t(1, -1)};
 auto s1 = nc::Utils::slice(arr, slices);
@@ -103,7 +111,7 @@ auto s1 = nc::Utils::slice(arr, slices);
 // Nested slicing
 nc::slices_t slices2 = {nc::indices_t(1, 3), nc::indices_t(1, -1)};
 auto s2 = nc::Utils::slice(s1, slices2);
-</pre><h2><a class="anchor" id="autotoc_md6"></a>
+</pre><h2><a class="anchor" id="autotoc_md7"></a>
 Array Reshaping</h2>
 <pre class="fragment">nc::shape_t newShape1 = {10, 9};
 auto r1 = nc::Utils::reshape(arr, newShape1);
@@ -111,17 +119,17 @@ auto r1 = nc::Utils::reshape(arr, newShape1);
 // Nested reshaping
 nc::shape_t newShape2 = {15, 6, 1, 1};
 auto r2 = nc::Utils::reshape(r1, newShape2);
-</pre><h2><a class="anchor" id="autotoc_md7"></a>
+</pre><h2><a class="anchor" id="autotoc_md8"></a>
 Array Transposing</h2>
 <pre class="fragment">nc::size_t_v axes = {1, 0, 2, 3};
 auto t1 = nc::Utils::transpose(arr, axes);
 
 // Default transposing.
 auto t2 = nc::Utils::transpose(arr);
-</pre><h2><a class="anchor" id="autotoc_md8"></a>
+</pre><h2><a class="anchor" id="autotoc_md9"></a>
 Display Array</h2>
 <pre class="fragment">nc::Utils::print_array(arr);
-</pre><h3><a class="anchor" id="autotoc_md9"></a>
+</pre><h3><a class="anchor" id="autotoc_md10"></a>
 [OUT]:</h3>
 <pre class="fragment">array(
     shape(3, 3),
