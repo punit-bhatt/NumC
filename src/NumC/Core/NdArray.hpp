@@ -41,7 +41,7 @@ namespace NumC
                  *
                  * @param shape The shape/dimensions of array to be created.
                  */
-                NdArray(shape_t &shape)
+                NdArray(const shape_t& shape)
                 {
                     if (shape.empty())
                     {
@@ -256,7 +256,7 @@ namespace NumC
                  * @param index Index of element to be read.
                  * @return Value at the index.
                  */
-                virtual dtype get(size_t index)
+                virtual dtype get(size_t index) const
                 {
                     if (index < 0 && index >= this->_nunits)
                     {
@@ -318,7 +318,121 @@ namespace NumC
 
                 /// @brief Default assignment operator.
                 NdArray<dtype>&
-                operator=(const NdArray<dtype>& other) = default;
+                operator=(NdArray<dtype> const& other) = default;
+
+                /**
+                 * @brief Element-wise add operator overload.
+                 * Performs the operation on 2 arrays if their shape is same and
+                 * returns a new array containing the result.
+                 *
+                 * @warning Broadcasting is not supported yet.
+                 *
+                 * @tparam rhsType RHS array element type. Allows operation on
+                 * arrays of 2 different types.
+                 * @param rhs Rhs array reference.
+                 * @return New array containing the result.
+                 */
+                template<typename rhsType>
+                NdArray<dtype> operator+(const NdArray<rhsType>& rhs) const
+                {
+                    this->__validate_array_operation(rhs);
+
+                    // TODO - Get the resultant shape in case of broadcast.
+
+                    auto result = NdArray<dtype>(this->shape());
+                    auto it_res = result.begin();
+
+                    for (size_t i = 0; it_res != result.end(); ++it_res, ++i)
+                        *it_res = this->get(i) + rhs.get(i);
+
+                    return result;
+                }
+
+                /**
+                 * @brief Element-wise subtract operator overload.
+                 * Performs the operation on 2 arrays if their shape is same and
+                 * returns a new array containing the result.
+                 *
+                 * @warning Broadcasting is not supported yet.
+                 *
+                 * @tparam rhsType RHS array element type. Allows operation on
+                 * arrays of 2 different types.
+                 * @param rhs Rhs array reference.
+                 * @return New array containing the result.
+                 */
+                template<typename rhsType>
+                NdArray<dtype> operator-(const NdArray<rhsType>& rhs) const
+                {
+                    this->__validate_array_operation(rhs);
+
+                    // TODO - Get the resultant shape in case of broadcast.
+
+                    auto result = NdArray<dtype>(this->shape());
+                    auto it_res = result.begin();
+
+                    for (size_t i = 0; it_res != result.end(); ++it_res, ++i)
+                        *it_res = this->get(i) - rhs.get(i);
+
+                    return result;
+                }
+
+                /**
+                 * @brief Element-wise multiply operator overload.
+                 * Performs the operation on 2 arrays if their shape is same and
+                 * returns a new array containing the result.
+                 *
+                 * @warning Broadcasting is not supported yet.
+                 *
+                 * @tparam rhsType RHS array element type. Allows operation on
+                 * arrays of 2 different types.
+                 * @param rhs Rhs array reference.
+                 * @return New array containing the result.
+                 */
+                template<typename rhsType>
+                NdArray<dtype> operator*(const NdArray<rhsType>& rhs) const
+                {
+                    this->__validate_array_operation(rhs);
+
+                    // TODO - Get the resultant shape in case of broadcast.
+
+                    auto result = NdArray<dtype>(this->shape());
+                    auto it_res = result.begin();
+
+                    for (size_t i = 0; it_res != result.end(); ++it_res, ++i)
+                        *it_res = this->get(i) * rhs.get(i);
+
+                    return result;
+                }
+
+                /**
+                 * @brief Element-wise division operator overload.
+                 * Performs the operation on 2 arrays if their shape is same and
+                 * returns a new array containing the result.
+                 *
+                 * @note A 0 element divisor results in +- inf.
+                 *
+                 * @warning Broadcasting is not supported yet.
+                 *
+                 * @tparam rhsType RHS array element type. Allows operation on
+                 * arrays of 2 different types.
+                 * @param rhs Rhs array reference.
+                 * @return New array containing the result.
+                 */
+                template<typename rhsType>
+                NdArray<dtype> operator/(const NdArray<rhsType>& rhs) const
+                {
+                    this->__validate_array_operation(rhs);
+
+                    // TODO - Get the resultant shape in case of broadcast.
+
+                    auto result = NdArray<dtype>(this->shape());
+                    auto it_res = result.begin();
+
+                    for (size_t i = 0; it_res != result.end(); ++it_res, ++i)
+                        *it_res = this->get(i) / rhs.get(i);
+
+                    return result;
+                }
 
             protected:
 
@@ -355,6 +469,28 @@ namespace NumC
 
                     for (size_t i = start; it != ite; ++i, ++it)
                         this->__data.get()[i] = *it;
+                }
+
+                template<typename rhsType>
+                void __validate_array_operation(const NdArray<rhsType>& rhs) const
+                {
+                    auto lhs_shape = this->shape();
+                    auto rhs_shape = rhs.shape();
+
+                    if (lhs_shape.size() != rhs_shape.size())
+                    {
+                        std::cout << "ERROR - array_op - 1" << std::endl;
+                        // throw error.
+                    }
+
+                    if (!std::equal(
+                        lhs_shape.begin(),
+                        lhs_shape.end(),
+                        rhs_shape.begin()))
+                    {
+                        std::cout << "ERROR - array_op - 2" << std::endl;
+                        // throw error.
+                    }
                 }
         };
     }

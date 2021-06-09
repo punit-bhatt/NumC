@@ -183,7 +183,7 @@ namespace NumC
                  *
                  * Overridden function.
                  */
-                const size_t get_memory_index(const size_t index) override
+                const size_t get_memory_index(const size_t index) const override
                 {
                     if (index < 0 || index > this->_nunits)
                     {

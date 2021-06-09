@@ -35,7 +35,7 @@ namespace NumC
                  * @param index Index for an element of this view.
                  * @return Data array index.
                  */
-                virtual const size_t get_memory_index(const size_t index) = 0;
+                virtual const size_t get_memory_index(const size_t index) const = 0;
 
                 /**
                  * @brief Gets the nd array reference.
@@ -82,7 +82,7 @@ namespace NumC
                  *
                  * Overridden function.
                  */
-                dtype get(size_t index) override
+                dtype get(size_t index) const override
                 {
                     if (index < 0 && index >= this->_nunits)
                     {
