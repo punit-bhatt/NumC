@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['reshape_151',['reshape',['../namespaceNumC_1_1Utils.html#a76d98a55809f73c086f9ec2e943d313b',1,'NumC::Utils']]],
-  ['reshapedview_152',['ReshapedView',['../classNumC_1_1Core_1_1ReshapedView.html#a508a9f794ee5e1ce896ccf33ae84d0bb',1,'NumC::Core::ReshapedView']]],
-  ['rtrim_153',['rtrim',['../namespaceNumC_1_1Utils.html#ad71497400d2d65194fb09cae46d84a33',1,'NumC::Utils']]]
+  ['print_5farray_162',['print_array',['../namespaceNumC_1_1Utils.html#a1f477395504e4c4548300c5e4cc6fda4',1,'NumC::Utils']]]
 ];

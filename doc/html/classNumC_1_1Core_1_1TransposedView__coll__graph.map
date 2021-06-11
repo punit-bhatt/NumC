@@ -1,6 +1,8 @@
 <map id="NumC::Core::TransposedView&lt; T &gt;" name="NumC::Core::TransposedView&lt; T &gt;">
-<area shape="rect" id="node1" title="Transposed view of the array object." alt="" coords="81,185,331,212"/>
-<area shape="rect" id="node2" href="$classNumC_1_1Core_1_1View.html" title="The base class for a modified view of an N&#45;D base array." alt="" coords="117,109,295,136"/>
+<area shape="rect" id="node1" title="Transposed view of the array object." alt="" coords="287,213,538,240"/>
+<area shape="rect" id="node2" href="$classNumC_1_1Core_1_1View.html" title="The base class for a modified view of an N&#45;D base array." alt="" coords="213,117,391,143"/>
 <area shape="rect" id="node3" href="$classNumC_1_1Core_1_1NdArray.html" title="The basic N&#45;D array class that defines the way data is stored and traversed." alt="" coords="5,13,204,39"/>
 <area shape="rect" id="node4" href="$classNumC_1_1Core_1_1NdArray.html" title=" " alt="" coords="228,5,389,47"/>
+<area shape="rect" id="node5" href="$classNumC_1_1Core_1_1TransposedView_1_1TransposedViewIndexer.html" title="Indexer class to calculate memory index for reshaped views. This class is accessible only to Transpos..." alt="" coords="415,109,637,151"/>
+<area shape="rect" id="node6" href="$classNumC_1_1Core_1_1MemoryIndexer.html" title="Base memory indexer functor class. Helps array/view implement their own logic for memory access and p..." alt="" coords="421,13,631,39"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['begin_131',['begin',['../classNumC_1_1Core_1_1NdArray.html#a62e8881aafbaa073949aa4e825a1d474',1,'NumC::Core::NdArray::begin()'],['../classNumC_1_1Core_1_1ReshapedView.html#a5fd5a090fd32caca32cb0d4592a2c8f2',1,'NumC::Core::ReshapedView::begin()'],['../classNumC_1_1Core_1_1SlicedView.html#a2649a0e2c79a8e3163b2efe342c31c4d',1,'NumC::Core::SlicedView::begin()'],['../classNumC_1_1Core_1_1TransposedView.html#a5d0ad603e88eedecdadaf1a83ea0fbc8',1,'NumC::Core::TransposedView::begin()']]]
+  ['begin_141',['begin',['../classNumC_1_1Core_1_1NdArray.html#a691592e11caa4315f6848ae4ff4470af',1,'NumC::Core::NdArray::begin()'],['../classNumC_1_1Core_1_1ReshapedView.html#a8cb776e15de01759266e04bdc6cedab5',1,'NumC::Core::ReshapedView::begin()'],['../classNumC_1_1Core_1_1SlicedView.html#a0cffcb95dd931d49f15d7685321744cb',1,'NumC::Core::SlicedView::begin()'],['../classNumC_1_1Core_1_1TransposedView.html#a8abd94094a06c82bafbcf891244b1c12',1,'NumC::Core::TransposedView::begin()']]]
 ];

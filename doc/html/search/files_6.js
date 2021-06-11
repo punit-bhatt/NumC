@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['transposedview_2ehpp_124',['TransposedView.hpp',['../TransposedView_8hpp.html',1,'']]],
-  ['type_2ehpp_125',['Type.hpp',['../Type_8hpp.html',1,'']]]
+  ['slicedview_2ehpp_134',['SlicedView.hpp',['../SlicedView_8hpp.html',1,'']]],
+  ['stringutils_2ehpp_135',['StringUtils.hpp',['../StringUtils_8hpp.html',1,'']]]
 ];

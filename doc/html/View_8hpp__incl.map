@@ -1,12 +1,13 @@
 <map id="View.hpp" name="View.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="271,5,353,32"/>
-<area shape="rect" id="node2" href="$NdArray_8hpp.html" title=" " alt="" coords="223,80,401,107"/>
-<area shape="rect" id="node3" href="$Iterator_8hpp.html" title=" " alt="" coords="170,155,318,196"/>
-<area shape="rect" id="node10" title=" " alt="" coords="343,162,420,189"/>
-<area shape="rect" id="node4" href="$Type_8hpp.html" title=" " alt="" coords="94,244,253,271"/>
-<area shape="rect" id="node9" title=" " alt="" coords="277,244,352,271"/>
-<area shape="rect" id="node5" title=" " alt="" coords="5,319,85,345"/>
-<area shape="rect" id="node6" title=" " alt="" coords="109,319,160,345"/>
-<area shape="rect" id="node7" title=" " alt="" coords="184,319,243,345"/>
-<area shape="rect" id="node8" title=" " alt="" coords="267,319,330,345"/>
+<area shape="rect" id="node1" title=" " alt="" coords="270,5,351,32"/>
+<area shape="rect" id="node2" href="$NdArray_8hpp.html" title=" " alt="" coords="221,80,400,107"/>
+<area shape="rect" id="node3" href="$Iterator_8hpp.html" title=" " alt="" coords="169,155,317,196"/>
+<area shape="rect" id="node11" title=" " alt="" coords="341,162,419,189"/>
+<area shape="rect" id="node4" href="$MemoryIndexer_8hpp.html" title=" " alt="" coords="96,244,251,285"/>
+<area shape="rect" id="node10" title=" " alt="" coords="275,251,349,278"/>
+<area shape="rect" id="node5" href="$Type_8hpp.html" title=" " alt="" coords="94,333,253,360"/>
+<area shape="rect" id="node6" title=" " alt="" coords="5,408,85,435"/>
+<area shape="rect" id="node7" title=" " alt="" coords="109,408,160,435"/>
+<area shape="rect" id="node8" title=" " alt="" coords="184,408,243,435"/>
+<area shape="rect" id="node9" title=" " alt="" coords="267,408,330,435"/>
 </map>

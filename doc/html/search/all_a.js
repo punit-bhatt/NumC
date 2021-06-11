@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['operator_21_3d_53',['operator!=',['../classNumC_1_1Core_1_1Iterator.html#aff6f2e9e8450c91e2348d34dffd53930',1,'NumC::Core::Iterator']]],
-  ['operator_2a_54',['operator*',['../classNumC_1_1Core_1_1Iterator.html#ad187a32a2537fc0f058785019c15d21e',1,'NumC::Core::Iterator::operator*()'],['../classNumC_1_1Core_1_1NdArray.html#a865242da684475d3ad08f0fac6d60c87',1,'NumC::Core::NdArray::operator*()']]],
-  ['operator_2b_55',['operator+',['../classNumC_1_1Core_1_1NdArray.html#af583eeeb72731f0f16868a4a24d8906f',1,'NumC::Core::NdArray']]],
-  ['operator_2b_2b_56',['operator++',['../classNumC_1_1Core_1_1Iterator.html#a91b89fd5bd186f52bb260c3bef10db6f',1,'NumC::Core::Iterator::operator++()'],['../classNumC_1_1Core_1_1Iterator.html#a0839d500b374627f0662898e352c18f6',1,'NumC::Core::Iterator::operator++(int)'],['../classNumC_1_1Core_1_1ViewIterator.html#aabaeed24c8518f5129fa37b716871e60',1,'NumC::Core::ViewIterator::operator++()']]],
-  ['operator_2d_57',['operator-',['../classNumC_1_1Core_1_1NdArray.html#aff3d5b26c10ca7bcee5825efde919a4c',1,'NumC::Core::NdArray']]],
-  ['operator_2d_2d_58',['operator--',['../classNumC_1_1Core_1_1Iterator.html#ab47dea6e727ecb8d748f83590b758be6',1,'NumC::Core::Iterator::operator--()'],['../classNumC_1_1Core_1_1Iterator.html#a71cda93e0b50eca67fd8a912deeb68f8',1,'NumC::Core::Iterator::operator--(int)'],['../classNumC_1_1Core_1_1ViewIterator.html#a2368d2d87c8597f44ff38725d68e5333',1,'NumC::Core::ViewIterator::operator--()']]],
-  ['operator_2f_59',['operator/',['../classNumC_1_1Core_1_1NdArray.html#a77dee2c64066919ab4b6bd82dfcfe853',1,'NumC::Core::NdArray']]],
-  ['operator_3d_60',['operator=',['../classNumC_1_1Core_1_1Iterator.html#aa662ff6fbf60d3816547e6fd5f563304',1,'NumC::Core::Iterator::operator=()'],['../classNumC_1_1Core_1_1NdArray.html#aa587cfce1a1a4060d39cdb75e1de4beb',1,'NumC::Core::NdArray::operator=()']]],
-  ['operator_3d_3d_61',['operator==',['../classNumC_1_1Core_1_1Iterator.html#a353c0dbc25150cf386a429040150581e',1,'NumC::Core::Iterator']]]
+  ['core_47',['Core',['../namespaceNumC_1_1Core.html',1,'NumC']]],
+  ['numc_48',['NumC',['../index.html',1,'']]],
+  ['nd_5farray_49',['ND_ARRAY',['../NdArray_8hpp.html#a5242c72468b624f35038d35eb8814cba',1,'NdArray.hpp']]],
+  ['ndarray_50',['NdArray',['../classNumC_1_1Core_1_1NdArray.html',1,'NumC::Core::NdArray&lt; T &gt;'],['../classNumC_1_1Core_1_1NdArray.html#af99c4a7cd8cac0e03e8b6cf7ff829f09',1,'NumC::Core::NdArray::NdArray()'],['../classNumC_1_1Core_1_1NdArray.html#ae65dcf9b084b982f35192229e5ea2855',1,'NumC::Core::NdArray::NdArray(const shape_t &amp;shape)'],['../classNumC_1_1Core_1_1NdArray.html#a34861c748e848b5def9db3220fa37f7a',1,'NumC::Core::NdArray::NdArray(init_1d list)'],['../classNumC_1_1Core_1_1NdArray.html#a2973273408d6781f033b48b6eb7470bd',1,'NumC::Core::NdArray::NdArray(init_2d list_2d)'],['../classNumC_1_1Core_1_1NdArray.html#ac258eca4531c501f8e51e9ae6a945a93',1,'NumC::Core::NdArray::NdArray(init_3d list_3d)']]],
+  ['ndarray_2ehpp_51',['NdArray.hpp',['../NdArray_8hpp.html',1,'']]],
+  ['ndarray_3c_20dtype_20_3e_52',['NdArray&lt; dtype &gt;',['../classNumC_1_1Core_1_1NdArray.html',1,'NumC::Core']]],
+  ['numc_53',['NumC',['../namespaceNumC.html',1,'']]],
+  ['numc_2ehpp_54',['NumC.hpp',['../NumC_8hpp.html',1,'']]],
+  ['utils_55',['Utils',['../namespaceNumC_1_1Utils.html',1,'NumC']]]
 ];

@@ -1,11 +1,10 @@
 <map id="Iterator.hpp" name="Iterator.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="130,5,227,32"/>
-<area shape="rect" id="node2" href="$ViewIterator_8hpp.html" title=" " alt="" coords="50,155,179,181"/>
-<area shape="rect" id="node7" href="$NdArray_8hpp.html" title=" " alt="" coords="183,80,284,107"/>
-<area shape="rect" id="node3" href="$SlicedView_8hpp.html" title=" " alt="" coords="184,229,304,256"/>
-<area shape="rect" id="node6" href="$TransposedView_8hpp.html" title=" " alt="" coords="5,229,160,256"/>
-<area shape="rect" id="node4" href="$ContainerUtils_8hpp.html" title=" " alt="" coords="173,304,315,331"/>
-<area shape="rect" id="node5" href="$NumC_8hpp.html" title=" " alt="" coords="199,379,289,405"/>
-<area shape="rect" id="node8" href="$View_8hpp.html" title=" " alt="" coords="203,155,285,181"/>
-<area shape="rect" id="node9" href="$ReshapedView_8hpp.html" title=" " alt="" coords="329,229,474,256"/>
+<area shape="rect" id="node1" title=" " alt="" coords="187,5,284,32"/>
+<area shape="rect" id="node2" href="$NdArray_8hpp.html" title=" " alt="" coords="185,80,286,107"/>
+<area shape="rect" id="node3" href="$View_8hpp.html" title=" " alt="" coords="195,155,276,181"/>
+<area shape="rect" id="node4" href="$ReshapedView_8hpp.html" title=" " alt="" coords="5,229,151,256"/>
+<area shape="rect" id="node7" href="$SlicedView_8hpp.html" title=" " alt="" coords="175,229,295,256"/>
+<area shape="rect" id="node8" href="$TransposedView_8hpp.html" title=" " alt="" coords="319,229,474,256"/>
+<area shape="rect" id="node5" href="$ContainerUtils_8hpp.html" title=" " alt="" coords="164,304,307,331"/>
+<area shape="rect" id="node6" href="$NumC_8hpp.html" title=" " alt="" coords="190,379,281,405"/>
 </map>

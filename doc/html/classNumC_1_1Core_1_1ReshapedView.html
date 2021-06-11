@@ -67,8 +67,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classNumC_1_1Core_1_1ReshapedView-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">NumC::Core::ReshapedView&lt; T &gt; Class Template Reference</div>  </div>
@@ -94,13 +96,21 @@ Collaboration diagram for NumC::Core::ReshapedView&lt; T &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classNumC_1_1Core_1_1ReshapedView__coll__graph.png" border="0" usemap="#NumC_1_1Core_1_1ReshapedView_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="NumC_1_1Core_1_1ReshapedView_3_01T_01_4_coll__map" id="NumC_1_1Core_1_1ReshapedView_3_01T_01_4_coll__map">
-<area shape="rect" title="Reshaped view of the array object." alt="" coords="85,185,327,212"/>
-<area shape="rect" href="classNumC_1_1Core_1_1View.html" title="The base class for a modified view of an N&#45;D base array." alt="" coords="117,109,295,136"/>
+<area shape="rect" title="Reshaped view of the array object." alt="" coords="291,213,534,240"/>
+<area shape="rect" href="classNumC_1_1Core_1_1View.html" title="The base class for a modified view of an N&#45;D base array." alt="" coords="214,117,393,143"/>
 <area shape="rect" href="classNumC_1_1Core_1_1NdArray.html" title="The basic N&#45;D array class that defines the way data is stored and traversed." alt="" coords="5,13,204,39"/>
 <area shape="rect" href="classNumC_1_1Core_1_1NdArray.html" title=" " alt="" coords="228,5,389,47"/>
+<area shape="rect" href="classNumC_1_1Core_1_1ReshapedView_1_1ReshapedViewIndexer.html" title="Indexer class to calculate memory index for reshaped views. This class is accessible only to Reshaped..." alt="" coords="417,109,629,151"/>
+<area shape="rect" href="classNumC_1_1Core_1_1MemoryIndexer.html" title="Base memory indexer functor class. Helps array/view implement their own logic for memory access and p..." alt="" coords="418,13,629,39"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1ReshapedView_1_1ReshapedViewIndexer.html">ReshapedViewIndexer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indexer class to calculate memory index for reshaped views. This class is accessible only to <a class="el" href="classNumC_1_1Core_1_1ReshapedView.html" title="Reshaped view of the array object.">ReshapedView</a>.  <a href="classNumC_1_1Core_1_1ReshapedView_1_1ReshapedViewIndexer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a1b0c1262c83dcfd87de5308e6193ae81"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a1b0c1262c83dcfd87de5308e6193ae81">dtype</a> = T</td></tr>
@@ -141,15 +151,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1e74ad393df5322d35ee8cdbff23e233"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a1e74ad393df5322d35ee8cdbff23e233">~ReshapedView</a> ()=default</td></tr>
 <tr class="memdesc:a1e74ad393df5322d35ee8cdbff23e233"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Reshaped <a class="el" href="classNumC_1_1Core_1_1View.html" title="The base class for a modified view of an N-D base array.">View</a> destructor.  <a href="classNumC_1_1Core_1_1ReshapedView.html#a1e74ad393df5322d35ee8cdbff23e233">More...</a><br /></td></tr>
 <tr class="separator:a1e74ad393df5322d35ee8cdbff23e233"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fd5a090fd32caca32cb0d4592a2c8f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1Iterator.html">Iterator</a>&lt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a5fd5a090fd32caca32cb0d4592a2c8f2">begin</a> ()</td></tr>
-<tr class="memdesc:a5fd5a090fd32caca32cb0d4592a2c8f2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classNumC_1_1Core_1_1Iterator.html" title="Iterator for any array.">Iterator</a> pointing to the first element.  <a href="classNumC_1_1Core_1_1ReshapedView.html#a5fd5a090fd32caca32cb0d4592a2c8f2">More...</a><br /></td></tr>
-<tr class="separator:a5fd5a090fd32caca32cb0d4592a2c8f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a229f36762ddaa1f7a19ec076a6542d56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1Iterator.html">Iterator</a>&lt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a229f36762ddaa1f7a19ec076a6542d56">end</a> ()</td></tr>
-<tr class="memdesc:a229f36762ddaa1f7a19ec076a6542d56"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classNumC_1_1Core_1_1Iterator.html" title="Iterator for any array.">Iterator</a> pointing to last element + 1.  <a href="classNumC_1_1Core_1_1ReshapedView.html#a229f36762ddaa1f7a19ec076a6542d56">More...</a><br /></td></tr>
-<tr class="separator:a229f36762ddaa1f7a19ec076a6542d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d7f1b31f476a35312cd0bfce476224a"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a2d7f1b31f476a35312cd0bfce476224a">get_memory_index</a> (const <a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a> index) const override</td></tr>
-<tr class="memdesc:a2d7f1b31f476a35312cd0bfce476224a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the corresponding memory block/ data array index for this index.  <a href="classNumC_1_1Core_1_1ReshapedView.html#a2d7f1b31f476a35312cd0bfce476224a">More...</a><br /></td></tr>
-<tr class="separator:a2d7f1b31f476a35312cd0bfce476224a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cb776e15de01759266e04bdc6cedab5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1Iterator.html">Iterator</a>&lt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a8cb776e15de01759266e04bdc6cedab5">begin</a> () override</td></tr>
+<tr class="memdesc:a8cb776e15de01759266e04bdc6cedab5"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classNumC_1_1Core_1_1Iterator.html" title="Iterator for any array.">Iterator</a> pointing to the first element.  <a href="classNumC_1_1Core_1_1ReshapedView.html#a8cb776e15de01759266e04bdc6cedab5">More...</a><br /></td></tr>
+<tr class="separator:a8cb776e15de01759266e04bdc6cedab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b182afc35a611d4c46233a151534b5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1Iterator.html">Iterator</a>&lt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a6b182afc35a611d4c46233a151534b5a">end</a> () override</td></tr>
+<tr class="memdesc:a6b182afc35a611d4c46233a151534b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classNumC_1_1Core_1_1Iterator.html" title="Iterator for any array.">Iterator</a> pointing to last element + 1.  <a href="classNumC_1_1Core_1_1ReshapedView.html#a6b182afc35a611d4c46233a151534b5a">More...</a><br /></td></tr>
+<tr class="separator:a6b182afc35a611d4c46233a151534b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51c308ec49e8716edd49a96cb64de690"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html">MemoryIndexer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a51c308ec49e8716edd49a96cb64de690">get_memory_indexer</a> () const override</td></tr>
+<tr class="memdesc:a51c308ec49e8716edd49a96cb64de690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the memory indexer to calculate data array index for the view.  <a href="classNumC_1_1Core_1_1ReshapedView.html#a51c308ec49e8716edd49a96cb64de690">More...</a><br /></td></tr>
+<tr class="separator:a51c308ec49e8716edd49a96cb64de690"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classNumC_1_1Core_1_1View"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classNumC_1_1Core_1_1View')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classNumC_1_1Core_1_1View.html">NumC::Core::View&lt; T &gt;</a></td></tr>
 <tr class="memitem:a394ccd0567e5d4ae4dede84d0ab393b9 inherit pub_methods_classNumC_1_1Core_1_1View"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1View.html#a394ccd0567e5d4ae4dede84d0ab393b9">~View</a> ()</td></tr>
 <tr class="memdesc:a394ccd0567e5d4ae4dede84d0ab393b9 inherit pub_methods_classNumC_1_1Core_1_1View"><td class="mdescLeft">&#160;</td><td class="mdescRight">A do-nothing destructor to ensure pointers to this interface can be deleted.  <a href="classNumC_1_1Core_1_1View.html#a394ccd0567e5d4ae4dede84d0ab393b9">More...</a><br /></td></tr>
@@ -191,12 +201,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae154af30e5a64c6ad821f37753cf81ae inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#ae154af30e5a64c6ad821f37753cf81ae">~NdArray</a> ()=default</td></tr>
 <tr class="memdesc:ae154af30e5a64c6ad821f37753cf81ae inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the Nd Array object.  <a href="classNumC_1_1Core_1_1NdArray.html#ae154af30e5a64c6ad821f37753cf81ae">More...</a><br /></td></tr>
 <tr class="separator:ae154af30e5a64c6ad821f37753cf81ae inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62e8881aafbaa073949aa4e825a1d474 inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1Iterator.html">Iterator</a>&lt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a62e8881aafbaa073949aa4e825a1d474">begin</a> ()</td></tr>
-<tr class="memdesc:a62e8881aafbaa073949aa4e825a1d474 inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classNumC_1_1Core_1_1Iterator.html" title="Iterator for any array.">Iterator</a> pointing to the first element.  <a href="classNumC_1_1Core_1_1NdArray.html#a62e8881aafbaa073949aa4e825a1d474">More...</a><br /></td></tr>
-<tr class="separator:a62e8881aafbaa073949aa4e825a1d474 inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a788dec050a6520e6088a3c59476e794f inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1Iterator.html">Iterator</a>&lt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a788dec050a6520e6088a3c59476e794f">end</a> ()</td></tr>
-<tr class="memdesc:a788dec050a6520e6088a3c59476e794f inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classNumC_1_1Core_1_1Iterator.html" title="Iterator for any array.">Iterator</a> pointing to last element + 1.  <a href="classNumC_1_1Core_1_1NdArray.html#a788dec050a6520e6088a3c59476e794f">More...</a><br /></td></tr>
-<tr class="separator:a788dec050a6520e6088a3c59476e794f inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1931cca07c44bba60e00dbd5daeefa53 inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a16e2e9178309f3637de71dcd9d0e1c2a">dtype_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a1931cca07c44bba60e00dbd5daeefa53">data</a> ()</td></tr>
 <tr class="memdesc:a1931cca07c44bba60e00dbd5daeefa53 inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the pointer to the data array.  <a href="classNumC_1_1Core_1_1NdArray.html#a1931cca07c44bba60e00dbd5daeefa53">More...</a><br /></td></tr>
 <tr class="separator:a1931cca07c44bba60e00dbd5daeefa53 inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -219,6 +223,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a77dee2c64066919ab4b6bd82dfcfe853 inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1NdArray.html">NdArray</a>&lt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a77dee2c64066919ab4b6bd82dfcfe853">operator/</a> (const <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NdArray</a>&lt; rhsType &gt; &amp;rhs) const</td></tr>
 <tr class="memdesc:a77dee2c64066919ab4b6bd82dfcfe853 inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element-wise division operator overload. Performs the operation on 2 arrays if their shape is same and returns a new array containing the result.  <a href="classNumC_1_1Core_1_1NdArray.html#a77dee2c64066919ab4b6bd82dfcfe853">More...</a><br /></td></tr>
 <tr class="separator:a77dee2c64066919ab4b6bd82dfcfe853 inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a52934445f51aeee091d13c2979a43d61"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1ReshapedView_1_1ReshapedViewIndexer.html">ReshapedViewIndexer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a52934445f51aeee091d13c2979a43d61">_memory_indexer</a></td></tr>
+<tr class="memdesc:a52934445f51aeee091d13c2979a43d61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reshaped view indexer instance.  <a href="classNumC_1_1Core_1_1ReshapedView.html#a52934445f51aeee091d13c2979a43d61">More...</a><br /></td></tr>
+<tr class="separator:a52934445f51aeee091d13c2979a43d61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -377,8 +387,8 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5fd5a090fd32caca32cb0d4592a2c8f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fd5a090fd32caca32cb0d4592a2c8f2">&#9670;&nbsp;</a></span>begin()</h2>
+<a id="a8cb776e15de01759266e04bdc6cedab5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cb776e15de01759266e04bdc6cedab5">&#9670;&nbsp;</a></span>begin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -397,7 +407,7 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -406,10 +416,12 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classNumC_1_1Core_1_1Iterator.html" title="Iterator for any array.">Iterator</a> pointing to the start.</dd></dl>
 <p>Overridden function. </p>
 
+<p>Reimplemented from <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a691592e11caa4315f6848ae4ff4470af">NumC::Core::NdArray&lt; T &gt;</a>.</p>
+
 </div>
 </div>
-<a id="a229f36762ddaa1f7a19ec076a6542d56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a229f36762ddaa1f7a19ec076a6542d56">&#9670;&nbsp;</a></span>end()</h2>
+<a id="a6b182afc35a611d4c46233a151534b5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b182afc35a611d4c46233a151534b5a">&#9670;&nbsp;</a></span>end()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -428,7 +440,7 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -437,10 +449,12 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classNumC_1_1Core_1_1Iterator.html" title="Iterator for any array.">Iterator</a> pointing to the end.</dd></dl>
 <p>Overridden function. </p>
 
+<p>Reimplemented from <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a57af3492075b887bcaee7784527518b2">NumC::Core::NdArray&lt; T &gt;</a>.</p>
+
 </div>
 </div>
-<a id="a2d7f1b31f476a35312cd0bfce476224a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d7f1b31f476a35312cd0bfce476224a">&#9670;&nbsp;</a></span>get_memory_index()</h2>
+<a id="a51c308ec49e8716edd49a96cb64de690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51c308ec49e8716edd49a96cb64de690">&#9670;&nbsp;</a></span>get_memory_indexer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -451,10 +465,9 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a> <a class="el" href="classNumC_1_1Core_1_1ReshapedView.html">NumC::Core::ReshapedView</a>&lt; T &gt;::get_memory_index </td>
+          <td class="memname">const <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html">MemoryIndexer</a>* <a class="el" href="classNumC_1_1Core_1_1ReshapedView.html">NumC::Core::ReshapedView</a>&lt; T &gt;::get_memory_indexer </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a>&#160;</td>
-          <td class="paramname"><em>index</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -465,18 +478,38 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the corresponding memory block/ data array index for this index. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">index</td><td>Index for an element of this view. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Data array index.</dd></dl>
-<p>Overridden function.</p>
-<dl class="section note"><dt>Note</dt><dd>Since slicing or other views are not allowed for reshape, the number of units are same for the reshaped view and the container. Therefor the index can be directly interpreted as the memory container index. Calculations will need to be done if we are to support reshape of other views. </dd></dl>
+<p>Gets the memory indexer to calculate data array index for the view. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the memory indexer instance.</dd></dl>
+<p>Overridden function. </p>
 
-<p>Implements <a class="el" href="classNumC_1_1Core_1_1View.html#a7fae437b837e57713263aabc853acd01">NumC::Core::View&lt; T &gt;</a>.</p>
+<p>Implements <a class="el" href="classNumC_1_1Core_1_1View.html#af2daa90418423e37c02bcfc50ce5a59c">NumC::Core::View&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a52934445f51aeee091d13c2979a43d61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52934445f51aeee091d13c2979a43d61">&#9670;&nbsp;</a></span>_memory_indexer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNumC_1_1Core_1_1ReshapedView_1_1ReshapedViewIndexer.html">ReshapedViewIndexer</a> <a class="el" href="classNumC_1_1Core_1_1ReshapedView.html">NumC::Core::ReshapedView</a>&lt; T &gt;::_memory_indexer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reshaped view indexer instance. </p>
 
 </div>
 </div>

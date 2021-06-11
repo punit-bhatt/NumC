@@ -1,11 +1,18 @@
 var searchData=
 [
-  ['to_5fstring_82',['to_string',['../namespaceNumC_1_1Utils.html#ac26ad8ea7357cb5b0baa682835adf308',1,'NumC::Utils::to_string(const T *ptr, size_t len)'],['../namespaceNumC_1_1Utils.html#a1f4685713f5d1559e4f8779ed787ed3d',1,'NumC::Utils::to_string(const std::pair&lt; T, T &gt; *ptr, size_t len)'],['../namespaceNumC_1_1Utils.html#a7e83c82963ce5302fb71b2d7b9e94469',1,'NumC::Utils::to_string(const std::vector&lt; std::pair&lt; T, T &gt;&gt; &amp;vctr)'],['../namespaceNumC_1_1Utils.html#ac5556aa3ec30560d8ab022a12e7f8abb',1,'NumC::Utils::to_string(const std::vector&lt; T &gt; &amp;vctr)']]],
-  ['transpose_83',['transpose',['../namespaceNumC_1_1Utils.html#a3b4bf98a1ade480938ee3e249acf2ae2',1,'NumC::Utils::transpose(ND_ARRAY&lt; T &gt; &amp;array)'],['../namespaceNumC_1_1Utils.html#a888c927f90a8cce3b64a130bb2842663',1,'NumC::Utils::transpose(ND_ARRAY&lt; T &gt; &amp;array, size_t_v &amp;axes)']]],
-  ['transposed_5fview_84',['TRANSPOSED_VIEW',['../TransposedView_8hpp.html#a24e53afb4d8e187667a41a1dbead8df9',1,'TransposedView.hpp']]],
-  ['transposedview_85',['TransposedView',['../classNumC_1_1Core_1_1TransposedView.html',1,'NumC::Core::TransposedView&lt; T &gt;'],['../classNumC_1_1Core_1_1TransposedView.html#aa1179151b2c8442266d724858dc049f1',1,'NumC::Core::TransposedView::TransposedView()']]],
-  ['transposedview_2ehpp_86',['TransposedView.hpp',['../TransposedView_8hpp.html',1,'']]],
-  ['trim_87',['trim',['../namespaceNumC_1_1Utils.html#a2827be2d5abb1b4cf7f56a663e707104',1,'NumC::Utils']]],
-  ['type_2ehpp_88',['Type.hpp',['../Type_8hpp.html',1,'']]],
-  ['typename_89',['TYPENAME',['../Type_8hpp.html#a9114a9c42fc7f790a38a67a7a3340ea9',1,'Type.hpp']]]
+  ['set_73',['set',['../classNumC_1_1Core_1_1NdArray.html#af1db19cc5d948316416fff85e21a8e64',1,'NumC::Core::NdArray::set()'],['../classNumC_1_1Core_1_1View.html#a805ebe358d13a41eb64d0d890d212e21',1,'NumC::Core::View::set()']]],
+  ['shape_74',['shape',['../classNumC_1_1Core_1_1NdArray.html#a53e0847b76c70fb20d168941200e0716',1,'NumC::Core::NdArray::shape()'],['../classNumC_1_1Core_1_1View.html#a2a055fbaba02972075e8d7c2141f0a0f',1,'NumC::Core::View::shape()']]],
+  ['shape_5ft_75',['shape_t',['../namespaceNumC.html#aeab21d471debe10045ae35500f987f70',1,'NumC']]],
+  ['size_5ft_76',['size_t',['../namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066',1,'NumC']]],
+  ['size_5ft_5fv_77',['size_t_v',['../namespaceNumC.html#a4f3e4fde1b144f84d1bd9f6cd7ff25fa',1,'NumC']]],
+  ['slice_78',['slice',['../namespaceNumC_1_1Utils.html#ad881efa8802b6a71278203cc6816598a',1,'NumC::Utils']]],
+  ['sliced_5fview_79',['SLICED_VIEW',['../SlicedView_8hpp.html#afd1cc3a5f649a7b61edbaa8d2b918cdb',1,'SlicedView.hpp']]],
+  ['slicedview_80',['SlicedView',['../classNumC_1_1Core_1_1SlicedView.html',1,'NumC::Core::SlicedView&lt; T &gt;'],['../classNumC_1_1Core_1_1SlicedView.html#abab13773b148634ddc020733314a6a89',1,'NumC::Core::SlicedView::SlicedView()']]],
+  ['slicedview_2ehpp_81',['SlicedView.hpp',['../SlicedView_8hpp.html',1,'']]],
+  ['slicedviewindexer_82',['SlicedViewIndexer',['../classNumC_1_1Core_1_1SlicedView_1_1SlicedViewIndexer.html',1,'NumC::Core::SlicedView&lt; T &gt;::SlicedViewIndexer'],['../classNumC_1_1Core_1_1SlicedView_1_1SlicedViewIndexer.html#a99a859a6d27723e1b0f695cfa95c71e2',1,'NumC::Core::SlicedView::SlicedViewIndexer::SlicedViewIndexer()=default'],['../classNumC_1_1Core_1_1SlicedView_1_1SlicedViewIndexer.html#a87baaa3794623ede2fd308128c1cdde9',1,'NumC::Core::SlicedView::SlicedViewIndexer::SlicedViewIndexer(const SlicedView *view)']]],
+  ['slices_5ft_83',['slices_t',['../namespaceNumC.html#a93856bab9be39b3b8859edb27f919efb',1,'NumC']]],
+  ['stride_5ft_84',['stride_t',['../namespaceNumC.html#a6465d82a7350f54dd8376963039089a0',1,'NumC']]],
+  ['strides_85',['strides',['../classNumC_1_1Core_1_1NdArray.html#a4957b70b484f38ab4fd6bc8b451c1357',1,'NumC::Core::NdArray::strides()'],['../classNumC_1_1Core_1_1View.html#a9347704fd5bc212d961c4c322f5e2495',1,'NumC::Core::View::strides()']]],
+  ['stringify_5farray_86',['stringify_array',['../namespaceNumC_1_1Utils.html#a03882a2d279d96630a931d76f5c2b597',1,'NumC::Utils']]],
+  ['stringutils_2ehpp_87',['StringUtils.hpp',['../StringUtils_8hpp.html',1,'']]]
 ];

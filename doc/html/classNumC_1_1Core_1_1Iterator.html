@@ -70,6 +70,7 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classNumC_1_1Core_1_1Iterator-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">NumC::Core::Iterator&lt; T &gt; Class Template Reference</div>  </div>
@@ -81,12 +82,12 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="Iterator_8hpp_source.html">Iterator.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for NumC::Core::Iterator&lt; T &gt;:</div>
+Collaboration diagram for NumC::Core::Iterator&lt; T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="classNumC_1_1Core_1_1Iterator__inherit__graph.png" border="0" usemap="#NumC_1_1Core_1_1Iterator_3_01T_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="NumC_1_1Core_1_1Iterator_3_01T_01_4_inherit__map" id="NumC_1_1Core_1_1Iterator_3_01T_01_4_inherit__map">
-<area shape="rect" title="Iterator for any array." alt="" coords="21,5,216,32"/>
-<area shape="rect" href="classNumC_1_1Core_1_1ViewIterator.html" title="Iterator for any view." alt="" coords="5,80,232,107"/>
+<div class="center"><img src="classNumC_1_1Core_1_1Iterator__coll__graph.png" border="0" usemap="#NumC_1_1Core_1_1Iterator_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="NumC_1_1Core_1_1Iterator_3_01T_01_4_coll__map" id="NumC_1_1Core_1_1Iterator_3_01T_01_4_coll__map">
+<area shape="rect" title="Iterator for any array." alt="" coords="13,95,208,121"/>
+<area shape="rect" href="classNumC_1_1Core_1_1MemoryIndexer.html" title="Base memory indexer functor class. Helps array/view implement their own logic for memory access and p..." alt="" coords="5,5,216,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -105,9 +106,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a755953cbd490b266a8134a91afb8a2a1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#a755953cbd490b266a8134a91afb8a2a1">Iterator</a> ()</td></tr>
 <tr class="memdesc:a755953cbd490b266a8134a91afb8a2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default <a class="el" href="classNumC_1_1Core_1_1Iterator.html" title="Iterator for any array.">Iterator</a> constructor.  <a href="classNumC_1_1Core_1_1Iterator.html#a755953cbd490b266a8134a91afb8a2a1">More...</a><br /></td></tr>
 <tr class="separator:a755953cbd490b266a8134a91afb8a2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d562802bd36156b02490054a65e24e8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#a9d562802bd36156b02490054a65e24e8">Iterator</a> (<a class="el" href="classNumC_1_1Core_1_1Iterator.html#a863bf044e40255ad0222b27b0480e908">dtype_ptr</a> ptr, <a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a> nunits=0)</td></tr>
-<tr class="memdesc:a9d562802bd36156b02490054a65e24e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classNumC_1_1Core_1_1Iterator.html" title="Iterator for any array.">Iterator</a> object.  <a href="classNumC_1_1Core_1_1Iterator.html#a9d562802bd36156b02490054a65e24e8">More...</a><br /></td></tr>
-<tr class="separator:a9d562802bd36156b02490054a65e24e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae446c82eb3ec3c994b1266d5e4b70411"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#ae446c82eb3ec3c994b1266d5e4b70411">Iterator</a> (<a class="el" href="classNumC_1_1Core_1_1Iterator.html#a863bf044e40255ad0222b27b0480e908">dtype_ptr</a> ptr, <a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a> nunits=0, <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html">MemoryIndexer</a> *memory_indexer=nullptr)</td></tr>
+<tr class="memdesc:ae446c82eb3ec3c994b1266d5e4b70411"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classNumC_1_1Core_1_1Iterator.html" title="Iterator for any array.">Iterator</a> object.  <a href="classNumC_1_1Core_1_1Iterator.html#ae446c82eb3ec3c994b1266d5e4b70411">More...</a><br /></td></tr>
+<tr class="separator:ae446c82eb3ec3c994b1266d5e4b70411"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab25ad09f4363d9876792c275015843c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#ab25ad09f4363d9876792c275015843c1">Iterator</a> (const <a class="el" href="classNumC_1_1Core_1_1Iterator.html">Iterator</a> &amp;other)=default</td></tr>
 <tr class="memdesc:ab25ad09f4363d9876792c275015843c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default copy constructor.  <a href="classNumC_1_1Core_1_1Iterator.html#ab25ad09f4363d9876792c275015843c1">More...</a><br /></td></tr>
 <tr class="separator:ab25ad09f4363d9876792c275015843c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,6 +151,15 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a826feeb5b55122a6821a530bed200f52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#a826feeb5b55122a6821a530bed200f52">_index</a></td></tr>
 <tr class="memdesc:a826feeb5b55122a6821a530bed200f52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current array/view index being pointed to.  <a href="classNumC_1_1Core_1_1Iterator.html#a826feeb5b55122a6821a530bed200f52">More...</a><br /></td></tr>
 <tr class="separator:a826feeb5b55122a6821a530bed200f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a605264bbb7e6add14efb034dcff4a578"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#a605264bbb7e6add14efb034dcff4a578">__arr_index</a></td></tr>
+<tr class="memdesc:a605264bbb7e6add14efb034dcff4a578"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current array index being pointed to.  <a href="classNumC_1_1Core_1_1Iterator.html#a605264bbb7e6add14efb034dcff4a578">More...</a><br /></td></tr>
+<tr class="separator:a605264bbb7e6add14efb034dcff4a578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ec0591cebdfc738a40c2ed8dc41f9bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html">MemoryIndexer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1Iterator.html#a1ec0591cebdfc738a40c2ed8dc41f9bf">__memory_indexer</a></td></tr>
+<tr class="memdesc:a1ec0591cebdfc738a40c2ed8dc41f9bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the array/view memory indexer.  <a href="classNumC_1_1Core_1_1Iterator.html#a1ec0591cebdfc738a40c2ed8dc41f9bf">More...</a><br /></td></tr>
+<tr class="separator:a1ec0591cebdfc738a40c2ed8dc41f9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -243,8 +253,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a9d562802bd36156b02490054a65e24e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d562802bd36156b02490054a65e24e8">&#9670;&nbsp;</a></span>Iterator() <span class="overload">[2/3]</span></h2>
+<a id="ae446c82eb3ec3c994b1266d5e4b70411"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae446c82eb3ec3c994b1266d5e4b70411">&#9670;&nbsp;</a></span>Iterator() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -264,7 +274,13 @@ template&lt;typename T &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a>&#160;</td>
-          <td class="paramname"><em>nunits</em> = <code>0</code>&#160;</td>
+          <td class="paramname"><em>nunits</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html">MemoryIndexer</a> *&#160;</td>
+          <td class="paramname"><em>memory_indexer</em> = <code>nullptr</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -283,7 +299,8 @@ template&lt;typename T &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ptr</td><td>Pointer to the array data. </td></tr>
-    <tr><td class="paramname">nunits</td><td>Total number of elements in the array. </td></tr>
+    <tr><td class="paramname">nunits</td><td>Total number of elements in the array. Defaults to 0. </td></tr>
+    <tr><td class="paramname">memory_indexer</td><td>Pointer to array/view memory indexer. Defaults to null pointer. </td></tr>
   </table>
   </dd>
 </dl>
@@ -443,6 +460,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Prefixed increment operator. </p>
+<dl class="section note"><dt>Note</dt><dd>In case of null indexer, the data pointer is simply incremented by 1. </dd></dl>
 
 </div>
 </div>
@@ -503,6 +521,7 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Prefixed decrement operator. </p>
+<dl class="section note"><dt>Note</dt><dd>In case of null indexer, the data pointer is simply decremented by 1. </dd></dl>
 
 </div>
 </div>
@@ -605,6 +624,58 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a605264bbb7e6add14efb034dcff4a578"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a605264bbb7e6add14efb034dcff4a578">&#9670;&nbsp;</a></span>__arr_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a> <a class="el" href="classNumC_1_1Core_1_1Iterator.html">NumC::Core::Iterator</a>&lt; T &gt;::__arr_index</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Current array index being pointed to. </p>
+
+</div>
+</div>
+<a id="a1ec0591cebdfc738a40c2ed8dc41f9bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ec0591cebdfc738a40c2ed8dc41f9bf">&#9670;&nbsp;</a></span>__memory_indexer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html">MemoryIndexer</a>* <a class="el" href="classNumC_1_1Core_1_1Iterator.html">NumC::Core::Iterator</a>&lt; T &gt;::__memory_indexer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pointer to the array/view memory indexer. </p>
+
+</div>
+</div>
 <a id="a826feeb5b55122a6821a530bed200f52"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a826feeb5b55122a6821a530bed200f52">&#9670;&nbsp;</a></span>_index</h2>
 

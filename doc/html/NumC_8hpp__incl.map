@@ -2,19 +2,19 @@
 <area shape="rect" id="node1" title=" " alt="" coords="483,5,573,32"/>
 <area shape="rect" id="node2" href="$ContainerUtils_8hpp.html" title=" " alt="" coords="417,80,639,107"/>
 <area shape="rect" id="node3" href="$ReshapedView_8hpp.html" title=" " alt="" coords="5,162,264,189"/>
-<area shape="rect" id="node14" href="$SlicedView_8hpp.html" title=" " alt="" coords="288,162,523,189"/>
+<area shape="rect" id="node15" href="$SlicedView_8hpp.html" title=" " alt="" coords="288,162,523,189"/>
 <area shape="rect" id="node16" href="$TransposedView_8hpp.html" title=" " alt="" coords="547,155,757,196"/>
 <area shape="rect" id="node18" href="$StringUtils_8hpp.html" title=" " alt="" coords="781,162,977,189"/>
-<area shape="rect" id="node4" href="$View_8hpp.html" title=" " alt="" coords="333,251,528,278"/>
-<area shape="rect" id="node5" href="$NdArray_8hpp.html" title=" " alt="" coords="383,333,561,360"/>
-<area shape="rect" id="node6" href="$Iterator_8hpp.html" title=" " alt="" coords="565,408,713,449"/>
-<area shape="rect" id="node13" title=" " alt="" coords="433,415,511,442"/>
-<area shape="rect" id="node7" href="$Type_8hpp.html" title=" " alt="" coords="747,497,906,524"/>
-<area shape="rect" id="node12" title=" " alt="" coords="601,497,676,524"/>
-<area shape="rect" id="node8" title=" " alt="" coords="657,572,737,599"/>
-<area shape="rect" id="node9" title=" " alt="" coords="761,572,812,599"/>
-<area shape="rect" id="node10" title=" " alt="" coords="836,572,895,599"/>
-<area shape="rect" id="node11" title=" " alt="" coords="919,572,982,599"/>
-<area shape="rect" id="node15" href="$ViewIterator_8hpp.html" title=" " alt="" coords="565,244,713,285"/>
-<area shape="rect" id="node17" title=" " alt="" coords="747,251,832,278"/>
+<area shape="rect" id="node4" href="$View_8hpp.html" title=" " alt="" coords="385,244,580,271"/>
+<area shape="rect" id="node5" href="$NdArray_8hpp.html" title=" " alt="" coords="524,319,703,345"/>
+<area shape="rect" id="node6" href="$Iterator_8hpp.html" title=" " alt="" coords="539,393,687,435"/>
+<area shape="rect" id="node14" title=" " alt="" coords="712,401,789,427"/>
+<area shape="rect" id="node7" href="$MemoryIndexer_8hpp.html" title=" " alt="" coords="536,483,691,524"/>
+<area shape="rect" id="node13" title=" " alt="" coords="715,490,789,517"/>
+<area shape="rect" id="node8" href="$Type_8hpp.html" title=" " alt="" coords="641,572,799,599"/>
+<area shape="rect" id="node9" title=" " alt="" coords="552,647,632,673"/>
+<area shape="rect" id="node10" title=" " alt="" coords="656,647,707,673"/>
+<area shape="rect" id="node11" title=" " alt="" coords="731,647,789,673"/>
+<area shape="rect" id="node12" title=" " alt="" coords="814,647,877,673"/>
+<area shape="rect" id="node17" title=" " alt="" coords="645,244,731,271"/>
 </map>
