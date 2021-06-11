@@ -29,13 +29,12 @@ namespace NumC
                 virtual ~View() {};
 
                 /**
-                 * @brief Gets the corresponding memory block/ data array index
-                 * for this index.
+                 * @brief Gets the memory indexer to calculate data array index
+                 * for the view.
                  *
-                 * @param index Index for an element of this view.
-                 * @return Data array index.
+                 * @return Pointer to the memory indexer instance.
                  */
-                virtual const size_t get_memory_index(const size_t index) const = 0;
+                virtual const MemoryIndexer* get_memory_indexer() const = 0;
 
                 /**
                  * @brief Gets the nd array reference.
@@ -90,7 +89,8 @@ namespace NumC
                         // throw error
                     }
 
-                    return this->_arr->get(this->get_memory_index(index));
+                    return this->_arr->get(
+                        this->get_memory_indexer()->operator()(index));
                 }
 
                 /**
@@ -106,7 +106,8 @@ namespace NumC
                         // throw error
                     }
 
-                    this->_arr->set(this->get_memory_index(index), value);
+                    this->_arr->set(
+                        this->get_memory_indexer()->operator()(index), value);
                 }
 
             protected:

@@ -135,6 +135,10 @@ namespace NumC
                         this->_arr =
                             dynamic_cast<View<dtype>*>(array)->get_arr();
                     }
+
+                    // Creating a new ReshapedViewIndexer and using that to
+                    // populate.
+                    this->_memory_indexer = ReshapedViewIndexer(this);
                 }
 
                 /**
@@ -148,11 +152,12 @@ namespace NumC
                  *
                  * Overridden function.
                  */
-                Iterator<dtype> begin()
+                Iterator<dtype> begin() override
                 {
                     return Iterator<dtype>(
-                        this->_arr->data() + this->get_memory_index(0),
-                        this->_nunits);
+                        this->_arr->data() + this->_memory_indexer(0),
+                        this->_nunits,
+                        &(this->_memory_indexer));
                 }
 
                 /**
@@ -160,36 +165,74 @@ namespace NumC
                  *
                  * Overridden function.
                  */
-                Iterator<dtype> end()
+                Iterator<dtype> end() override
                 {
                     return Iterator<dtype>(
                         this->_arr->data() +
-                        this->get_memory_index(this->_nunits));
+                        this->_memory_indexer(this->_nunits));
                 }
 
                 /**
-                 * @copydoc View::get_memory_index()
+                 * @copydoc View::get_memory_indexer()
                  *
                  * Overridden function.
-                 *
-                 * @note Since slicing or other views are not allowed for
-                 * reshape, the number of units are same for the reshaped view
-                 * and the container.
-                 * Therefor the index can be directly interpreted as the memory
-                 * container index.
-                 * Calculations will need to be done if we are to support
-                 * reshape of other views.
                  */
-                const size_t get_memory_index(const size_t index) const override
+                const MemoryIndexer* get_memory_indexer() const override
                 {
-                    if (index < 0 || index > this->_nunits)
-                    {
-                        std::cout << "ERROR - reshape - 7" << std::endl;
-                        // throw error.
-                    }
-
-                    return index;
+                    return &(this->_memory_indexer);
                 }
+
+            private:
+
+                /**
+                 * @brief Indexer class to calculate memory index for reshaped
+                 * views. This class is accessible only to ReshapedView.
+                 */
+                class ReshapedViewIndexer : public MemoryIndexer
+                {
+                    public:
+
+                        /// @brief Default ReshapedViewIndexer constructor.
+                        ReshapedViewIndexer() = default;
+
+                        /**
+                         * @brief Construct a new Reshaped View Indexer object
+                         * by calling the memory indexer constructor
+                         * using current array/view.
+                         *
+                         * @param view Pointer to the reshaped view.
+                         */
+                        ReshapedViewIndexer(const ReshapedView* view) :
+                            MemoryIndexer(
+                                view->shape(),
+                                view->strides(),
+                                view->_arr->strides(),
+                                view->indices()) {}
+
+                        /// @brief Default ReshapedViewIndexer destructor.
+                        ~ReshapedViewIndexer() = default;
+
+                        /**
+                         * @copydoc MemoryIndexer::operator()()
+                         *
+                         * Overridden function.
+                         *
+                         * @note Since slicing or other views are not allowed
+                         * for reshape, the number of units are same for the
+                         * reshaped view and the container.
+                         * Therefor the index can be directly interpreted as the
+                         * memory container index.
+                         * Calculations will need to be done if we are to
+                         * support reshape of other views.
+                         */
+                        size_t operator()(const size_t index) const override
+                        {
+                            return index;
+                        }
+                };
+
+                /// @brief Reshaped view indexer instance.
+                ReshapedViewIndexer _memory_indexer;
         };
     }
 }

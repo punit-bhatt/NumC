@@ -291,7 +291,7 @@ namespace NumC
                  *
                  * @return Iterator pointing to the start.
                  */
-                Iterator<dtype> begin()
+                virtual Iterator<dtype> begin()
                 {
                     return Iterator<dtype>(this->__data.get(), this->_nunits);
                 }
@@ -301,7 +301,7 @@ namespace NumC
                  *
                  * @return Iterator pointing to the end.
                  */
-                Iterator<dtype> end()
+                virtual Iterator<dtype> end()
                 {
                     return Iterator<dtype>(this->__data.get() + this->_nunits);
                 }
