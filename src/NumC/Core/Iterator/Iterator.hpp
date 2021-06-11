@@ -2,7 +2,7 @@
 
 #define ITERATOR NumC::Core::Iterator
 
-#include <NumC/Core/Type.hpp>
+#include <NumC/Core/Iterator/MemoryIndexer.hpp>
 
 #include <numeric>
 
@@ -32,8 +32,14 @@ namespace NumC
                  *
                  * @param ptr Pointer to the array data.
                  * @param nunits Total number of elements in the array.
+                 * Defaults to 0.
+                 * @param memory_indexer Pointer to array/view memory indexer.
+                 * Defaults to null pointer.
                  */
-                Iterator(dtype_ptr ptr, size_t nunits = 0)
+                Iterator(
+                    dtype_ptr ptr,
+                    size_t nunits = 0,
+                    MemoryIndexer* memory_indexer = nullptr)
                 {
                     if (ptr == nullptr)
                     {
@@ -51,6 +57,17 @@ namespace NumC
                     this->_index = 0;
                     this->_ptr = ptr;
                     this->_nunits = nunits;
+                    this->__memory_indexer = memory_indexer;
+
+                    if (memory_indexer != nullptr)
+                    {
+                        this->__arr_index =
+                            this->__memory_indexer->operator()(this->_index);
+                    }
+                    else
+                    {
+                        this->__arr_index = this->_index;
+                    }
                 }
 
                 /// @brief Default copy constructor.
@@ -71,6 +88,9 @@ namespace NumC
 
                 /**
                  * @brief Prefixed increment operator.
+                 *
+                 * @note In case of null indexer, the data pointer is simply
+                 * incremented by 1.
                  */
                 void operator++()
                 {
@@ -82,7 +102,19 @@ namespace NumC
                     }
 
                     ++(this->_index);
-                    ++(this->_ptr);
+
+                    if (this->__memory_indexer == nullptr)
+                    {
+                        this->__arr_index = this->_index;
+                        ++(this->_ptr);
+
+                        return;
+                    }
+
+                    auto next_arr_index =
+                        this->__memory_indexer->operator()(this->_index);
+                    this->_ptr += (next_arr_index - this->__arr_index);
+                    this->__arr_index = next_arr_index;
                 }
 
                 /**
@@ -100,6 +132,9 @@ namespace NumC
 
                 /**
                  * @brief Prefixed decrement operator.
+                 *
+                 * @note In case of null indexer, the data pointer is simply
+                 * decremented by 1.
                  */
                 void operator--()
                 {
@@ -110,7 +145,19 @@ namespace NumC
                     }
 
                     --(this->_index);
-                    --(this->_ptr);
+
+                    if (this->__memory_indexer == nullptr)
+                    {
+                        this->__arr_index = this->_index;
+                        --(this->_ptr);
+
+                        return;
+                    }
+
+                    auto prev_arr_index =
+                        this->__memory_indexer->operator()(this->_index);
+                    this->_ptr -= (this->__arr_index - prev_arr_index);
+                    this->__arr_index = prev_arr_index;
                 }
 
                 /**
@@ -162,6 +209,14 @@ namespace NumC
 
                 /// @brief Current array/view index being pointed to.
                 size_t _index;
+
+            private:
+
+                /// @brief Current array index being pointed to.
+                size_t __arr_index;
+
+                /// @brief Pointer to the array/view memory indexer.
+                MemoryIndexer* __memory_indexer;
         };
     }
 }
