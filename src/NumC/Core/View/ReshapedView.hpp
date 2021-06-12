@@ -148,36 +148,21 @@ namespace NumC
                 ~ReshapedView() = default;
 
                 /**
-                 * @copydoc NdArray::begin()
+                 * @copydoc View::memory_indexer()
                  *
                  * Overridden function.
                  */
-                Iterator<dtype> begin() override
+                MemoryIndexer* const memory_indexer() override
                 {
-                    return Iterator<dtype>(
-                        this->_arr->data() + this->_memory_indexer(0),
-                        this->_nunits,
-                        &(this->_memory_indexer));
+                    return &(this->_memory_indexer);
                 }
 
                 /**
-                 * @copydoc NdArray::end()
+                 * @copydoc View::cmemory_indexer()
                  *
                  * Overridden function.
                  */
-                Iterator<dtype> end() override
-                {
-                    return Iterator<dtype>(
-                        this->_arr->data() +
-                        this->_memory_indexer(this->_nunits));
-                }
-
-                /**
-                 * @copydoc View::get_memory_indexer()
-                 *
-                 * Overridden function.
-                 */
-                const MemoryIndexer* get_memory_indexer() const override
+                const MemoryIndexer* cmemory_indexer() const override
                 {
                     return &(this->_memory_indexer);
                 }

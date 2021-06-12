@@ -34,7 +34,15 @@ namespace NumC
                  *
                  * @return Pointer to the memory indexer instance.
                  */
-                virtual const MemoryIndexer* get_memory_indexer() const = 0;
+                virtual MemoryIndexer* const memory_indexer() = 0;
+
+                /**
+                 * @brief Gets the memory indexer to calculate data array index
+                 * for the view.
+                 *
+                 * @return Constant pointer to the memory indexer instance.
+                 */
+                virtual const MemoryIndexer* cmemory_indexer() const = 0;
 
                 /**
                  * @brief Gets the nd array reference.
@@ -90,7 +98,7 @@ namespace NumC
                     }
 
                     return this->_arr->get(
-                        this->get_memory_indexer()->operator()(index));
+                        this->cmemory_indexer()->operator()(index));
                 }
 
                 /**
@@ -107,7 +115,33 @@ namespace NumC
                     }
 
                     this->_arr->set(
-                        this->get_memory_indexer()->operator()(index), value);
+                        this->memory_indexer()->operator()(index), value);
+                }
+
+                /**
+                 * @copydoc NdArray::begin()
+                 *
+                 * Overridden function.
+                 */
+                Iterator<dtype> begin() override
+                {
+                    return Iterator<dtype>(
+                        this->_arr->data() +
+                        this->memory_indexer()->operator()(0),
+                        this->_nunits,
+                        this->memory_indexer());
+                }
+
+                /**
+                 * @copydoc NdArray::end()
+                 *
+                 * Overridden function.
+                 */
+                Iterator<dtype> end() override
+                {
+                    return Iterator<dtype>(
+                        this->_arr->data() +
+                        this->memory_indexer()->operator()(this->_nunits));
                 }
 
             protected:
