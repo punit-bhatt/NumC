@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-project(example1)
+project(EXAMPLE)
 
-set(EXAMPLE_FILE "example1.cpp")
+set(NUMC_BIN_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../bin)
+set(NUMC_LIB_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../lib)
 
-# build the library
-add_executable(${PROJECT_NAME} ${EXAMPLE_FILE})
+add_executable(${PROJECT_NAME} "example1.cpp")
 
-target_include_directories(${PROJECT_NAME} PRIVATE ../src/)
+target_include_directories(${PROJECT_NAME} PRIVATE ${NUMC_LIB_PATH})
 
-install (TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/../bin/)
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${NUMC_BIN_PATH})
