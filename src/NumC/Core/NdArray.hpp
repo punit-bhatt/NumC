@@ -471,8 +471,17 @@ namespace NumC
                         this->__data.get()[i] = *it;
                 }
 
+                /**
+                 * @brief Internal helper method to perform basic validations
+                 * for array arithmetic.
+                 *
+                 * @tparam rhsType RHS array element type. Allows operation on
+                 * arrays of 2 different types.
+                 * @param rhs Rhs array reference.
+                 */
                 template<typename rhsType>
-                void __validate_array_operation(const NdArray<rhsType>& rhs) const
+                void
+                __validate_array_operation(const NdArray<rhsType>& rhs) const
                 {
                     auto lhs_shape = this->shape();
                     auto rhs_shape = rhs.shape();
