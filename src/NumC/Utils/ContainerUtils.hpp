@@ -136,30 +136,18 @@ namespace NumC
         }
 
         /**
-         * @brief Transposes the array to default reverse order axes.
-         *
-         * @tparam T Array element data type.
-         * @param array Reference to the array object.
-         *
-         * @return Transposed view of the array/view.
-         */
-        template<typename T>
-        TRANSPOSED_VIEW<T> transpose(ND_ARRAY<T>& array)
-        {
-            return TRANSPOSED_VIEW<T>(&array);
-        }
-
-        /**
          * @brief Transposes the array.
          *
          * @tparam T Array element data type.
          * @param array Reference to the array object.
-         * @param axes The axes order to transpose to.
+         * @param axes The axes order to transpose to. Defaults to an empty size
+         * list indicating reversal of axes.
          *
          * @return Transposed view of the array/view.
          */
         template<typename T>
-        TRANSPOSED_VIEW<T> transpose(ND_ARRAY<T>& array, size_t_v& axes)
+        TRANSPOSED_VIEW<T>
+        transpose(ND_ARRAY<T>& array, size_t_v& axes = size_t_v())
         {
             return TRANSPOSED_VIEW<T>(&array, axes);
         }
