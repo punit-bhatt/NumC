@@ -327,13 +327,13 @@ namespace NumC
                  *
                  * @warning Broadcasting is not supported yet.
                  *
-                 * @tparam rhsType RHS array element type. Allows operation on
+                 * @tparam rhs_t RHS array element type. Allows operation on
                  * arrays of 2 different types.
                  * @param rhs Rhs array reference.
                  * @return New array containing the result.
                  */
-                template<typename rhsType>
-                NdArray<dtype> operator+(const NdArray<rhsType>& rhs) const
+                template<typename rhs_t>
+                NdArray<dtype> operator+(const NdArray<rhs_t>& rhs) const
                 {
                     this->__validate_array_operation(rhs);
 
@@ -355,13 +355,13 @@ namespace NumC
                  *
                  * @warning Broadcasting is not supported yet.
                  *
-                 * @tparam rhsType RHS array element type. Allows operation on
+                 * @tparam rhs_t RHS array element type. Allows operation on
                  * arrays of 2 different types.
                  * @param rhs Rhs array reference.
                  * @return New array containing the result.
                  */
-                template<typename rhsType>
-                NdArray<dtype> operator-(const NdArray<rhsType>& rhs) const
+                template<typename rhs_t>
+                NdArray<dtype> operator-(const NdArray<rhs_t>& rhs) const
                 {
                     this->__validate_array_operation(rhs);
 
@@ -383,13 +383,13 @@ namespace NumC
                  *
                  * @warning Broadcasting is not supported yet.
                  *
-                 * @tparam rhsType RHS array element type. Allows operation on
+                 * @tparam rhs_t RHS array element type. Allows operation on
                  * arrays of 2 different types.
                  * @param rhs Rhs array reference.
                  * @return New array containing the result.
                  */
-                template<typename rhsType>
-                NdArray<dtype> operator*(const NdArray<rhsType>& rhs) const
+                template<typename rhs_t>
+                NdArray<dtype> operator*(const NdArray<rhs_t>& rhs) const
                 {
                     this->__validate_array_operation(rhs);
 
@@ -413,13 +413,13 @@ namespace NumC
                  *
                  * @warning Broadcasting is not supported yet.
                  *
-                 * @tparam rhsType RHS array element type. Allows operation on
+                 * @tparam rhs_t RHS array element type. Allows operation on
                  * arrays of 2 different types.
                  * @param rhs Rhs array reference.
                  * @return New array containing the result.
                  */
-                template<typename rhsType>
-                NdArray<dtype> operator/(const NdArray<rhsType>& rhs) const
+                template<typename rhs_t>
+                NdArray<dtype> operator/(const NdArray<rhs_t>& rhs) const
                 {
                     this->__validate_array_operation(rhs);
 
@@ -475,13 +475,13 @@ namespace NumC
                  * @brief Internal helper method to perform basic validations
                  * for array arithmetic.
                  *
-                 * @tparam rhsType RHS array element type. Allows operation on
+                 * @tparam rhs_t RHS array element type. Allows operation on
                  * arrays of 2 different types.
                  * @param rhs Rhs array reference.
                  */
-                template<typename rhsType>
+                template<typename rhs_t>
                 void
-                __validate_array_operation(const NdArray<rhsType>& rhs) const
+                __validate_array_operation(const NdArray<rhs_t>& rhs) const
                 {
                     auto lhs_shape = this->shape();
                     auto rhs_shape = rhs.shape();
