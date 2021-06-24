@@ -81,9 +81,6 @@ $(function() {
 <li>__memory_indexer
 : <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a1ec0591cebdfc738a40c2ed8dc41f9bf">NumC::Core::Iterator&lt; T &gt;</a>
 </li>
-<li>__validate_array_operation()
-: <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a44a4f09bd7b3b68a5da134e4b9c64672">NumC::Core::NdArray&lt; T &gt;</a>
-</li>
 <li>_arr
 : <a class="el" href="classNumC_1_1Core_1_1View.html#aaf1395d9abaa8985ceeed673f2f7702f">NumC::Core::View&lt; T &gt;</a>
 </li>
@@ -126,6 +123,9 @@ $(function() {
 <li>begin()
 : <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a691592e11caa4315f6848ae4ff4470af">NumC::Core::NdArray&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1View.html#af5c86f82be4eb38c4ea65a782f7830e0">NumC::Core::View&lt; T &gt;</a>
+</li>
+<li>broadcast()
+: <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a01ee90cb66b95d6f0844610d90ba58e4">NumC::Core::NdArray&lt; T &gt;</a>
 </li>
 </ul>
 
@@ -209,7 +209,7 @@ $(function() {
 : <a class="el" href="classNumC_1_1Core_1_1NdArray.html#ab651e734056e3e3934de6f7b8bd73935">NumC::Core::NdArray&lt; T &gt;</a>
 </li>
 <li>Iterator()
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a755953cbd490b266a8134a91afb8a2a1">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#ab25ad09f4363d9876792c275015843c1">NumC::Core::Iterator&lt; T &gt;</a>
 </li>
 </ul>
 
@@ -258,7 +258,7 @@ $(function() {
 : <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a9cc470fbfe98bf02a56bd8950602934d">NumC::Core::NdArray&lt; T &gt;</a>
 </li>
 <li>operator--()
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#ab47dea6e727ecb8d748f83590b758be6">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a71cda93e0b50eca67fd8a912deeb68f8">NumC::Core::Iterator&lt; T &gt;</a>
 </li>
 <li>operator/()
 : <a class="el" href="classNumC_1_1Core_1_1NdArray.html#ac5385dd3d8227a82bff4783af476b718">NumC::Core::NdArray&lt; T &gt;</a>
@@ -278,7 +278,7 @@ $(function() {
 : <a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a508a9f794ee5e1ce896ccf33ae84d0bb">NumC::Core::ReshapedView&lt; T &gt;</a>
 </li>
 <li>ReshapedViewIndexer()
-: <a class="el" href="classNumC_1_1Core_1_1ReshapedView_1_1ReshapedViewIndexer.html#a1b27150cc4722186d38dcd5ec953b455">NumC::Core::ReshapedView&lt; T &gt;::ReshapedViewIndexer</a>
+: <a class="el" href="classNumC_1_1Core_1_1ReshapedView_1_1ReshapedViewIndexer.html#a30ca5470b8f0ab91fda327e4768eb492">NumC::Core::ReshapedView&lt; T &gt;::ReshapedViewIndexer</a>
 </li>
 </ul>
 
@@ -296,7 +296,7 @@ $(function() {
 : <a class="el" href="classNumC_1_1Core_1_1SlicedView.html#abab13773b148634ddc020733314a6a89">NumC::Core::SlicedView&lt; T &gt;</a>
 </li>
 <li>SlicedViewIndexer()
-: <a class="el" href="classNumC_1_1Core_1_1SlicedView_1_1SlicedViewIndexer.html#a99a859a6d27723e1b0f695cfa95c71e2">NumC::Core::SlicedView&lt; T &gt;::SlicedViewIndexer</a>
+: <a class="el" href="classNumC_1_1Core_1_1SlicedView_1_1SlicedViewIndexer.html#a87baaa3794623ede2fd308128c1cdde9">NumC::Core::SlicedView&lt; T &gt;::SlicedViewIndexer</a>
 </li>
 <li>strides()
 : <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a4957b70b484f38ab4fd6bc8b451c1357">NumC::Core::NdArray&lt; T &gt;</a>
@@ -310,7 +310,14 @@ $(function() {
 : <a class="el" href="classNumC_1_1Core_1_1TransposedView.html#aa1179151b2c8442266d724858dc049f1">NumC::Core::TransposedView&lt; T &gt;</a>
 </li>
 <li>TransposedViewIndexer()
-: <a class="el" href="classNumC_1_1Core_1_1TransposedView_1_1TransposedViewIndexer.html#a7e6007500987295d9b58eb681d37f688">NumC::Core::TransposedView&lt; T &gt;::TransposedViewIndexer</a>
+: <a class="el" href="classNumC_1_1Core_1_1TransposedView_1_1TransposedViewIndexer.html#a48839fdd28fb12c6d0ae1b75fc0af21e">NumC::Core::TransposedView&lt; T &gt;::TransposedViewIndexer</a>
+</li>
+</ul>
+
+
+<h3><a id="index_v"></a>- v -</h3><ul>
+<li>validate_broadcast()
+: <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3b8970816241b2bbcac923b2ccfa13e9">NumC::Core::NdArray&lt; T &gt;</a>
 </li>
 </ul>
 

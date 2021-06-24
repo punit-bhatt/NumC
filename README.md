@@ -36,7 +36,7 @@
     }
     ```
 
-- ### <u>Array Arithmetic</u>
+- ### <u>Array Basic Operations</u>
     ```c++
     auto arr1 = ND_ARRAY<nc::float32>({0, 1, 2, 3, 4});
     auto arr2 = ND_ARRAY<nc::int32>({5, 6, 7, 8, 9});
@@ -44,6 +44,20 @@
     auto arr4 = ND_ARRAY<nc::float64>({100, 100, 100, 100, 100});
 
     auto res1 = (arr1 + arr2 - arr3) * arr3 / arr4;
+    ```
+
+- ### <u>Array Broadcasted Operations</u>
+    ```c++
+    // Shape - (3, 1, 2)
+    auto arr1 = ND_ARRAY<nc::float32>({{{1, 2}}, {{3, 4}}, {{5, 6}}});
+
+    // Shape - (3, 2)
+    auto arr2 = ND_ARRAY<nc::int32>({{1, 2} , {3, 4}, {5, 6}});
+
+    // Shape - (2)
+    auto arr3 = ND_ARRAY<nc::int32>({10, 20});
+
+    auto bd_arr = arr3 - (arr1 + arr2);
     ```
 
 - ### <u>Array Slicing</u>

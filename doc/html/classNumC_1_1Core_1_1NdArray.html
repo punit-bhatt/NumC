@@ -71,6 +71,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classNumC_1_1Core_1_1NdArray-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -199,10 +200,16 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a75d813f75c5c557d34e6e54615679fdc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a75d813f75c5c557d34e6e54615679fdc">__copy_data</a> (<a class="el" href="classNumC_1_1Core_1_1NdArray.html#a93616766876d1e16fc7835835ab87a48">init_1d</a> list, <a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a> start=0)</td></tr>
 <tr class="memdesc:a75d813f75c5c557d34e6e54615679fdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal helper method to copy data from 1D initializer list to the data array.  <a href="classNumC_1_1Core_1_1NdArray.html#a75d813f75c5c557d34e6e54615679fdc">More...</a><br /></td></tr>
 <tr class="separator:a75d813f75c5c557d34e6e54615679fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44a4f09bd7b3b68a5da134e4b9c64672"><td class="memTemplParams" colspan="2">template&lt;typename rhs_t &gt; </td></tr>
-<tr class="memitem:a44a4f09bd7b3b68a5da134e4b9c64672"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a44a4f09bd7b3b68a5da134e4b9c64672">__validate_array_operation</a> (const <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NdArray</a>&lt; rhs_t &gt; &amp;rhs) const</td></tr>
-<tr class="memdesc:a44a4f09bd7b3b68a5da134e4b9c64672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal helper method to perform basic validations for array arithmetic.  <a href="classNumC_1_1Core_1_1NdArray.html#a44a4f09bd7b3b68a5da134e4b9c64672">More...</a><br /></td></tr>
-<tr class="separator:a44a4f09bd7b3b68a5da134e4b9c64672"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a3b8970816241b2bbcac923b2ccfa13e9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="namespaceNumC.html#aeab21d471debe10045ae35500f987f70">shape_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3b8970816241b2bbcac923b2ccfa13e9">validate_broadcast</a> (const <a class="el" href="namespaceNumC.html#aeab21d471debe10045ae35500f987f70">shape_t</a> &amp;lhs, const <a class="el" href="namespaceNumC.html#aeab21d471debe10045ae35500f987f70">shape_t</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a3b8970816241b2bbcac923b2ccfa13e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static method validating if broadcasting would be possible for the given array shapes.  <a href="classNumC_1_1Core_1_1NdArray.html#a3b8970816241b2bbcac923b2ccfa13e9">More...</a><br /></td></tr>
+<tr class="separator:a3b8970816241b2bbcac923b2ccfa13e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01ee90cb66b95d6f0844610d90ba58e4"><td class="memTemplParams" colspan="2">template&lt;typename lhs_t , typename rhs_t , typename res_t &gt; </td></tr>
+<tr class="memitem:a01ee90cb66b95d6f0844610d90ba58e4"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NdArray</a>&lt; res_t &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a01ee90cb66b95d6f0844610d90ba58e4">broadcast</a> (const <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NdArray</a>&lt; lhs_t &gt; &amp;lhs, const <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NdArray</a>&lt; rhs_t &gt; &amp;rhs, std::function&lt; res_t(lhs_t, rhs_t)&gt; &amp;element_op)</td></tr>
+<tr class="memdesc:a01ee90cb66b95d6f0844610d90ba58e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static helper method that performs an element level operation on two arrays that need not have the same shape.  <a href="classNumC_1_1Core_1_1NdArray.html#a01ee90cb66b95d6f0844610d90ba58e4">More...</a><br /></td></tr>
+<tr class="separator:a01ee90cb66b95d6f0844610d90ba58e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -603,50 +610,6 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a44a4f09bd7b3b68a5da134e4b9c64672"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44a4f09bd7b3b68a5da134e4b9c64672">&#9670;&nbsp;</a></span>__validate_array_operation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<div class="memtemplate">
-template&lt;typename rhs_t &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NumC::Core::NdArray</a>&lt; T &gt;::__validate_array_operation </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NdArray</a>&lt; rhs_t &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Internal helper method to perform basic validations for array arithmetic. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">rhs_t</td><td>RHS array element type. Allows operation on arrays of 2 different types. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rhs</td><td>Rhs array reference. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a691592e11caa4315f6848ae4ff4470af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a691592e11caa4315f6848ae4ff4470af">&#9670;&nbsp;</a></span>begin()</h2>
 
@@ -676,6 +639,83 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classNumC_1_1Core_1_1Iterator.html" title="Iterator for any array.">Iterator</a> pointing to the start. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classNumC_1_1Core_1_1View.html#af5c86f82be4eb38c4ea65a782f7830e0">NumC::Core::View&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a01ee90cb66b95d6f0844610d90ba58e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01ee90cb66b95d6f0844610d90ba58e4">&#9670;&nbsp;</a></span>broadcast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;typename lhs_t , typename rhs_t , typename res_t &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NdArray</a>&lt;res_t&gt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NumC::Core::NdArray</a>&lt; T &gt;::broadcast </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NdArray</a>&lt; lhs_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NdArray</a>&lt; rhs_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; res_t(lhs_t, rhs_t)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>element_op</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Static helper method that performs an element level operation on two arrays that need not have the same shape. </p>
+<dl class="section note"><dt>Note</dt><dd>This is done by broadcasting the shape such that the resultant shape contains max(lhs_dims, rhs_dims) and where the ith shape value is max(lhs_dims[i], rhs_dims[i]).  
+In case of a valid configuration, either lhs_dims[i] ==
+rhs_dims[i] or one of the two is 1. A right-based comparison
+is done. <br>Example, A(2, 1, 3) and B(2, 3). Then B is
+inlined towards the right.
+<br>(2, 1, 3)
+<br>(_, 2, 3)
+<br>Thus, a valid configuration and the resultant shape would
+be (2, 2, 3).
+</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Scalar broadcasting yet to be implemented.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">lhs_t</td><td>LHS array element type. </td></tr>
+    <tr><td class="paramname">rhs_t</td><td>RHS array element type. </td></tr>
+    <tr><td class="paramname">res_t</td><td>Returned array element type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>Reference to the LHS array. </td></tr>
+    <tr><td class="paramname">rhs</td><td>Reference to the RHS array. </td></tr>
+    <tr><td class="paramname">element_op</td><td>Reference to the operation function to be performed between elements of the 2 arrays. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>New array of the broadcasted shape containing the result. </dd></dl>
+<p>Internal helper lambda that's not generic enough to be exposed. Helps recursively go through each element in a broadcasted method and perform the required operation.</p>
 
 </div>
 </div>
@@ -842,7 +882,6 @@ template&lt;typename rhs_t &gt; </div>
 </div><div class="memdoc">
 
 <p>Element-wise multiply operator overload. Performs the operation on 2 arrays if their shape is same and returns a new array containing the result. </p>
-<dl class="section warning"><dt>Warning</dt><dd>Broadcasting is not supported yet.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">rhs_t</td><td>RHS array element type. Allows operation on arrays of 2 different types. </td></tr>
@@ -888,7 +927,6 @@ template&lt;typename rhs_t &gt; </div>
 </div><div class="memdoc">
 
 <p>Element-wise add operator overload. Performs the operation on 2 arrays if their shape is same and returns a new array containing the result. </p>
-<dl class="section warning"><dt>Warning</dt><dd>Broadcasting is not supported yet.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">rhs_t</td><td>RHS array element type. Allows operation on arrays of 2 different types. </td></tr>
@@ -934,7 +972,6 @@ template&lt;typename rhs_t &gt; </div>
 </div><div class="memdoc">
 
 <p>Element-wise subtract operator overload. Performs the operation on 2 arrays if their shape is same and returns a new array containing the result. </p>
-<dl class="section warning"><dt>Warning</dt><dd>Broadcasting is not supported yet.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">rhs_t</td><td>RHS array element type. Allows operation on arrays of 2 different types. </td></tr>
@@ -981,7 +1018,6 @@ template&lt;typename rhs_t &gt; </div>
 
 <p>Element-wise division operator overload. Performs the operation on 2 arrays if their shape is same and returns a new array containing the result. </p>
 <dl class="section note"><dt>Note</dt><dd>A 0 element divisor results in +- inf.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Broadcasting is not supported yet.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">rhs_t</td><td>RHS array element type. Allows operation on arrays of 2 different types. </td></tr>
@@ -1139,6 +1175,55 @@ template&lt;typename T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>List of strides along each dimensions. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classNumC_1_1Core_1_1View.html#a9347704fd5bc212d961c4c322f5e2495">NumC::Core::View&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a3b8970816241b2bbcac923b2ccfa13e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b8970816241b2bbcac923b2ccfa13e9">&#9670;&nbsp;</a></span>validate_broadcast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="namespaceNumC.html#aeab21d471debe10045ae35500f987f70">shape_t</a> <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NumC::Core::NdArray</a>&lt; T &gt;::validate_broadcast </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceNumC.html#aeab21d471debe10045ae35500f987f70">shape_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceNumC.html#aeab21d471debe10045ae35500f987f70">shape_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Static method validating if broadcasting would be possible for the given array shapes. </p>
+<dl class="section note"><dt>Note</dt><dd>Broadcasting rule (both vectors right-based) - In order to broadcast, the size of the trailing axes for both arrays in an operation must either be the same size or one of them must be one.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>Reference to the LHS array shape (considered the bigger one). </td></tr>
+    <tr><td class="paramname">rhs</td><td>Reference to the RHS array shape.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Resultant broadcasted array shape. </dd></dl>
 
 </div>
 </div>
