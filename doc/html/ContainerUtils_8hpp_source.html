@@ -77,127 +77,189 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="TransposedView_8hpp.html">NumC/Core/View/TransposedView.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="StringUtils_8hpp.html">NumC/Utils/StringUtils.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceNumC.html">NumC</a></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html">   10</a></span>&#160;    <span class="keyword">namespace </span>Utils</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ArrayType, <span class="keyword">typename</span> IteratorType&gt;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html#a03882a2d279d96630a931d76f5c2b597">   23</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="namespaceNumC_1_1Utils.html#a03882a2d279d96630a931d76f5c2b597">stringify_array</a>(</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            std::string&amp; output,</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            ArrayType&amp; array,</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            IteratorType&amp; iter,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordtype">int</span> axis)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            std::vector&lt;char&gt; unwanted_chars {<span class="charliteral">&#39;\n&#39;</span>, <span class="charliteral">&#39;\t&#39;</span>, <span class="charliteral">&#39; &#39;</span>, <span class="charliteral">&#39;,&#39;</span>};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">if</span> (array.shape().size() &lt;= axis)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                output += (<a class="code" href="namespaceNumC_1_1Utils.html#ac26ad8ea7357cb5b0baa682835adf308">std::to_string</a>(*iter) + <span class="stringliteral">&quot;, &quot;</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                ++iter;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordtype">int</span> i = output.length() - 1;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">while</span> (i &gt;=0 &amp;&amp;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                (output[i] == <span class="charliteral">&#39;,&#39;</span> || output[i] == <span class="charliteral">&#39; &#39;</span> ||</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                output[i] == <span class="charliteral">&#39;\n&#39;</span> || output[i] == <span class="charliteral">&#39;\t&#39;</span>))</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                --i;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">if</span> (i &gt; 0 &amp;&amp; output[i] == <span class="charliteral">&#39;]&#39;</span> &amp;&amp;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                output[i - 1] == <span class="charliteral">&#39;]&#39;</span>)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                output += <span class="stringliteral">&quot;\n\t&quot;</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                output += std::string(axis, <span class="charliteral">&#39; &#39;</span>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            output += <span class="charliteral">&#39;[&#39;</span>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceNumC.html">NumC</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html">   12</a></span>&#160;    <span class="keyword">namespace </span>Utils</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ArrayType, <span class="keyword">typename</span> IteratorType&gt;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html#a03882a2d279d96630a931d76f5c2b597">   25</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="namespaceNumC_1_1Utils.html#a03882a2d279d96630a931d76f5c2b597">stringify_array</a>(</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            std::string&amp; output,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            ArrayType&amp; array,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            IteratorType&amp; iter,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordtype">int</span> axis)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            std::vector&lt;char&gt; unwanted_chars {<span class="charliteral">&#39;\n&#39;</span>, <span class="charliteral">&#39;\t&#39;</span>, <span class="charliteral">&#39; &#39;</span>, <span class="charliteral">&#39;,&#39;</span>};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">if</span> (array.shape().size() &lt;= axis)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                output += (<a class="code" href="namespaceNumC_1_1Utils.html#ac26ad8ea7357cb5b0baa682835adf308">std::to_string</a>(*iter) + <span class="stringliteral">&quot;, &quot;</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                ++iter;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordtype">int</span> i = output.length() - 1;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">while</span> (i &gt;=0 &amp;&amp;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                (output[i] == <span class="charliteral">&#39;,&#39;</span> || output[i] == <span class="charliteral">&#39; &#39;</span> ||</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                output[i] == <span class="charliteral">&#39;\n&#39;</span> || output[i] == <span class="charliteral">&#39;\t&#39;</span>))</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                --i;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span> (i &gt; 0 &amp;&amp; output[i] == <span class="charliteral">&#39;]&#39;</span> &amp;&amp;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                output[i - 1] == <span class="charliteral">&#39;]&#39;</span>)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                output += <span class="stringliteral">&quot;\n\t&quot;</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                output += std::string(axis, <span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; array.shape()[axis]; ++i)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <a class="code" href="namespaceNumC_1_1Utils.html#a03882a2d279d96630a931d76f5c2b597">stringify_array</a>(output, array, iter, axis + 1);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <a class="code" href="namespaceNumC_1_1Utils.html#ad71497400d2d65194fb09cae46d84a33">rtrim</a>(output, unwanted_chars);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            output += <span class="charliteral">&#39;[&#39;</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; array.shape()[axis]; ++i)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                <a class="code" href="namespaceNumC_1_1Utils.html#a03882a2d279d96630a931d76f5c2b597">stringify_array</a>(output, array, iter, axis + 1);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            output += <span class="stringliteral">&quot;],&quot;</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <a class="code" href="namespaceNumC_1_1Utils.html#ad71497400d2d65194fb09cae46d84a33">rtrim</a>(output, unwanted_chars);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">if</span> (output[output.length() - 3] != <span class="charliteral">&#39;]&#39;</span>)</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                output += <span class="stringliteral">&quot;\n\t&quot;</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            output += std::string(axis, <span class="charliteral">&#39; &#39;</span>);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ArrayType&gt;</div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html#a1f477395504e4c4548300c5e4cc6fda4">   73</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="namespaceNumC_1_1Utils.html#a1f477395504e4c4548300c5e4cc6fda4">print_array</a>(ArrayType&amp; array)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keyword">auto</span> iter = array.begin();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordtype">int</span> axis = 0;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            std::vector&lt;char&gt; unwanted_chars {<span class="charliteral">&#39;\n&#39;</span>, <span class="charliteral">&#39;\t&#39;</span>, <span class="charliteral">&#39; &#39;</span>, <span class="charliteral">&#39;,&#39;</span>};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            output += <span class="stringliteral">&quot;],&quot;</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">if</span> (output[output.length() - 3] != <span class="charliteral">&#39;]&#39;</span>)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                output += <span class="stringliteral">&quot;\n\t&quot;</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            output += std::string(axis, <span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ArrayType&gt;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html#a1f477395504e4c4548300c5e4cc6fda4">   75</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="namespaceNumC_1_1Utils.html#a1f477395504e4c4548300c5e4cc6fda4">print_array</a>(ArrayType&amp; array)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keyword">auto</span> iter = array.begin();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordtype">int</span> axis = 0;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            std::string output = <span class="stringliteral">&quot;array(\n&quot;</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            std::vector&lt;char&gt; unwanted_chars {<span class="charliteral">&#39;\n&#39;</span>, <span class="charliteral">&#39;\t&#39;</span>, <span class="charliteral">&#39; &#39;</span>, <span class="charliteral">&#39;,&#39;</span>};</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="comment">// printing shape.</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            output += <span class="stringliteral">&quot;\tshape(&quot;</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            output += to_string&lt;size_t&gt;(array.shape());</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            output += <span class="stringliteral">&quot;),\n\n&quot;</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="comment">// printing indices.</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            output += <span class="stringliteral">&quot;\tindices(&quot;</span>;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            output += to_string&lt;size_t&gt;(array.indices());</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            output += <span class="stringliteral">&quot;),\n\n&quot;</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="comment">// printing shape.</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            output += <span class="stringliteral">&quot;\tstrides(&quot;</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            output += to_string&lt;size_t&gt;(array.strides());</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            output += <span class="stringliteral">&quot;),\n\n&quot;</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            output += <span class="stringliteral">&quot;\t[&quot;</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            std::string output = <span class="stringliteral">&quot;array(\n&quot;</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="comment">// printing shape.</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            output += <span class="stringliteral">&quot;\tshape(&quot;</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            output += to_string&lt;size_t&gt;(array.shape());</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            output += <span class="stringliteral">&quot;),\n\n&quot;</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="comment">// printing indices.</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            output += <span class="stringliteral">&quot;\tindices(&quot;</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            output += to_string&lt;size_t&gt;(array.indices());</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            output += <span class="stringliteral">&quot;),\n\n&quot;</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="comment">// printing shape.</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            output += <span class="stringliteral">&quot;\tstrides(&quot;</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            output += to_string&lt;size_t&gt;(array.strides());</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            output += <span class="stringliteral">&quot;),\n\n&quot;</span>;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; array.shape()[axis]; ++i)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <a class="code" href="namespaceNumC_1_1Utils.html#a03882a2d279d96630a931d76f5c2b597">stringify_array</a>(output, array, iter, axis + 1);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <a class="code" href="namespaceNumC_1_1Utils.html#ad71497400d2d65194fb09cae46d84a33">rtrim</a>(output, unwanted_chars);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            output += <span class="stringliteral">&quot;]\n)\n&quot;</span>;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            std::cout &lt;&lt; output;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html#ad881efa8802b6a71278203cc6816598a">  118</a></span>&#160;        SLICED_VIEW&lt;T&gt; <a class="code" href="namespaceNumC_1_1Utils.html#ad881efa8802b6a71278203cc6816598a">slice</a>(ND_ARRAY&lt;T&gt;&amp; array, <a class="code" href="namespaceNumC.html#a93856bab9be39b3b8859edb27f919efb">slices_t</a>&amp; slices)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">return</span> SLICED_VIEW&lt;T&gt;(&amp;array, slices);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        }</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html#a76d98a55809f73c086f9ec2e943d313b">  133</a></span>&#160;        RESHAPED_VIEW&lt;T&gt; <a class="code" href="namespaceNumC_1_1Utils.html#a76d98a55809f73c086f9ec2e943d313b">reshape</a>(ND_ARRAY&lt;T&gt;&amp; array, <a class="code" href="namespaceNumC.html#aeab21d471debe10045ae35500f987f70">shape_t</a>&amp; newShape)</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        {</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <span class="keywordflow">return</span> RESHAPED_VIEW&lt;T&gt;(&amp;array, newShape);</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        }</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        TRANSPOSED_VIEW&lt;T&gt;</div>
-<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html#a4c9be20e376190775810c9a4ffe036c8">  150</a></span>&#160;        <a class="code" href="namespaceNumC_1_1Utils.html#a4c9be20e376190775810c9a4ffe036c8">transpose</a>(ND_ARRAY&lt;T&gt;&amp; array, <a class="code" href="namespaceNumC.html#a4f3e4fde1b144f84d1bd9f6cd7ff25fa">size_t_v</a>&amp; axes = <a class="code" href="namespaceNumC.html#a4f3e4fde1b144f84d1bd9f6cd7ff25fa">size_t_v</a>())</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        {</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <span class="keywordflow">return</span> TRANSPOSED_VIEW&lt;T&gt;(&amp;array, axes);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        }</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;}</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            output += <span class="stringliteral">&quot;\t[&quot;</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; array.shape()[axis]; ++i)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <a class="code" href="namespaceNumC_1_1Utils.html#a03882a2d279d96630a931d76f5c2b597">stringify_array</a>(output, array, iter, axis + 1);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <a class="code" href="namespaceNumC_1_1Utils.html#ad71497400d2d65194fb09cae46d84a33">rtrim</a>(output, unwanted_chars);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            output += <span class="stringliteral">&quot;]\n)\n&quot;</span>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            std::cout &lt;&lt; output;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html#ad881efa8802b6a71278203cc6816598a">  120</a></span>&#160;        SLICED_VIEW&lt;T&gt; <a class="code" href="namespaceNumC_1_1Utils.html#ad881efa8802b6a71278203cc6816598a">slice</a>(ND_ARRAY&lt;T&gt;&amp; array, <a class="code" href="namespaceNumC.html#a93856bab9be39b3b8859edb27f919efb">slices_t</a>&amp; slices)</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="keywordflow">return</span> SLICED_VIEW&lt;T&gt;(&amp;array, slices);</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html#a76d98a55809f73c086f9ec2e943d313b">  135</a></span>&#160;        RESHAPED_VIEW&lt;T&gt; <a class="code" href="namespaceNumC_1_1Utils.html#a76d98a55809f73c086f9ec2e943d313b">reshape</a>(ND_ARRAY&lt;T&gt;&amp; array, <a class="code" href="namespaceNumC.html#aeab21d471debe10045ae35500f987f70">shape_t</a>&amp; newShape)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            <span class="keywordflow">return</span> RESHAPED_VIEW&lt;T&gt;(&amp;array, newShape);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        TRANSPOSED_VIEW&lt;T&gt;</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html#a235d58cbcd843aa0e017dc73aada7c18">  152</a></span>&#160;        <a class="code" href="namespaceNumC_1_1Utils.html#a235d58cbcd843aa0e017dc73aada7c18">transpose</a>(ND_ARRAY&lt;T&gt;&amp; array, <span class="keyword">const</span> <a class="code" href="namespaceNumC.html#a4f3e4fde1b144f84d1bd9f6cd7ff25fa">size_t_v</a>&amp; axes = <a class="code" href="namespaceNumC.html#a4f3e4fde1b144f84d1bd9f6cd7ff25fa">size_t_v</a>())</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            <span class="keywordflow">return</span> TRANSPOSED_VIEW&lt;T&gt;(&amp;array, axes);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="comment">// /**</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="comment">//  * @brief Validates whether broadcasting would be possible for the given</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="comment">//  * array shapes.</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="comment">//  *</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <span class="comment">//  * @note Broadcasting rule (both vectors right-based) - In order to</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="comment">//  * broadcast, the size of the trailing axes for both arrays in an</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        <span class="comment">//  * operation must either be the same size or one of them must be one.</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="comment">//  *</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="comment">//  * @param lhs Reference to the LHS array shape (considered the bigger</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="comment">//  * one).</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="comment">//  * @param rhs Reference to the RHS array shape.</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="comment">//  *</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="comment">//  * @return Resultant broadcasted array shape.</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="comment">//  */</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="comment">// shape_t validate_broadcast(const shape_t&amp; lhs, const shape_t&amp; rhs)</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="comment">// {</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="comment">//     // This ensures that LHS is always the bigger vector.</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="comment">//     if (lhs.size() &lt; rhs.size())</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="comment">//         return validate_broadcast(rhs, lhs);</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="comment">//     shape_t result_shape(lhs.size());</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="comment">//     size_t l = lhs.size();</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="comment">//     for (size_t r = rhs.size(); r &gt;= 0; --r, --l)</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <span class="comment">//     {</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="comment">//         if (rhs[r] != lhs[l] &amp;&amp; rhs[r] &gt; 1 &amp;&amp; lhs[l] &gt; 1)</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="comment">//         {</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="comment">//             std::cout &lt;&lt; &quot;ERROR - broadcast - 1&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="comment">//             // throw error.</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="comment">//         }</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="comment">//         result_shape[l] = std::max(rhs[r], lhs[l]);</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="comment">//     }</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="comment">//     while (l &gt;= 0)</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="comment">//         result_shape[l--] = lhs[l];</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <span class="comment">//     return result_shape;</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="comment">// }</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="comment">// template&lt;typename lhs_t, typename rhs_t, typename res_t&gt;</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="comment">// void</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="comment">// broadcast(</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="comment">//     ND_ARRAY&lt;lhs_t&gt;&amp; lhs,</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="comment">//     ND_ARRAY&lt;rhs_t&gt;&amp; rhs,</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="comment">//     ND_ARRAY&lt;res_t&gt;&amp; result,</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="comment">//     std::function&lt;res_t(lhs_t, rhs_t)&gt;&amp; element_op)</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="comment">// {</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="comment">//     auto result_shape = validate_broadcast(lhs.shape(), rhs.shape());</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="comment">//     if (result_shape != result.shape())</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="comment">//     {</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="comment">//         std::cout &lt;&lt; &quot;ERROR - broadcast - 2&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="comment">//         // throw error.</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="comment">//     }</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="comment">// }</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    }</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespaceNumC_1_1Utils_html_ac26ad8ea7357cb5b0baa682835adf308"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#ac26ad8ea7357cb5b0baa682835adf308">NumC::Utils::to_string</a></div><div class="ttdeci">static std::string to_string(const T *ptr, size_t len)</div><div class="ttdoc">Utility function to stringify array.</div><div class="ttdef"><b>Definition:</b> StringUtils.hpp:20</div></div>
 <div class="ttc" id="aStringUtils_8hpp_html"><div class="ttname"><a href="StringUtils_8hpp.html">StringUtils.hpp</a></div></div>
-<div class="ttc" id="anamespaceNumC_1_1Utils_html_ad881efa8802b6a71278203cc6816598a"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#ad881efa8802b6a71278203cc6816598a">NumC::Utils::slice</a></div><div class="ttdeci">SLICED_VIEW&lt; T &gt; slice(ND_ARRAY&lt; T &gt; &amp;array, slices_t &amp;slices)</div><div class="ttdoc">Slices the required indices off of an array.</div><div class="ttdef"><b>Definition:</b> ContainerUtils.hpp:118</div></div>
-<div class="ttc" id="anamespaceNumC_1_1Utils_html_a4c9be20e376190775810c9a4ffe036c8"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#a4c9be20e376190775810c9a4ffe036c8">NumC::Utils::transpose</a></div><div class="ttdeci">TRANSPOSED_VIEW&lt; T &gt; transpose(ND_ARRAY&lt; T &gt; &amp;array, size_t_v &amp;axes=size_t_v())</div><div class="ttdoc">Transposes the array.</div><div class="ttdef"><b>Definition:</b> ContainerUtils.hpp:150</div></div>
+<div class="ttc" id="anamespaceNumC_1_1Utils_html_ad881efa8802b6a71278203cc6816598a"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#ad881efa8802b6a71278203cc6816598a">NumC::Utils::slice</a></div><div class="ttdeci">SLICED_VIEW&lt; T &gt; slice(ND_ARRAY&lt; T &gt; &amp;array, slices_t &amp;slices)</div><div class="ttdoc">Slices the required indices off of an array.</div><div class="ttdef"><b>Definition:</b> ContainerUtils.hpp:120</div></div>
+<div class="ttc" id="anamespaceNumC_1_1Utils_html_a235d58cbcd843aa0e017dc73aada7c18"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#a235d58cbcd843aa0e017dc73aada7c18">NumC::Utils::transpose</a></div><div class="ttdeci">TRANSPOSED_VIEW&lt; T &gt; transpose(ND_ARRAY&lt; T &gt; &amp;array, const size_t_v &amp;axes=size_t_v())</div><div class="ttdoc">Transposes the array.</div><div class="ttdef"><b>Definition:</b> ContainerUtils.hpp:152</div></div>
 <div class="ttc" id="anamespaceNumC_html_aeab21d471debe10045ae35500f987f70"><div class="ttname"><a href="namespaceNumC.html#aeab21d471debe10045ae35500f987f70">NumC::shape_t</a></div><div class="ttdeci">size_t_v shape_t</div><div class="ttdef"><b>Definition:</b> Type.hpp:27</div></div>
 <div class="ttc" id="anamespaceNumC_html_a93856bab9be39b3b8859edb27f919efb"><div class="ttname"><a href="namespaceNumC.html#a93856bab9be39b3b8859edb27f919efb">NumC::slices_t</a></div><div class="ttdeci">indices_t_v slices_t</div><div class="ttdef"><b>Definition:</b> Type.hpp:31</div></div>
-<div class="ttc" id="anamespaceNumC_1_1Utils_html_a1f477395504e4c4548300c5e4cc6fda4"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#a1f477395504e4c4548300c5e4cc6fda4">NumC::Utils::print_array</a></div><div class="ttdeci">static void print_array(ArrayType &amp;array)</div><div class="ttdoc">Prints the array.</div><div class="ttdef"><b>Definition:</b> ContainerUtils.hpp:73</div></div>
+<div class="ttc" id="anamespaceNumC_1_1Utils_html_a1f477395504e4c4548300c5e4cc6fda4"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#a1f477395504e4c4548300c5e4cc6fda4">NumC::Utils::print_array</a></div><div class="ttdeci">static void print_array(ArrayType &amp;array)</div><div class="ttdoc">Prints the array.</div><div class="ttdef"><b>Definition:</b> ContainerUtils.hpp:75</div></div>
 <div class="ttc" id="anamespaceNumC_html_a4f3e4fde1b144f84d1bd9f6cd7ff25fa"><div class="ttname"><a href="namespaceNumC.html#a4f3e4fde1b144f84d1bd9f6cd7ff25fa">NumC::size_t_v</a></div><div class="ttdeci">std::vector&lt; size_t &gt; size_t_v</div><div class="ttdef"><b>Definition:</b> Type.hpp:26</div></div>
 <div class="ttc" id="anamespaceNumC_html"><div class="ttname"><a href="namespaceNumC.html">NumC</a></div><div class="ttdef"><b>Definition:</b> Iterator.hpp:9</div></div>
-<div class="ttc" id="anamespaceNumC_1_1Utils_html_a03882a2d279d96630a931d76f5c2b597"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#a03882a2d279d96630a931d76f5c2b597">NumC::Utils::stringify_array</a></div><div class="ttdeci">static void stringify_array(std::string &amp;output, ArrayType &amp;array, IteratorType &amp;iter, int axis)</div><div class="ttdoc">Helper to stringify array content.</div><div class="ttdef"><b>Definition:</b> ContainerUtils.hpp:23</div></div>
+<div class="ttc" id="anamespaceNumC_1_1Utils_html_a03882a2d279d96630a931d76f5c2b597"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#a03882a2d279d96630a931d76f5c2b597">NumC::Utils::stringify_array</a></div><div class="ttdeci">static void stringify_array(std::string &amp;output, ArrayType &amp;array, IteratorType &amp;iter, int axis)</div><div class="ttdoc">Helper to stringify array content.</div><div class="ttdef"><b>Definition:</b> ContainerUtils.hpp:25</div></div>
 <div class="ttc" id="aReshapedView_8hpp_html"><div class="ttname"><a href="ReshapedView_8hpp.html">ReshapedView.hpp</a></div></div>
 <div class="ttc" id="aTransposedView_8hpp_html"><div class="ttname"><a href="TransposedView_8hpp.html">TransposedView.hpp</a></div></div>
 <div class="ttc" id="anamespaceNumC_1_1Utils_html_ad71497400d2d65194fb09cae46d84a33"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#ad71497400d2d65194fb09cae46d84a33">NumC::Utils::rtrim</a></div><div class="ttdeci">static void rtrim(std::string &amp;s, std::vector&lt; char &gt; &amp;chars)</div><div class="ttdoc">Trims the string of the listed unwanted characters from the right end.</div><div class="ttdef"><b>Definition:</b> StringUtils.hpp:176</div></div>
 <div class="ttc" id="aSlicedView_8hpp_html"><div class="ttname"><a href="SlicedView_8hpp.html">SlicedView.hpp</a></div></div>
-<div class="ttc" id="anamespaceNumC_1_1Utils_html_a76d98a55809f73c086f9ec2e943d313b"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#a76d98a55809f73c086f9ec2e943d313b">NumC::Utils::reshape</a></div><div class="ttdeci">RESHAPED_VIEW&lt; T &gt; reshape(ND_ARRAY&lt; T &gt; &amp;array, shape_t &amp;newShape)</div><div class="ttdoc">Reshapes the array.</div><div class="ttdef"><b>Definition:</b> ContainerUtils.hpp:133</div></div>
+<div class="ttc" id="anamespaceNumC_1_1Utils_html_a76d98a55809f73c086f9ec2e943d313b"><div class="ttname"><a href="namespaceNumC_1_1Utils.html#a76d98a55809f73c086f9ec2e943d313b">NumC::Utils::reshape</a></div><div class="ttdeci">RESHAPED_VIEW&lt; T &gt; reshape(ND_ARRAY&lt; T &gt; &amp;array, shape_t &amp;newShape)</div><div class="ttdoc">Reshapes the array.</div><div class="ttdef"><b>Definition:</b> ContainerUtils.hpp:135</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

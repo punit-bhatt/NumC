@@ -1,9 +1,10 @@
 <map id="ContainerUtils.hpp" name="ContainerUtils.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="457,5,599,32"/>
+<area shape="rect" id="node1" title=" " alt="" coords="581,5,723,32"/>
 <area shape="rect" id="node2" href="$ReshapedView_8hpp.html" title=" " alt="" coords="5,87,264,114"/>
 <area shape="rect" id="node14" href="$SlicedView_8hpp.html" title=" " alt="" coords="288,87,523,114"/>
 <area shape="rect" id="node15" href="$TransposedView_8hpp.html" title=" " alt="" coords="547,80,757,121"/>
 <area shape="rect" id="node17" href="$StringUtils_8hpp.html" title=" " alt="" coords="781,87,977,114"/>
+<area shape="rect" id="node18" title=" " alt="" coords="1001,87,1087,114"/>
 <area shape="rect" id="node3" href="$View_8hpp.html" title=" " alt="" coords="385,169,580,196"/>
 <area shape="rect" id="node4" href="$NdArray_8hpp.html" title=" " alt="" coords="524,244,703,271"/>
 <area shape="rect" id="node5" href="$Iterator_8hpp.html" title=" " alt="" coords="539,319,687,360"/>
