@@ -4,6 +4,7 @@
 
 #include <NumC/Core/Iterator/Iterator.hpp>
 #include <memory>
+#include <functional>
 
 namespace NumC
 {
@@ -325,8 +326,6 @@ namespace NumC
                  * Performs the operation on 2 arrays if their shape is same and
                  * returns a new array containing the result.
                  *
-                 * @warning Broadcasting is not supported yet.
-                 *
                  * @tparam rhs_t RHS array element type. Allows operation on
                  * arrays of 2 different types.
                  * @param rhs Rhs array reference.
@@ -335,25 +334,16 @@ namespace NumC
                 template<typename rhs_t>
                 NdArray<dtype> operator+(const NdArray<rhs_t>& rhs) const
                 {
-                    this->__validate_array_operation(rhs);
+                    std::function<dtype(dtype, rhs_t)> func =
+                        [] (dtype x, rhs_t y) -> dtype { return x + y; };
 
-                    // TODO - Get the resultant shape in case of broadcast.
-
-                    auto result = NdArray<dtype>(this->shape());
-                    auto it_res = result.begin();
-
-                    for (size_t i = 0; it_res != result.end(); ++it_res, ++i)
-                        *it_res = this->get(i) + rhs.get(i);
-
-                    return result;
+                    return broadcast(*this, rhs, func);
                 }
 
                 /**
                  * @brief Element-wise subtract operator overload.
                  * Performs the operation on 2 arrays if their shape is same and
                  * returns a new array containing the result.
-                 *
-                 * @warning Broadcasting is not supported yet.
                  *
                  * @tparam rhs_t RHS array element type. Allows operation on
                  * arrays of 2 different types.
@@ -363,25 +353,16 @@ namespace NumC
                 template<typename rhs_t>
                 NdArray<dtype> operator-(const NdArray<rhs_t>& rhs) const
                 {
-                    this->__validate_array_operation(rhs);
+                    std::function<dtype(dtype, rhs_t)> func =
+                        [] (dtype x, rhs_t y) -> dtype { return x - y; };
 
-                    // TODO - Get the resultant shape in case of broadcast.
-
-                    auto result = NdArray<dtype>(this->shape());
-                    auto it_res = result.begin();
-
-                    for (size_t i = 0; it_res != result.end(); ++it_res, ++i)
-                        *it_res = this->get(i) - rhs.get(i);
-
-                    return result;
+                    return broadcast(*this, rhs, func);
                 }
 
                 /**
                  * @brief Element-wise multiply operator overload.
                  * Performs the operation on 2 arrays if their shape is same and
                  * returns a new array containing the result.
-                 *
-                 * @warning Broadcasting is not supported yet.
                  *
                  * @tparam rhs_t RHS array element type. Allows operation on
                  * arrays of 2 different types.
@@ -391,17 +372,10 @@ namespace NumC
                 template<typename rhs_t>
                 NdArray<dtype> operator*(const NdArray<rhs_t>& rhs) const
                 {
-                    this->__validate_array_operation(rhs);
+                    std::function<dtype(dtype, rhs_t)> func =
+                        [] (dtype x, rhs_t y) -> dtype { return x * y; };
 
-                    // TODO - Get the resultant shape in case of broadcast.
-
-                    auto result = NdArray<dtype>(this->shape());
-                    auto it_res = result.begin();
-
-                    for (size_t i = 0; it_res != result.end(); ++it_res, ++i)
-                        *it_res = this->get(i) * rhs.get(i);
-
-                    return result;
+                    return broadcast(*this, rhs, func);
                 }
 
                 /**
@@ -411,8 +385,6 @@ namespace NumC
                  *
                  * @note A 0 element divisor results in +- inf.
                  *
-                 * @warning Broadcasting is not supported yet.
-                 *
                  * @tparam rhs_t RHS array element type. Allows operation on
                  * arrays of 2 different types.
                  * @param rhs Rhs array reference.
@@ -421,17 +393,10 @@ namespace NumC
                 template<typename rhs_t>
                 NdArray<dtype> operator/(const NdArray<rhs_t>& rhs) const
                 {
-                    this->__validate_array_operation(rhs);
+                    std::function<dtype(dtype, rhs_t)> func =
+                        [] (dtype x, rhs_t y) -> dtype { return x / y; };
 
-                    // TODO - Get the resultant shape in case of broadcast.
-
-                    auto result = NdArray<dtype>(this->shape());
-                    auto it_res = result.begin();
-
-                    for (size_t i = 0; it_res != result.end(); ++it_res, ++i)
-                        *it_res = this->get(i) / rhs.get(i);
-
-                    return result;
+                    return broadcast(*this, rhs, func);
                 }
 
             protected:
@@ -472,34 +437,167 @@ namespace NumC
                 }
 
                 /**
-                 * @brief Internal helper method to perform basic validations
-                 * for array arithmetic.
+                 * @brief Static method validating if broadcasting would be
+                 * possible for the given array shapes.
                  *
-                 * @tparam rhs_t RHS array element type. Allows operation on
-                 * arrays of 2 different types.
-                 * @param rhs Rhs array reference.
+                 * @note Broadcasting rule (both vectors right-based) - In order
+                 * to broadcast, the size of the trailing axes for both arrays
+                 * in an operation must either be the same size or one of them
+                 * must be one.
+                 *
+                 * @param lhs Reference to the LHS array shape (considered the
+                 * bigger one).
+                 * @param rhs Reference to the RHS array shape.
+                 *
+                 * @return Resultant broadcasted array shape.
                  */
-                template<typename rhs_t>
-                void
-                __validate_array_operation(const NdArray<rhs_t>& rhs) const
+                static shape_t
+                validate_broadcast(const shape_t& lhs, const shape_t& rhs)
                 {
-                    auto lhs_shape = this->shape();
+                    // This ensures that LHS is always the bigger vector.
+                    if (lhs.size() < rhs.size())
+                        return validate_broadcast(rhs, lhs);
+
+                    shape_t result_shape(lhs.size());
+                    size_t l = lhs.size();
+
+                    for (size_t r = rhs.size(); r >= 0; --r, --l)
+                    {
+                        if (rhs[r] != lhs[l] && rhs[r] > 1 && lhs[l] > 1)
+                        {
+                            std::cout << "ERROR - broadcast - 1" << std::endl;
+                            // throw error.
+                        }
+
+                        result_shape[l] = std::max(rhs[r], lhs[l]);
+                    }
+
+                    while (l >= 0)
+                        result_shape[l--] = lhs[l];
+
+                    return result_shape;
+                }
+
+                /**
+                 * @brief Static helper method that performs an element level
+                 * operation on two arrays that need not have the same shape.
+                 *
+                 * @note This is done by broadcasting the shape such that the
+                 * resultant shape contains max(lhs_dims, rhs_dims) and where
+                 * the ith shape value is max(lhs_dims[i], rhs_dims[i]).
+                 * @htmlonly
+                 * In case of a valid configuration, either lhs_dims[i] ==
+                 * rhs_dims[i] or one of the two is 1. A right-based comparison
+                 * is done. <br>Example, A(2, 1, 3) and B(2, 3). Then B is
+                 * inlined towards the right.
+                 * <br>(2, 1, 3)
+                 * <br>(_, 2, 3)
+                 * <br>Thus, a valid configuration and the resultant shape would
+                 * be (2, 2, 3).
+                 * @endhtmlonly
+                 *
+                 * @warning Scalar broadcasting yet to be implemented.
+                 *
+                 * @tparam lhs_t LHS array element type.
+                 * @tparam rhs_t RHS array element type.
+                 * @tparam res_t Returned array element type.
+                 * @param lhs Reference to the LHS array.
+                 * @param rhs Reference to the RHS array.
+                 * @param element_op Reference to the operation function to be
+                 * performed between elements of the 2 arrays.
+                 * @return New array of the broadcasted shape containing the
+                 * result.
+                 */
+                template<typename lhs_t, typename rhs_t, typename res_t>
+                static NdArray<res_t>
+                broadcast(
+                    const NdArray<lhs_t>& lhs,
+                    const NdArray<rhs_t>& rhs,
+                    std::function<res_t(lhs_t, rhs_t)>& element_op)
+                {
+                    auto result_shape =
+                        validate_broadcast(lhs.shape(), rhs.shape());
+                    auto result = NdArray<res_t>(result_shape);
+
+                    auto lhs_shape = lhs.shape();
                     auto rhs_shape = rhs.shape();
+                    auto n_lhs = lhs_shape.size();
+                    auto n_rhs = rhs_shape.size();
+                    auto n_res = result_shape.size();
 
-                    if (lhs_shape.size() != rhs_shape.size())
-                    {
-                        std::cout << "ERROR - array_op - 1" << std::endl;
-                        // throw error.
-                    }
+                    /**
+                     * @brief Internal helper lambda that's not generic enough
+                     * to be exposed. Helps recursively go through each element
+                     * in a broadcasted method and perform the required
+                     * operation.
+                     */
+                    std::function<void(size_t, size_t, size_t, size_t)>
+                    broadcast_helper =
+                        [&](size_t axis,size_t lhs_i, size_t rhs_i, size_t res_i)
+                        {
+                            size_t lhs_pre = lhs_i;
+                            size_t rhs_pre = rhs_i;
+                            size_t res_pre = res_i;
 
-                    if (!std::equal(
-                        lhs_shape.begin(),
-                        lhs_shape.end(),
-                        rhs_shape.begin()))
-                    {
-                        std::cout << "ERROR - array_op - 2" << std::endl;
-                        // throw error.
-                    }
+                            for (size_t i = 0; i < result_shape[axis]; ++i)
+                            {
+                                // Ensures that index is not updated in case the
+                                // right- based shape vector hasn't begun yet.
+                                // Indices would begin once n_res - axis is
+                                // equal to n_l.
+                                // Correspondin index 0 would be given by
+                                // n_l - (n_res - axis) or n_l + axis - n_res.
+                                // The reason this is checked for both is
+                                // because either could be the smaller array.
+                                if (n_lhs + axis >= n_res)
+                                {
+                                    // The above condition would always be true
+                                    // for the larger array.
+                                    // Thus, the following ternary to ensure
+                                    // that the index formular is used only if
+                                    // array is smaller.
+                                    auto axis_l =
+                                        n_res > n_lhs ?
+                                        n_lhs + axis - n_res : axis;
+                                    lhs_i =
+                                        lhs_pre +
+                                        (i % lhs_shape[axis_l]) *
+                                            lhs.strides()[axis_l];
+                                }
+
+                                if (n_rhs + axis >= n_res)
+                                {
+                                    auto axis_r =
+                                        n_res > n_rhs ?
+                                        n_rhs + axis - n_res : axis;
+                                    rhs_i =
+                                        rhs_pre +
+                                        (i % rhs_shape[axis_r]) *
+                                            rhs.strides()[axis_r];
+                                }
+
+                                res_i = res_pre + i * result.strides()[axis];
+
+                                // Recurse until the final axis is reached.
+                                // Perform the element operation then.
+                                if (n_res - 1 > axis)
+                                    broadcast_helper(
+                                        axis + 1,
+                                        lhs_i,
+                                        rhs_i,
+                                        res_i);
+                                else
+                                    result.set(
+                                        res_i,
+                                        element_op(
+                                            lhs.get(lhs_i),
+                                            rhs.get(rhs_i)));
+                            }
+                        };
+
+                    broadcast_helper(0, 0, 0, 0);
+
+                    return result;
                 }
         };
     }

@@ -147,7 +147,7 @@ namespace NumC
          */
         template<typename T>
         TRANSPOSED_VIEW<T>
-        transpose(ND_ARRAY<T>& array, size_t_v& axes = size_t_v())
+        transpose(ND_ARRAY<T>& array, const size_t_v& axes = size_t_v())
         {
             return TRANSPOSED_VIEW<T>(&array, axes);
         }
