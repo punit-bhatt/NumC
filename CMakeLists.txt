@@ -22,6 +22,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER
     "${NUMC_PUBLIC_INCLUDE_FILES}")
 
 # Adding PRIVATE header directories.
+add_subdirectory(src)
 add_subdirectory(src/NumC/Core)
 add_subdirectory(src/NumC/Utils)
 
