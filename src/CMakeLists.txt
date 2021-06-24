@@ -4,11 +4,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 project(MAIN)
 
-set(NUMC_BIN_PATH ${CMAKE_CURRENT_SOURCE_DIR})
-set(NUMC_LIB_PATH ${CMAKE_CURRENT_SOURCE_DIR})
-
 add_executable(${PROJECT_NAME} "main.cpp")
 
-target_include_directories(${PROJECT_NAME} PRIVATE ${NUMC_LIB_PATH})
+target_include_directories(${PROJECT_NAME} PRIVATE .)
 
 install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION ${NUMC_BIN_PATH})
