@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sliced_5fview_241',['SLICED_VIEW',['../SlicedView_8hpp.html#afd1cc3a5f649a7b61edbaa8d2b918cdb',1,'SlicedView.hpp']]]
+  ['reshaped_5fview_254',['RESHAPED_VIEW',['../ReshapedView_8hpp.html#a3b535ec41748aa20690f7a9b052c5c33',1,'ReshapedView.hpp']]]
 ];

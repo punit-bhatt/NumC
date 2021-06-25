@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['transposedview_125',['TransposedView',['../classNumC_1_1Core_1_1TransposedView.html',1,'NumC::Core']]],
-  ['transposedviewindexer_126',['TransposedViewIndexer',['../classNumC_1_1Core_1_1TransposedView_1_1TransposedViewIndexer.html',1,'NumC::Core::TransposedView']]]
+  ['slicedview_130',['SlicedView',['../classNumC_1_1Core_1_1SlicedView.html',1,'NumC::Core']]],
+  ['slicedviewindexer_131',['SlicedViewIndexer',['../classNumC_1_1Core_1_1SlicedView_1_1SlicedViewIndexer.html',1,'NumC::Core::SlicedView']]]
 ];

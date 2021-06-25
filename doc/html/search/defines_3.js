@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['reshaped_5fview_240',['RESHAPED_VIEW',['../ReshapedView_8hpp.html#a3b535ec41748aa20690f7a9b052c5c33',1,'ReshapedView.hpp']]]
+  ['nd_5farray_253',['ND_ARRAY',['../NdArray_8hpp.html#a5242c72468b624f35038d35eb8814cba',1,'NdArray.hpp']]]
 ];

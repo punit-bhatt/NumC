@@ -66,7 +66,8 @@ $(function() {
 
 <h3><a id="index__5F"></a>- _ -</h3><ul>
 <li>__arr_index
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a605264bbb7e6add14efb034dcff4a578">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#a942e1e40e46854d5b83d468c97e6800b">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a605264bbb7e6add14efb034dcff4a578">NumC::Core::Iterator&lt; T &gt;</a>
 </li>
 <li>__axes
 : <a class="el" href="classNumC_1_1Core_1_1TransposedView.html#ad632ad430a43064c8a7a55c036d937c5">NumC::Core::TransposedView&lt; T &gt;</a>
@@ -79,7 +80,8 @@ $(function() {
 : <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a5b8939b4fcd5e1d5d9014f0f1fe483a6">NumC::Core::NdArray&lt; T &gt;</a>
 </li>
 <li>__memory_indexer
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a1ec0591cebdfc738a40c2ed8dc41f9bf">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#afe9bf0a30f9bb17833b50a229cdc9021">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a1ec0591cebdfc738a40c2ed8dc41f9bf">NumC::Core::Iterator&lt; T &gt;</a>
 </li>
 <li>_arr
 : <a class="el" href="classNumC_1_1Core_1_1View.html#aaf1395d9abaa8985ceeed673f2f7702f">NumC::Core::View&lt; T &gt;</a>
@@ -91,7 +93,8 @@ $(function() {
 : <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a58a22ba963ed40301cd8a2a5f213bdfd">NumC::Core::NdArray&lt; T &gt;</a>
 </li>
 <li>_index
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a826feeb5b55122a6821a530bed200f52">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#a78a214851da2e1ba7097af4acffd88db">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a826feeb5b55122a6821a530bed200f52">NumC::Core::Iterator&lt; T &gt;</a>
 </li>
 <li>_indices
 : <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html#a6977bdd922de4c81e0068f6a751584e0">NumC::Core::MemoryIndexer</a>
@@ -103,14 +106,20 @@ $(function() {
 , <a class="el" href="classNumC_1_1Core_1_1TransposedView.html#a59d24b875e33c4f82de25c200ea82f7f">NumC::Core::TransposedView&lt; T &gt;</a>
 </li>
 <li>_nunits
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a9395ed69dd4cb9e548d07972ac6dc479">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#acd907437590b3d1f42fe52debc213d5e">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a9395ed69dd4cb9e548d07972ac6dc479">NumC::Core::Iterator&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a681a876c827f845b49a101cdf59cbc57">NumC::Core::NdArray&lt; T &gt;</a>
 </li>
 <li>_ptr
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#af66702ef4332ef1b4f92a59f8601053a">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#a41f5ef3816dcfc43867ea24843a47ca1">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#af66702ef4332ef1b4f92a59f8601053a">NumC::Core::Iterator&lt; T &gt;</a>
 </li>
 <li>_shape
 : <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html#a19e1a97f1fc25b327210994ca3483837">NumC::Core::MemoryIndexer</a>
+</li>
+<li>_start_ptr
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#af009df1fce37f0da588cbfe261694b53">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a4d4b4b024d0314f763452da636a93c97">NumC::Core::Iterator&lt; T &gt;</a>
 </li>
 <li>_strides
 : <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html#abc21320cb76d023befa03e99933627c0">NumC::Core::MemoryIndexer</a>
@@ -131,6 +140,17 @@ $(function() {
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
+<li>cbegin()
+: <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a6134b87fa07d3a519a64261036684b90">NumC::Core::NdArray&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1View.html#a8046c9099377d9154b52924127567ce3">NumC::Core::View&lt; T &gt;</a>
+</li>
+<li>cend()
+: <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a862d36371be60acaf6242c3339ec7df9">NumC::Core::NdArray&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1View.html#a2eb88cd60637fe66fe7354650cf86be6">NumC::Core::View&lt; T &gt;</a>
+</li>
+<li>CIterator()
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#ad28ac8a06436fbe974ecdf3aaee84588">NumC::Core::CIterator&lt; T &gt;</a>
+</li>
 <li>cmemory_indexer()
 : <a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#afb99207a9521635feeec3e17685c8ee1">NumC::Core::ReshapedView&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1SlicedView.html#a74522590fc9417f17b83ef9b656f5670">NumC::Core::SlicedView&lt; T &gt;</a>
@@ -148,7 +168,8 @@ $(function() {
 : <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a1931cca07c44bba60e00dbd5daeefa53">NumC::Core::NdArray&lt; T &gt;</a>
 </li>
 <li>dtype
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#ac3dd1fae234f4845fa0ffacee8954f42">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#adc65afeaec326ef9d4e839c4492053fb">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#ac3dd1fae234f4845fa0ffacee8954f42">NumC::Core::Iterator&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">NumC::Core::NdArray&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a1b0c1262c83dcfd87de5308e6193ae81">NumC::Core::ReshapedView&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1SlicedView.html#a7c2cde2f5dc0fa00c72b052036cb172f">NumC::Core::SlicedView&lt; T &gt;</a>
@@ -156,14 +177,16 @@ $(function() {
 , <a class="el" href="classNumC_1_1Core_1_1View.html#a1d1ee1e7c9dac4308e956319b7bd1813">NumC::Core::View&lt; T &gt;</a>
 </li>
 <li>dtype_ptr
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a863bf044e40255ad0222b27b0480e908">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#ad87cc6e92863f348421aeedd1f708292">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a863bf044e40255ad0222b27b0480e908">NumC::Core::Iterator&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a16e2e9178309f3637de71dcd9d0e1c2a">NumC::Core::NdArray&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a965aa80667c2dbe03a84142846ed4f1c">NumC::Core::ReshapedView&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1SlicedView.html#a0653ba61f4152dad1910798540d81923">NumC::Core::SlicedView&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1TransposedView.html#affa9c8c48ed36ed18d8be2525c8903c0">NumC::Core::TransposedView&lt; T &gt;</a>
 </li>
 <li>dtype_ref
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a83461904b80637fa782bbe287921903b">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#a558ba86ef11271868594dd80c5fc9428">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a83461904b80637fa782bbe287921903b">NumC::Core::Iterator&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1NdArray.html#adc3e8729a4bab366bd24dd0ab6c64aba">NumC::Core::NdArray&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a5eaefefdfea486d9bb4e3eb98bbe306e">NumC::Core::ReshapedView&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1SlicedView.html#a75de5cd0462226b6f66bd8d07c7b4cb1">NumC::Core::SlicedView&lt; T &gt;</a>
@@ -236,7 +259,8 @@ $(function() {
 
 <h3><a id="index_o"></a>- o -</h3><ul>
 <li>operator!=()
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#aff6f2e9e8450c91e2348d34dffd53930">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#a4f35b7b7ea684c777d6926b8458692a7">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#aff6f2e9e8450c91e2348d34dffd53930">NumC::Core::Iterator&lt; T &gt;</a>
 </li>
 <li>operator()()
 : <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html#a49bf4ecd8aa5b2bee5552cddc7cf903c">NumC::Core::MemoryIndexer</a>
@@ -245,30 +269,35 @@ $(function() {
 , <a class="el" href="classNumC_1_1Core_1_1TransposedView_1_1TransposedViewIndexer.html#adeb500bd020cd82dd1f29665f1075702">NumC::Core::TransposedView&lt; T &gt;::TransposedViewIndexer</a>
 </li>
 <li>operator*()
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#ad187a32a2537fc0f058785019c15d21e">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#aef07e5a1c3cccb67b07a1aba9556b719">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#ad187a32a2537fc0f058785019c15d21e">NumC::Core::Iterator&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a87317c8e38d8cb04f19ca3ad44c7776d">NumC::Core::NdArray&lt; T &gt;</a>
 </li>
 <li>operator+()
 : <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a55a59fe1e62ac5e5766d6cf809fdc2a6">NumC::Core::NdArray&lt; T &gt;</a>
 </li>
 <li>operator++()
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a91b89fd5bd186f52bb260c3bef10db6f">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#ad7958ae085c7805e946c97eb31b02204">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a91b89fd5bd186f52bb260c3bef10db6f">NumC::Core::Iterator&lt; T &gt;</a>
 </li>
 <li>operator-()
 : <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a9cc470fbfe98bf02a56bd8950602934d">NumC::Core::NdArray&lt; T &gt;</a>
 </li>
 <li>operator--()
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a71cda93e0b50eca67fd8a912deeb68f8">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#a3b55ac6114d647850ba375d14de44e47">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#ab47dea6e727ecb8d748f83590b758be6">NumC::Core::Iterator&lt; T &gt;</a>
 </li>
 <li>operator/()
 : <a class="el" href="classNumC_1_1Core_1_1NdArray.html#ac5385dd3d8227a82bff4783af476b718">NumC::Core::NdArray&lt; T &gt;</a>
 </li>
 <li>operator=()
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#aa662ff6fbf60d3816547e6fd5f563304">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#a34e5d7577b363c8e6d503726c086b941">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#aa662ff6fbf60d3816547e6fd5f563304">NumC::Core::Iterator&lt; T &gt;</a>
 , <a class="el" href="classNumC_1_1Core_1_1NdArray.html#aa587cfce1a1a4060d39cdb75e1de4beb">NumC::Core::NdArray&lt; T &gt;</a>
 </li>
 <li>operator==()
-: <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a353c0dbc25150cf386a429040150581e">NumC::Core::Iterator&lt; T &gt;</a>
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#a272b0118c076709167de30e5084a3f70">NumC::Core::CIterator&lt; T &gt;</a>
+, <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a353c0dbc25150cf386a429040150581e">NumC::Core::Iterator&lt; T &gt;</a>
 </li>
 </ul>
 
@@ -323,6 +352,9 @@ $(function() {
 
 
 <h3><a id="index__7E"></a>- ~ -</h3><ul>
+<li>~CIterator()
+: <a class="el" href="classNumC_1_1Core_1_1CIterator.html#a0f890ff10284fdee46a07a79dc5eaed0">NumC::Core::CIterator&lt; T &gt;</a>
+</li>
 <li>~Iterator()
 : <a class="el" href="classNumC_1_1Core_1_1Iterator.html#a054985a3f33a188457ab860c4674c9c4">NumC::Core::Iterator&lt; T &gt;</a>
 </li>

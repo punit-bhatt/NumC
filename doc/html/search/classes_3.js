@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['reshapedview_121',['ReshapedView',['../classNumC_1_1Core_1_1ReshapedView.html',1,'NumC::Core']]],
-  ['reshapedviewindexer_122',['ReshapedViewIndexer',['../classNumC_1_1Core_1_1ReshapedView_1_1ReshapedViewIndexer.html',1,'NumC::Core::ReshapedView']]]
+  ['ndarray_126',['NdArray',['../classNumC_1_1Core_1_1NdArray.html',1,'NumC::Core']]],
+  ['ndarray_3c_20dtype_20_3e_127',['NdArray&lt; dtype &gt;',['../classNumC_1_1Core_1_1NdArray.html',1,'NumC::Core']]]
 ];

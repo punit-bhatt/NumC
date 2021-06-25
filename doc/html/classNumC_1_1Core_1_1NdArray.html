@@ -157,6 +157,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a57af3492075b887bcaee7784527518b2"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classNumC_1_1Core_1_1Iterator.html">Iterator</a>&lt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a57af3492075b887bcaee7784527518b2">end</a> ()</td></tr>
 <tr class="memdesc:a57af3492075b887bcaee7784527518b2"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classNumC_1_1Core_1_1Iterator.html" title="Iterator for any array.">Iterator</a> pointing to last element + 1.  <a href="classNumC_1_1Core_1_1NdArray.html#a57af3492075b887bcaee7784527518b2">More...</a><br /></td></tr>
 <tr class="separator:a57af3492075b887bcaee7784527518b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6134b87fa07d3a519a64261036684b90"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classNumC_1_1Core_1_1CIterator.html">CIterator</a>&lt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a6134b87fa07d3a519a64261036684b90">cbegin</a> () const</td></tr>
+<tr class="memdesc:a6134b87fa07d3a519a64261036684b90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant iterator pointing to the first element.  <a href="classNumC_1_1Core_1_1NdArray.html#a6134b87fa07d3a519a64261036684b90">More...</a><br /></td></tr>
+<tr class="separator:a6134b87fa07d3a519a64261036684b90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a862d36371be60acaf6242c3339ec7df9"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classNumC_1_1Core_1_1CIterator.html">CIterator</a>&lt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a862d36371be60acaf6242c3339ec7df9">cend</a> () const</td></tr>
+<tr class="memdesc:a862d36371be60acaf6242c3339ec7df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant iterator pointing to last element + 1.  <a href="classNumC_1_1Core_1_1NdArray.html#a862d36371be60acaf6242c3339ec7df9">More...</a><br /></td></tr>
+<tr class="separator:a862d36371be60acaf6242c3339ec7df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1931cca07c44bba60e00dbd5daeefa53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a16e2e9178309f3637de71dcd9d0e1c2a">dtype_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#a1931cca07c44bba60e00dbd5daeefa53">data</a> ()</td></tr>
 <tr class="memdesc:a1931cca07c44bba60e00dbd5daeefa53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the pointer to the data array.  <a href="classNumC_1_1Core_1_1NdArray.html#a1931cca07c44bba60e00dbd5daeefa53">More...</a><br /></td></tr>
 <tr class="separator:a1931cca07c44bba60e00dbd5daeefa53"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -716,6 +722,70 @@ be (2, 2, 3).
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>New array of the broadcasted shape containing the result. </dd></dl>
 <p>Internal helper lambda that's not generic enough to be exposed. Helps recursively go through each element in a broadcasted method and perform the required operation.</p>
+
+</div>
+</div>
+<a id="a6134b87fa07d3a519a64261036684b90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6134b87fa07d3a519a64261036684b90">&#9670;&nbsp;</a></span>cbegin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classNumC_1_1Core_1_1CIterator.html">CIterator</a>&lt;<a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a>&gt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NumC::Core::NdArray</a>&lt; T &gt;::cbegin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constant iterator pointing to the first element. </p>
+<dl class="section return"><dt>Returns</dt><dd>Constant terator pointing to the start. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classNumC_1_1Core_1_1View.html#a8046c9099377d9154b52924127567ce3">NumC::Core::View&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a862d36371be60acaf6242c3339ec7df9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a862d36371be60acaf6242c3339ec7df9">&#9670;&nbsp;</a></span>cend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classNumC_1_1Core_1_1CIterator.html">CIterator</a>&lt;<a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a>&gt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NumC::Core::NdArray</a>&lt; T &gt;::cend </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constant iterator pointing to last element + 1. </p>
+<dl class="section return"><dt>Returns</dt><dd>Constant iterator pointing to the end. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classNumC_1_1Core_1_1View.html#a2eb88cd60637fe66fe7354650cf86be6">NumC::Core::View&lt; T &gt;</a>.</p>
 
 </div>
 </div>
