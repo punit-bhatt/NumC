@@ -31,6 +31,10 @@
         std::cout << *it << std::endl;
     }
 
+    // Constant iterator.
+    for (auto it = arr.cbegin(); it != arr.cend(); ++it)
+        *it *= 10; // Error - cannot assign value to read-only location.
+
 ### Array Basic Operations
 
     auto arr1 = ND_ARRAY<nc::float32>({0, 1, 2, 3, 4});

@@ -95,6 +95,10 @@ for (auto it = arr.begin(); it != arr.end(); ++it)
     *it *= 10;
     std::cout &lt;&lt; *it &lt;&lt; std::endl;
 }
+
+// Constant iterator.
+for (auto it = arr.cbegin(); it != arr.cend(); ++it)
+    *it *= 10; // Error - cannot assign value to read-only location.
 </pre><h2><a class="anchor" id="autotoc_md5"></a>
 Array Basic Operations</h2>
 <pre class="fragment">auto arr1 = ND_ARRAY&lt;nc::float32&gt;({0, 1, 2, 3, 4});

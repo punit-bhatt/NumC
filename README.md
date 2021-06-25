@@ -34,6 +34,10 @@
         *it *= 10;
         std::cout << *it << std::endl;
     }
+
+    // Constant iterator.
+    for (auto it = arr.cbegin(); it != arr.cend(); ++it)
+        *it *= 10; // Error - cannot assign value to read-only location.
     ```
 
 - ### <u>Array Basic Operations</u>
