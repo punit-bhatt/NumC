@@ -1,7 +1,5 @@
 #pragma once
 
-#include <NumC/Core/Type.hpp>
-
 #include <algorithm>
 
 namespace NumC
