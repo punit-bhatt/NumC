@@ -350,7 +350,7 @@ namespace NumC
                 operator=(NdArray<dtype> const& other) = default;
 
                 /**
-                 * @brief Element-wise add operator overload.
+                 * @brief Element-wise addition operator overload.
                  * Performs the operation on 2 arrays if their shape is same and
                  * returns a new array containing the result.
                  *
@@ -365,11 +365,11 @@ namespace NumC
                     std::function<dtype(dtype, rhs_t)> func =
                         [] (dtype x, rhs_t y) -> dtype { return x + y; };
 
-                    return broadcast(*this, rhs, func);
+                    return array_broadcast(*this, rhs, func);
                 }
 
                 /**
-                 * @brief Element-wise subtract operator overload.
+                 * @brief Element-wise subtraction operator overload.
                  * Performs the operation on 2 arrays if their shape is same and
                  * returns a new array containing the result.
                  *
@@ -384,11 +384,11 @@ namespace NumC
                     std::function<dtype(dtype, rhs_t)> func =
                         [] (dtype x, rhs_t y) -> dtype { return x - y; };
 
-                    return broadcast(*this, rhs, func);
+                    return array_broadcast(*this, rhs, func);
                 }
 
                 /**
-                 * @brief Element-wise multiply operator overload.
+                 * @brief Element-wise multiplication operator overload.
                  * Performs the operation on 2 arrays if their shape is same and
                  * returns a new array containing the result.
                  *
@@ -403,7 +403,7 @@ namespace NumC
                     std::function<dtype(dtype, rhs_t)> func =
                         [] (dtype x, rhs_t y) -> dtype { return x * y; };
 
-                    return broadcast(*this, rhs, func);
+                    return array_broadcast(*this, rhs, func);
                 }
 
                 /**
@@ -424,7 +424,77 @@ namespace NumC
                     std::function<dtype(dtype, rhs_t)> func =
                         [] (dtype x, rhs_t y) -> dtype { return x / y; };
 
-                    return broadcast(*this, rhs, func);
+                    return array_broadcast(*this, rhs, func);
+                }
+
+                /**
+                 * @brief Element-wise addition scalar operator overload.
+                 * Performs the operation on an array and any scalar.
+                 *
+                 * @note Scalar value passed is typecast to a Float64.
+                 *
+                 * @param rhs Rhs scalar value.
+                 * @return New array containing the result.
+                 */
+                NdArray<dtype> operator+(const float64& rhs) const
+                {
+                    std::function<dtype(dtype, float64)> func =
+                        [] (dtype x, float64 y) -> dtype { return x + y; };
+
+                    return scalar_broadcast(*this, rhs, func);
+                }
+
+                /**
+                 * @brief Element-wise subtraction scalar operator overload.
+                 * Performs the operation on an array and any scalar.
+                 *
+                 * @note Scalar value passed is typecast to a Float64.
+                 *
+                 * @param rhs Rhs scalar value.
+                 * @return New array containing the result.
+                 */
+                NdArray<dtype> operator-(const float64& rhs) const
+                {
+                    std::function<dtype(dtype, float64)> func =
+                        [] (dtype x, float64 y) -> dtype { return x - y; };
+
+                    return scalar_broadcast(*this, rhs, func);
+                }
+
+                /**
+                 * @brief Element-wise multiplication scalar operator overload.
+                 * Performs the operation on an array and any scalar.
+                 *
+                 * @note Scalar value passed is typecast to a Float64.
+                 *
+                 * @param rhs Rhs scalar value.
+                 * @return New array containing the result.
+                 */
+                NdArray<dtype> operator*(const float64& rhs) const
+                {
+                    std::function<dtype(dtype, float64)> func =
+                        [] (dtype x, float64 y) -> dtype { return x * y; };
+
+                    return scalar_broadcast(*this, rhs, func);
+                }
+
+                /**
+                 * @brief Element-wise division scalar operator overload.
+                 * Performs the operation on an array and any scalar.
+                 *
+                 * @note Scalar value passed is typecast to a Float64.
+                 *
+                 * @warning A 0 element divisor results in +- inf.
+                 *
+                 * @param rhs Rhs scalar value.
+                 * @return New array containing the result.
+                 */
+                NdArray<dtype> operator/(const float64& rhs) const
+                {
+                    std::function<dtype(dtype, float64)> func =
+                        [] (dtype x, float64 y) -> dtype { return x / y; };
+
+                    return scalar_broadcast(*this, rhs, func);
                 }
 
             protected:
@@ -524,8 +594,6 @@ namespace NumC
                  * be (2, 2, 3).
                  * @endhtmlonly
                  *
-                 * @warning Scalar broadcasting yet to be implemented.
-                 *
                  * @tparam lhs_t LHS array element type.
                  * @tparam rhs_t RHS array element type.
                  * @tparam res_t Returned array element type.
@@ -538,7 +606,7 @@ namespace NumC
                  */
                 template<typename lhs_t, typename rhs_t, typename res_t>
                 static NdArray<res_t>
-                broadcast(
+                array_broadcast(
                     const NdArray<lhs_t>& lhs,
                     const NdArray<rhs_t>& rhs,
                     std::function<res_t(lhs_t, rhs_t)>& element_op)
@@ -624,6 +692,37 @@ namespace NumC
                         };
 
                     broadcast_helper(0, 0, 0, 0);
+
+                    return result;
+                }
+
+                /**
+                 * @brief Static helper method that performs an element level
+                 * operation on array and scalar.
+                 *
+                 * @tparam lhs_t LHS array element type.
+                 * @tparam rhs_t RHS scalar value type.
+                 * @tparam res_t Returned array element type.
+                 * @param lhs Reference to the LHS array.
+                 * @param rhs Scalar value.
+                 * @param element_op Reference to the operation function to be
+                 * performed between the array element and scalar value.
+                 * @return New array of the broadcasted shape containing the
+                 * result.
+                 */
+                template<typename lhs_t, typename rhs_t, typename res_t>
+                static NdArray<res_t>
+                scalar_broadcast(
+                    const NdArray<lhs_t>& lhs,
+                    const rhs_t rhs,
+                    std::function<res_t(lhs_t, rhs_t)>& element_op)
+                {
+                    auto result = NdArray<res_t>(lhs.shape());
+                    auto it_res = result.begin();
+                    auto it_lhs = lhs.cbegin(), ite_lhs = lhs.cend();
+
+                    for (; it_lhs != ite_lhs; ++it_lhs, ++it_res)
+                        *it_res = element_op(*it_lhs, rhs);
 
                     return result;
                 }
