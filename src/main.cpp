@@ -41,11 +41,17 @@ int main()
     auto res1 = (op_arr1 + op_arr2 - op_arr3) * op_arr3 / op_arr4;
 
     auto arr5 = ND_ARRAY<nc::float32>({{{1, 2}}, {{3, 4}}, {{5, 6}}});
-    auto arr6 = ND_ARRAY<nc::int32>({{1, 2} , {3, 4}, {5, 6}});
-    auto arr7 = ND_ARRAY<nc::int32>({10, 20});
+    auto arr6 = ND_ARRAY<nc::int32>({{1, 2, 3}, {4, 5, 6}});
+
+    // Slice - shape (2)
+    nc::slices_t slices2 = {nc::indices_t(1, 3)};
+    auto s2 = nc::Utils::slice(arr1, slices2);
+
+    // Transpose - shape (3, 2)
+    auto t2 = nc::Utils::transpose(arr6);
 
     // Broadcasted array operations - (2) - (3, 1, 2) + (3, 2).
-    auto bd_arr = arr7 - (arr5 * arr6);
+    auto bd_arr = s2 - (arr5 * t2);
     std::cout << "\nBroadcasted array operation result\n";
     nc::Utils::print_array(bd_arr);
 

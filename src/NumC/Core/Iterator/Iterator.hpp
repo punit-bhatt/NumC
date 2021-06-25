@@ -30,18 +30,24 @@ namespace NumC
                 /**
                  * @brief Construct a new Iterator object
                  *
-                 * @param ptr Pointer to the array data.
+                 * @param start_ptr Pointer to the array data start.
+                 * @param index Initial index.
                  * @param nunits Total number of elements in the array.
                  * Defaults to 0.
                  * @param memory_indexer Pointer to array/view memory indexer.
                  * Defaults to null pointer.
                  */
                 Iterator(
-                    dtype_ptr ptr,
+                    dtype_ptr start_ptr,
+                    size_t index = 0,
                     size_t nunits = 0,
-                    MemoryIndexer* memory_indexer = nullptr)
+                    MemoryIndexer* memory_indexer = nullptr) :
+                    _index(index),
+                    _start_ptr(start_ptr),
+                    _nunits(nunits),
+                    __memory_indexer(memory_indexer)
                 {
-                    if (ptr == nullptr)
+                    if (start_ptr == nullptr)
                     {
                         std::cout << "ERROR - iter - 1" << std::endl;
                         // throw error or add asserts.
@@ -54,20 +60,13 @@ namespace NumC
                         // throw error or add asserts.
                     }
 
-                    this->_index = 0;
-                    this->_ptr = ptr;
-                    this->_nunits = nunits;
-                    this->__memory_indexer = memory_indexer;
-
                     if (memory_indexer != nullptr)
-                    {
                         this->__arr_index =
                             this->__memory_indexer->operator()(this->_index);
-                    }
                     else
-                    {
                         this->__arr_index = this->_index;
-                    }
+
+                    this->_ptr = start_ptr + this->__arr_index;
                 }
 
                 /// @brief Default copy constructor.
@@ -181,7 +180,8 @@ namespace NumC
                  */
                 bool operator==(Iterator<dtype> const& other) const
                 {
-                    return this->_ptr == other._ptr;
+                    return this->_start_ptr == other._start_ptr &&
+                        this->_index == other._index;
                 }
 
                 /**
@@ -203,6 +203,9 @@ namespace NumC
 
                 /// @brief Pointer to the array data.
                 dtype_ptr _ptr;
+
+                /// @brief Pointer to the array data start.
+                const dtype_ptr _start_ptr;
 
                 /// @brief Total number of elements in the array.
                 size_t _nunits;

@@ -3,6 +3,8 @@
 #define ND_ARRAY NumC::Core::NdArray
 
 #include <NumC/Core/Iterator/Iterator.hpp>
+#include <NumC/Core/Iterator/CIterator.hpp>
+
 #include <memory>
 #include <functional>
 
@@ -294,7 +296,10 @@ namespace NumC
                  */
                 virtual Iterator<dtype> begin()
                 {
-                    return Iterator<dtype>(this->__data.get(), this->_nunits);
+                    return Iterator<dtype>(
+                        this->__data.get(),
+                        0,
+                        this->_nunits);
                 }
 
                 /**
@@ -304,7 +309,7 @@ namespace NumC
                  */
                 virtual Iterator<dtype> end()
                 {
-                    return Iterator<dtype>(this->__data.get() + this->_nunits);
+                    return Iterator<dtype>(this->__data.get(), this->_nunits);
                 }
 
                 /**

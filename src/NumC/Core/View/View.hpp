@@ -126,8 +126,8 @@ namespace NumC
                 Iterator<dtype> begin() override
                 {
                     return Iterator<dtype>(
-                        this->_arr->data() +
-                        this->memory_indexer()->operator()(0),
+                        this->_arr->data(),
+                        0,
                         this->_nunits,
                         this->memory_indexer());
                 }
@@ -140,8 +140,8 @@ namespace NumC
                 Iterator<dtype> end() override
                 {
                     return Iterator<dtype>(
-                        this->_arr->data() +
-                        this->memory_indexer()->operator()(this->_nunits));
+                        this->_arr->data(),
+                        this->_nunits);
                 }
 
             protected:
