@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['validate_5fbroadcast_109',['validate_broadcast',['../classNumC_1_1Core_1_1NdArray.html#a3b8970816241b2bbcac923b2ccfa13e9',1,'NumC::Core::NdArray']]],
-  ['view_110',['View',['../classNumC_1_1Core_1_1View.html',1,'NumC::Core::View&lt; T &gt;'],['../View_8hpp.html#a13198beec126efc77778680220fb4a15',1,'VIEW():&#160;View.hpp']]],
-  ['view_2ehpp_111',['View.hpp',['../View_8hpp.html',1,'']]]
+  ['cmakelists_2etxt_105',['CMakeLists.txt',['../Utils_2CMakeLists_8txt.html',1,'']]],
+  ['uint16_106',['uint16',['../namespaceNumC.html#abbb169005eb24a23529696d964e67d83',1,'NumC']]],
+  ['uint32_107',['uint32',['../namespaceNumC.html#a5fbf98d2466293ebb677c620c5808db0',1,'NumC']]],
+  ['uint64_108',['uint64',['../namespaceNumC.html#ae1786f743c8e08d89c7bb529915004b9',1,'NumC']]],
+  ['uint8_109',['uint8',['../namespaceNumC.html#a08f9be6126fc147166446139d7764445',1,'NumC']]]
 ];

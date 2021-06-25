@@ -45,6 +45,7 @@
     auto res1 = (arr1 + arr2 - arr3) * arr3 / arr4;
 
 ### Array Broadcasted Operations
+
     // Shape - (3, 1, 2)
     auto arr1 = ND_ARRAY<nc::float32>({{{1, 2}}, {{3, 4}}, {{5, 6}}});
 
@@ -55,6 +56,9 @@
     auto arr3 = ND_ARRAY<nc::int32>({10, 20});
 
     auto bd_arr = arr3 - (arr1 + arr2);
+
+    // Scalar broadcasting.
+    auto bd_arr2 = arr2 + (arr1 * 100);
 
 ### Array Slicing
 

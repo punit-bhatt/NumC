@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['float32_34',['float32',['../namespaceNumC.html#ad4ebf8ac359f3efe66d048ffa3bb2573',1,'NumC']]],
-  ['float64_35',['float64',['../namespaceNumC.html#a784748a87a0fe457e4a9718eb1e1a096',1,'NumC']]]
+  ['end_33',['end',['../classNumC_1_1Core_1_1NdArray.html#a57af3492075b887bcaee7784527518b2',1,'NumC::Core::NdArray::end()'],['../classNumC_1_1Core_1_1View.html#a17e79e5f9fe541eca1d9c258c1b702bc',1,'NumC::Core::View::end()']]]
 ];

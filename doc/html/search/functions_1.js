@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['begin_154',['begin',['../classNumC_1_1Core_1_1NdArray.html#a691592e11caa4315f6848ae4ff4470af',1,'NumC::Core::NdArray::begin()'],['../classNumC_1_1Core_1_1View.html#af5c86f82be4eb38c4ea65a782f7830e0',1,'NumC::Core::View::begin()']]],
-  ['broadcast_155',['broadcast',['../classNumC_1_1Core_1_1NdArray.html#a01ee90cb66b95d6f0844610d90ba58e4',1,'NumC::Core::NdArray']]]
+  ['array_5fbroadcast_155',['array_broadcast',['../classNumC_1_1Core_1_1NdArray.html#a362926be2fb4e54e028432f27138f50b',1,'NumC::Core::NdArray']]]
 ];

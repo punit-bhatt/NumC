@@ -109,11 +109,20 @@ auto arr4 = ND_ARRAY&lt;nc::float64&gt;({100, 100, 100, 100, 100});
 auto res1 = (arr1 + arr2 - arr3) * arr3 / arr4;
 </pre><h2><a class="anchor" id="autotoc_md6"></a>
 Array Broadcasted Operations</h2>
-<p>// Shape - (3, 1, 2) auto arr1 = <a class="el" href="NdArray_8hpp.html#a5242c72468b624f35038d35eb8814cba">ND_ARRAY&lt;nc::float32&gt;</a>({{{1, 2}}, {{3, 4}}, {{5, 6}}});</p>
-<p>// Shape - (3, 2) auto arr2 = <a class="el" href="NdArray_8hpp.html#a5242c72468b624f35038d35eb8814cba">ND_ARRAY&lt;nc::int32&gt;</a>({{1, 2} , {3, 4}, {5, 6}});</p>
-<p>// Shape - (2) auto arr3 = <a class="el" href="NdArray_8hpp.html#a5242c72468b624f35038d35eb8814cba">ND_ARRAY&lt;nc::int32&gt;</a>({10, 20});</p>
-<p>auto bd_arr = arr3 - (arr1 + arr2);</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<pre class="fragment">// Shape - (3, 1, 2)
+auto arr1 = ND_ARRAY&lt;nc::float32&gt;({{{1, 2}}, {{3, 4}}, {{5, 6}}});
+
+// Shape - (3, 2)
+auto arr2 = ND_ARRAY&lt;nc::int32&gt;({{1, 2} , {3, 4}, {5, 6}});
+
+// Shape - (2)
+auto arr3 = ND_ARRAY&lt;nc::int32&gt;({10, 20});
+
+auto bd_arr = arr3 - (arr1 + arr2);
+
+// Scalar broadcasting.
+auto bd_arr2 = arr2 + (arr1 * 100);
+</pre><h2><a class="anchor" id="autotoc_md7"></a>
 Array Slicing</h2>
 <pre class="fragment">nc::slices_t slices = { nc::indices_t(2, -1), nc::indices_t(0, -1), nc::indices_t(1, -1)};
 auto s1 = nc::Utils::slice(arr, slices);

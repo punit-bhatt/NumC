@@ -61,7 +61,10 @@
     // Shape - (2)
     auto arr3 = ND_ARRAY<nc::int32>({10, 20});
 
-    auto bd_arr = arr3 - (arr1 + arr2);
+    auto bd_arr1 = arr3 - (arr1 + arr2);
+
+    // Scalar broadcasting.
+    auto bd_arr2 = arr2 + (arr1 * 100);
     ```
 
 - ### <u>Array Slicing</u>
