@@ -144,6 +144,32 @@ namespace NumC
                         this->_nunits);
                 }
 
+                /**
+                 * @copydoc NdArray::cbegin()
+                 *
+                 * Overridden function.
+                 */
+                CIterator<dtype> cbegin() const override
+                {
+                    return CIterator<dtype>(
+                        this->_arr->data(),
+                        0,
+                        this->_nunits,
+                        this->cmemory_indexer());
+                }
+
+                /**
+                 * @copydoc NdArray::cend()
+                 *
+                 * Overridden function.
+                 */
+                CIterator<dtype> cend() const override
+                {
+                    return CIterator<dtype>(
+                        this->_arr->data(),
+                        this->_nunits);
+                }
+
             protected:
 
                 /// @brief Pointer to the array object.

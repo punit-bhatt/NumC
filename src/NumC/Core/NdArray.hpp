@@ -313,6 +313,29 @@ namespace NumC
                 }
 
                 /**
+                 * @brief Constant iterator pointing to the first element.
+                 *
+                 * @return Constant terator pointing to the start.
+                 */
+                virtual CIterator<dtype> cbegin() const
+                {
+                    return CIterator<dtype>(
+                        this->__data.get(),
+                        0,
+                        this->_nunits);
+                }
+
+                /**
+                 * @brief Constant iterator pointing to last element + 1.
+                 *
+                 * @return Constant iterator pointing to the end.
+                 */
+                virtual CIterator<dtype> cend() const
+                {
+                    return CIterator<dtype>(this->__data.get(), this->_nunits);
+                }
+
+                /**
                  * @brief Gets the pointer to the data array.
                  *
                  * @return Pointer to the data array.
