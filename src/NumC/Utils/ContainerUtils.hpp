@@ -72,7 +72,7 @@ namespace NumC
         template<typename ArrayType>
         static void print_array(ArrayType& array)
         {
-            auto iter = array.begin();
+            auto iter = array.cbegin();
             int axis = 0;
 
             std::vector<char> unwanted_chars {'\n', '\t', ' ', ','};
