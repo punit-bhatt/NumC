@@ -72,7 +72,7 @@ $(function() {
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classNumC_1_1Core_1_1View-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">NumC::Core::View&lt; T &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">NumC::Core::View&lt; T &gt; Class Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -85,11 +85,12 @@ Inheritance diagram for NumC::Core::View&lt; T &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classNumC_1_1Core_1_1View__inherit__graph.png" border="0" usemap="#NumC_1_1Core_1_1View_3_01T_01_4_inherit__map" alt="Inheritance graph"/></div>
 <map name="NumC_1_1Core_1_1View_3_01T_01_4_inherit__map" id="NumC_1_1Core_1_1View_3_01T_01_4_inherit__map">
-<area shape="rect" title="The base class for a modified view of an N&#45;D base array." alt="" coords="252,56,431,83"/>
-<area shape="rect" href="classNumC_1_1Core_1_1ReshapedView.html" title="Reshaped view of the array object." alt="" coords="483,5,725,32"/>
-<area shape="rect" href="classNumC_1_1Core_1_1SlicedView.html" title="Sliced view of the array object." alt="" coords="495,56,713,83"/>
-<area shape="rect" href="classNumC_1_1Core_1_1TransposedView.html" title="Transposed view of the array object." alt="" coords="479,107,729,133"/>
-<area shape="rect" href="classNumC_1_1Core_1_1NdArray.html" title="The basic N&#45;D array class that defines the way data is stored and traversed." alt="" coords="5,56,204,83"/>
+<area shape="rect" title="The base class for a modified view of an N&#45;D base array." alt="" coords="264,56,443,83"/>
+<area shape="rect" href="classNumC_1_1Core_1_1ReshapedView.html" title="Reshaped view of the array object." alt="" coords="495,5,737,32"/>
+<area shape="rect" href="classNumC_1_1Core_1_1SlicedView.html" title="Sliced view of the array object." alt="" coords="507,56,725,83"/>
+<area shape="rect" href="classNumC_1_1Core_1_1TransposedView.html" title="Transposed view of the array object." alt="" coords="491,107,741,133"/>
+<area shape="rect" href="classNumC_1_1Core_1_1NdArray.html" title="The basic N&#45;D array class that defines the way data is stored and traversed." alt="" coords="11,31,210,57"/>
+<area shape="rect" href="classNumC_1_1Core_1_1MemoryIndexer.html" title="Base memory indexer functor class. Helps array/view implement their own logic for memory access and p..." alt="" coords="5,81,216,108"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -97,9 +98,10 @@ Collaboration diagram for NumC::Core::View&lt; T &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classNumC_1_1Core_1_1View__coll__graph.png" border="0" usemap="#NumC_1_1Core_1_1View_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="NumC_1_1Core_1_1View_3_01T_01_4_coll__map" id="NumC_1_1Core_1_1View_3_01T_01_4_coll__map">
-<area shape="rect" title="The base class for a modified view of an N&#45;D base array." alt="" coords="117,109,295,136"/>
+<area shape="rect" title="The base class for a modified view of an N&#45;D base array." alt="" coords="243,109,422,136"/>
 <area shape="rect" href="classNumC_1_1Core_1_1NdArray.html" title="The basic N&#45;D array class that defines the way data is stored and traversed." alt="" coords="5,13,204,39"/>
-<area shape="rect" href="classNumC_1_1Core_1_1NdArray.html" title=" " alt="" coords="228,5,389,47"/>
+<area shape="rect" href="classNumC_1_1Core_1_1MemoryIndexer.html" title="Base memory indexer functor class. Helps array/view implement their own logic for memory access and p..." alt="" coords="227,13,438,39"/>
+<area shape="rect" href="classNumC_1_1Core_1_1NdArray.html" title=" " alt="" coords="461,5,623,47"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -132,12 +134,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a394ccd0567e5d4ae4dede84d0ab393b9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1View.html#a394ccd0567e5d4ae4dede84d0ab393b9">~View</a> ()</td></tr>
 <tr class="memdesc:a394ccd0567e5d4ae4dede84d0ab393b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A do-nothing destructor to ensure pointers to this interface can be deleted.  <a href="classNumC_1_1Core_1_1View.html#a394ccd0567e5d4ae4dede84d0ab393b9">More...</a><br /></td></tr>
 <tr class="separator:a394ccd0567e5d4ae4dede84d0ab393b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a925a39b95130160740936047397554d6"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html">MemoryIndexer</a> *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1View.html#a925a39b95130160740936047397554d6">memory_indexer</a> ()=0</td></tr>
-<tr class="memdesc:a925a39b95130160740936047397554d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the memory indexer to calculate data array index for the view.  <a href="classNumC_1_1Core_1_1View.html#a925a39b95130160740936047397554d6">More...</a><br /></td></tr>
-<tr class="separator:a925a39b95130160740936047397554d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9e38a1082ad44ab6cbf6c9858e62dfc"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html">MemoryIndexer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1View.html#ae9e38a1082ad44ab6cbf6c9858e62dfc">cmemory_indexer</a> () const =0</td></tr>
-<tr class="memdesc:ae9e38a1082ad44ab6cbf6c9858e62dfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the memory indexer to calculate data array index for the view.  <a href="classNumC_1_1Core_1_1View.html#ae9e38a1082ad44ab6cbf6c9858e62dfc">More...</a><br /></td></tr>
-<tr class="separator:ae9e38a1082ad44ab6cbf6c9858e62dfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e5ad0c27a7004f1e658d3c4eeec0e43"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html">MemoryIndexer</a> *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1View.html#a7e5ad0c27a7004f1e658d3c4eeec0e43">memory_indexer</a> ()</td></tr>
+<tr class="memdesc:a7e5ad0c27a7004f1e658d3c4eeec0e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the memory indexer to calculate data array index for the view.  <a href="classNumC_1_1Core_1_1View.html#a7e5ad0c27a7004f1e658d3c4eeec0e43">More...</a><br /></td></tr>
+<tr class="separator:a7e5ad0c27a7004f1e658d3c4eeec0e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62a07ab8f61510aa4b20d96b14d66ffa"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html">MemoryIndexer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1View.html#a62a07ab8f61510aa4b20d96b14d66ffa">cmemory_indexer</a> () const</td></tr>
+<tr class="memdesc:a62a07ab8f61510aa4b20d96b14d66ffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the memory indexer to calculate data array index for the view.  <a href="classNumC_1_1Core_1_1View.html#a62a07ab8f61510aa4b20d96b14d66ffa">More...</a><br /></td></tr>
+<tr class="separator:a62a07ab8f61510aa4b20d96b14d66ffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a592a7f749f5e12600383193a3be46b1a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classNumC_1_1Core_1_1NdArray.html">NdArray</a>&lt; <a class="el" href="classNumC_1_1Core_1_1View.html#a1d1ee1e7c9dac4308e956319b7bd1813">dtype</a> &gt; *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1View.html#a592a7f749f5e12600383193a3be46b1a">get_arr</a> ()</td></tr>
 <tr class="memdesc:a592a7f749f5e12600383193a3be46b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the nd array reference.  <a href="classNumC_1_1Core_1_1View.html#a592a7f749f5e12600383193a3be46b1a">More...</a><br /></td></tr>
 <tr class="separator:a592a7f749f5e12600383193a3be46b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -221,6 +223,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae8fd9af2247c7caddb4237a365f08950 inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNumC_1_1Core_1_1NdArray.html">NdArray</a>&lt; <a class="el" href="classNumC_1_1Core_1_1NdArray.html#a3bb14cecebe68dc0e164e7c74a661f46">dtype</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1NdArray.html#ae8fd9af2247c7caddb4237a365f08950">operator/</a> (const <a class="el" href="namespaceNumC.html#a784748a87a0fe457e4a9718eb1e1a096">float64</a> &amp;rhs) const</td></tr>
 <tr class="memdesc:ae8fd9af2247c7caddb4237a365f08950 inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="mdescLeft">&#160;</td><td class="mdescRight">Element-wise division scalar operator overload. Performs the operation on an array and any scalar.  <a href="classNumC_1_1Core_1_1NdArray.html#ae8fd9af2247c7caddb4237a365f08950">More...</a><br /></td></tr>
 <tr class="separator:ae8fd9af2247c7caddb4237a365f08950 inherit pub_methods_classNumC_1_1Core_1_1NdArray"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classNumC_1_1Core_1_1MemoryIndexer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classNumC_1_1Core_1_1MemoryIndexer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html">NumC::Core::MemoryIndexer</a></td></tr>
+<tr class="memitem:a7a5b9b0bf27ba3b8d32652af229585a1 inherit pub_methods_classNumC_1_1Core_1_1MemoryIndexer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html#a7a5b9b0bf27ba3b8d32652af229585a1">MemoryIndexer</a> ()=default</td></tr>
+<tr class="memdesc:a7a5b9b0bf27ba3b8d32652af229585a1 inherit pub_methods_classNumC_1_1Core_1_1MemoryIndexer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html" title="Base memory indexer functor class. Helps array/view implement their own logic for memory access and p...">MemoryIndexer</a> constructor.  <a href="classNumC_1_1Core_1_1MemoryIndexer.html#a7a5b9b0bf27ba3b8d32652af229585a1">More...</a><br /></td></tr>
+<tr class="separator:a7a5b9b0bf27ba3b8d32652af229585a1 inherit pub_methods_classNumC_1_1Core_1_1MemoryIndexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7f2413f27e06f5c15dab218093f0c01 inherit pub_methods_classNumC_1_1Core_1_1MemoryIndexer"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html#ae7f2413f27e06f5c15dab218093f0c01">~MemoryIndexer</a> ()=default</td></tr>
+<tr class="memdesc:ae7f2413f27e06f5c15dab218093f0c01 inherit pub_methods_classNumC_1_1Core_1_1MemoryIndexer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html" title="Base memory indexer functor class. Helps array/view implement their own logic for memory access and p...">MemoryIndexer</a> destructor.  <a href="classNumC_1_1Core_1_1MemoryIndexer.html#ae7f2413f27e06f5c15dab218093f0c01">More...</a><br /></td></tr>
+<tr class="separator:ae7f2413f27e06f5c15dab218093f0c01 inherit pub_methods_classNumC_1_1Core_1_1MemoryIndexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49bf4ecd8aa5b2bee5552cddc7cf903c inherit pub_methods_classNumC_1_1Core_1_1MemoryIndexer"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html#a49bf4ecd8aa5b2bee5552cddc7cf903c">operator()</a> (const <a class="el" href="namespaceNumC.html#a4d2fd3dc6c7201e58a3068fbcd606066">size_t</a> index) const =0</td></tr>
+<tr class="memdesc:a49bf4ecd8aa5b2bee5552cddc7cf903c inherit pub_methods_classNumC_1_1Core_1_1MemoryIndexer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the memory index corresponding to the index parameter for the array/view.  <a href="classNumC_1_1Core_1_1MemoryIndexer.html#a49bf4ecd8aa5b2bee5552cddc7cf903c">More...</a><br /></td></tr>
+<tr class="separator:a49bf4ecd8aa5b2bee5552cddc7cf903c inherit pub_methods_classNumC_1_1Core_1_1MemoryIndexer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -246,6 +258,7 @@ Protected Attributes</h2></td></tr>
 class NumC::Core::View&lt; T &gt;</h3>
 
 <p>The base class for a modified view of an N-D base array. </p>
+<dl class="section note"><dt>Note</dt><dd>Inherits from <a class="el" href="classNumC_1_1Core_1_1NdArray.html" title="The basic N-D array class that defines the way data is stored and traversed.">NdArray</a> as a view needs to be able to act just like an array without any actual data storage. Inherits from <a class="el" href="classNumC_1_1Core_1_1MemoryIndexer.html" title="Base memory indexer functor class. Helps array/view implement their own logic for memory access and p...">MemoryIndexer</a> to be able to implement their own logic for memory access and pass it to the iterator.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Array element data type. </td></tr>
@@ -401,8 +414,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ae9e38a1082ad44ab6cbf6c9858e62dfc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9e38a1082ad44ab6cbf6c9858e62dfc">&#9670;&nbsp;</a></span>cmemory_indexer()</h2>
+<a id="a62a07ab8f61510aa4b20d96b14d66ffa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62a07ab8f61510aa4b20d96b14d66ffa">&#9670;&nbsp;</a></span>cmemory_indexer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -421,15 +434,13 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Gets the memory indexer to calculate data array index for the view. </p>
 <dl class="section return"><dt>Returns</dt><dd>Constant pointer to the memory indexer instance. </dd></dl>
-
-<p>Implemented in <a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#afb99207a9521635feeec3e17685c8ee1">NumC::Core::ReshapedView&lt; T &gt;</a>, <a class="el" href="classNumC_1_1Core_1_1SlicedView.html#a74522590fc9417f17b83ef9b656f5670">NumC::Core::SlicedView&lt; T &gt;</a>, and <a class="el" href="classNumC_1_1Core_1_1TransposedView.html#a2d683a1a05bb759ab06fbd3072264db4">NumC::Core::TransposedView&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -570,8 +581,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a925a39b95130160740936047397554d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a925a39b95130160740936047397554d6">&#9670;&nbsp;</a></span>memory_indexer()</h2>
+<a id="a7e5ad0c27a7004f1e658d3c4eeec0e43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e5ad0c27a7004f1e658d3c4eeec0e43">&#9670;&nbsp;</a></span>memory_indexer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -590,15 +601,13 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Gets the memory indexer to calculate data array index for the view. </p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the memory indexer instance. </dd></dl>
-
-<p>Implemented in <a class="el" href="classNumC_1_1Core_1_1ReshapedView.html#a5665c18a8866259fcf548519d0845092">NumC::Core::ReshapedView&lt; T &gt;</a>, <a class="el" href="classNumC_1_1Core_1_1SlicedView.html#a031946b91d0d64d32b25680073891227">NumC::Core::SlicedView&lt; T &gt;</a>, and <a class="el" href="classNumC_1_1Core_1_1TransposedView.html#aadbac6b3f7f6c6796522d8b37bc5b6f6">NumC::Core::TransposedView&lt; T &gt;</a>.</p>
 
 </div>
 </div>

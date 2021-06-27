@@ -129,7 +129,7 @@ $(function() {
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ArrayType&gt;</div>
 <div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="namespaceNumC_1_1Utils.html#a1f477395504e4c4548300c5e4cc6fda4">   73</a></span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="namespaceNumC_1_1Utils.html#a1f477395504e4c4548300c5e4cc6fda4">print_array</a>(ArrayType&amp; array)</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keyword">auto</span> iter = array.begin();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keyword">auto</span> iter = array.cbegin();</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordtype">int</span> axis = 0;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            std::vector&lt;char&gt; unwanted_chars {<span class="charliteral">&#39;\n&#39;</span>, <span class="charliteral">&#39;\t&#39;</span>, <span class="charliteral">&#39; &#39;</span>, <span class="charliteral">&#39;,&#39;</span>};</div>
