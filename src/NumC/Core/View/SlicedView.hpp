@@ -135,10 +135,6 @@ namespace NumC
                         this->_arr =
                             dynamic_cast<View<dtype>*>(array)->get_arr();
                     }
-
-                    // Creating a new SlicedViewIndexer and using that to
-                    // populate.
-                    this->_memory_indexer = SlicedViewIndexer(this);
                 }
 
                 /**
@@ -148,80 +144,26 @@ namespace NumC
                 ~SlicedView() = default;
 
                 /**
-                 * @copydoc View::memory_indexer()
+                 * @copydoc MemoryIndexer::operator()()
                  *
                  * Overridden function.
                  */
-                MemoryIndexer* const memory_indexer() override
+                size_t operator()(const size_t index) const override
                 {
-                    return &(this->_memory_indexer);
+                    size_t pos = 0, c_index = index;
+
+                    for (size_t i = 0; i < this->_dims.size(); ++i)
+                    {
+                        size_t dim_count =
+                            this->_indices[i].first +
+                            c_index / this->_strides[i];
+
+                        pos += (this->_arr->strides()[i] * dim_count);
+                        c_index %= this->_strides[i];
+                    }
+
+                    return pos;
                 }
-
-                /**
-                 * @copydoc View::cmemory_indexer()
-                 *
-                 * Overridden function.
-                 */
-                const MemoryIndexer* cmemory_indexer() const override
-                {
-                    return &(this->_memory_indexer);
-                }
-
-            private:
-
-                /**
-                 * @brief Indexer class to calculate memory index for sliced
-                 * views. This class is accessible only to SlicedView.
-                 */
-                class SlicedViewIndexer : public MemoryIndexer
-                {
-                    public:
-
-                        /// @brief Default SlicedViewIndexer constructor.
-                        SlicedViewIndexer() = default;
-
-                        /**
-                         * @brief Construct a new Sliced View Indexer object by
-                         * calling the memory indexer constructor using current
-                         * array/view.
-                         *
-                         * @param view Pointer to the sliced view.
-                         */
-                        SlicedViewIndexer(const SlicedView* view) :
-                            MemoryIndexer(
-                                view->shape(),
-                                view->strides(),
-                                view->_arr->strides(),
-                                view->indices()) {}
-
-                        /// @brief Default SlicedViewIndexer destructor.
-                        ~SlicedViewIndexer() = default;
-
-                        /**
-                         * @copydoc MemoryIndexer::operator()()
-                         *
-                         * Overridden function.
-                         */
-                        size_t operator()(const size_t index) const override
-                        {
-                            size_t pos = 0, c_index = index;
-
-                            for (size_t i = 0; i < this->_shape->size(); ++i)
-                            {
-                                size_t dim_count =
-                                    this->_indices->at(i).first +
-                                    c_index / this->_strides->at(i);
-
-                                pos += (this->_arr_strides->at(i) * dim_count);
-                                c_index %= this->_strides->at(i);
-                            }
-
-                            return pos;
-                        }
-                };
-
-                /// @brief Sliced view indexer instance.
-                SlicedViewIndexer _memory_indexer;
         };
     }
 }

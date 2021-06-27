@@ -135,89 +135,28 @@ namespace NumC
                         this->_arr =
                             dynamic_cast<View<dtype>*>(array)->get_arr();
                     }
-
-                    // Creating a new ReshapedViewIndexer and using that to
-                    // populate.
-                    this->_memory_indexer = ReshapedViewIndexer(this);
                 }
 
-                /**
-                 * @brief Default Reshaped View destructor.
-                 *
-                 */
+                /// @brief Default Reshaped View destructor.
                 ~ReshapedView() = default;
 
                 /**
-                 * @copydoc View::memory_indexer()
+                 * @copydoc MemoryIndexer::operator()()
                  *
                  * Overridden function.
-                 */
-                MemoryIndexer* const memory_indexer() override
-                {
-                    return &(this->_memory_indexer);
-                }
-
-                /**
-                 * @copydoc View::cmemory_indexer()
                  *
-                 * Overridden function.
+                 * @note Since slicing or other views are not allowed
+                 * for reshape, the number of units are same for the
+                 * reshaped view and the container.
+                 * Therefor the index can be directly interpreted as the
+                 * memory container index.
+                 * Calculations will need to be done if we are to
+                 * support reshape of other views.
                  */
-                const MemoryIndexer* cmemory_indexer() const override
+                size_t operator()(const size_t index) const override
                 {
-                    return &(this->_memory_indexer);
+                    return index;
                 }
-
-            private:
-
-                /**
-                 * @brief Indexer class to calculate memory index for reshaped
-                 * views. This class is accessible only to ReshapedView.
-                 */
-                class ReshapedViewIndexer : public MemoryIndexer
-                {
-                    public:
-
-                        /// @brief Default ReshapedViewIndexer constructor.
-                        ReshapedViewIndexer() = default;
-
-                        /**
-                         * @brief Construct a new Reshaped View Indexer object
-                         * by calling the memory indexer constructor
-                         * using current array/view.
-                         *
-                         * @param view Pointer to the reshaped view.
-                         */
-                        ReshapedViewIndexer(const ReshapedView* view) :
-                            MemoryIndexer(
-                                view->shape(),
-                                view->strides(),
-                                view->_arr->strides(),
-                                view->indices()) {}
-
-                        /// @brief Default ReshapedViewIndexer destructor.
-                        ~ReshapedViewIndexer() = default;
-
-                        /**
-                         * @copydoc MemoryIndexer::operator()()
-                         *
-                         * Overridden function.
-                         *
-                         * @note Since slicing or other views are not allowed
-                         * for reshape, the number of units are same for the
-                         * reshaped view and the container.
-                         * Therefor the index can be directly interpreted as the
-                         * memory container index.
-                         * Calculations will need to be done if we are to
-                         * support reshape of other views.
-                         */
-                        size_t operator()(const size_t index) const override
-                        {
-                            return index;
-                        }
-                };
-
-                /// @brief Reshaped view indexer instance.
-                ReshapedViewIndexer _memory_indexer;
         };
     }
 }

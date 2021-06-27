@@ -11,12 +11,16 @@ namespace NumC
         /**
          * @brief The base class for a modified view of an N-D base array.
          *
+         * @note Inherits from NdArray as a view needs to be able to act just
+         * like an array without any actual data storage. Inherits from
+         * MemoryIndexer to be able to implement their own logic for memory
+         * access and pass it to the iterator.
+         *
          * @tparam T Array element data type.
          */
         template<typename T>
-        class View : public NdArray<T>
+        class View : public NdArray<T>, public MemoryIndexer
         {
-
             public:
                 /// Aliases
                 using dtype = T;
@@ -34,7 +38,10 @@ namespace NumC
                  *
                  * @return Pointer to the memory indexer instance.
                  */
-                virtual MemoryIndexer* const memory_indexer() = 0;
+                virtual MemoryIndexer* const memory_indexer()
+                {
+                    return this;
+                }
 
                 /**
                  * @brief Gets the memory indexer to calculate data array index
@@ -42,7 +49,10 @@ namespace NumC
                  *
                  * @return Constant pointer to the memory indexer instance.
                  */
-                virtual const MemoryIndexer* cmemory_indexer() const = 0;
+                virtual const MemoryIndexer* cmemory_indexer() const
+                {
+                    return this;
+                }
 
                 /**
                  * @brief Gets the nd array reference.

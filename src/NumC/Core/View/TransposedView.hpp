@@ -111,10 +111,6 @@ namespace NumC
                         this->_arr =
                             dynamic_cast<View<dtype>*>(array)->get_arr();
                     }
-
-                    // Creating a new TransposedViewIndexer and using that to
-                    // populate.
-                    this->_memory_indexer = TransposedViewIndexer(this);
                 }
 
                 /**
@@ -124,122 +120,60 @@ namespace NumC
                 ~TransposedView() = default;
 
                 /**
-                 * @copydoc View::memory_indexer()
+                 * @copydoc MemoryIndexer::operator()()
                  *
                  * Overridden function.
+                 *
+                 * @note The logic is pretty simple. Find the
+                 * coordinates corresponding to the index for the
+                 * transposed view. Multiply these by the reordered data
+                 * array strides.
+                 * @htmlonly
+                 * <br>
+                 * Example,
+                 * <br>(2, 3) - strides(3, 1)
+                 * <br>
+                 * [0, 1, 2],
+                 * <br>
+                 * [3, 4, 5].
+                 * <br>
+                 * Transposed view -
+                 * <br>(3, 2) - strides(2, 1)
+                 * <br>
+                 * [0, 3],
+                 * <br>
+                 * [1, 4],
+                 * <br>
+                 * [2, 5]
+                 * <br>
+                 * Transposed view index 1 would be element 3. Calculate
+                 * coordinates for this - 0th row, 1st column.
+                 * Multiply by these by the reordered strides -
+                 * 0 * 1 + 1 * 3 = 3
+                 * @endhtmlonly
                  */
-                MemoryIndexer* const memory_indexer() override
+                size_t operator()(const size_t index) const override
                 {
-                    return &(this->_memory_indexer);
-                }
+                    size_t pos = 0, c_index = index;
 
-                /**
-                 * @copydoc View::cmemory_indexer()
-                 *
-                 * Overridden function.
-                 */
-                const MemoryIndexer* cmemory_indexer() const override
-                {
-                    return &(this->_memory_indexer);
+                    for (size_t i = 0; i < this->_dims.size(); ++i)
+                    {
+                        size_t dim_count =
+                            this->_indices[i].first +
+                            c_index / this->_strides[i];
+
+                        pos +=
+                            (this->_arr->strides()[this->__axes[i]] * dim_count);
+                        c_index %= this->_strides[i];
+                    }
+
+                    return pos;
                 }
 
             private:
 
                 /// @brief The axes order that the array is being transposed to.
                 size_t_v __axes;
-
-                /**
-                 * @brief Indexer class to calculate memory index for reshaped
-                 * views. This class is accessible only to TransposedVIew.
-                 */
-                class TransposedViewIndexer : public MemoryIndexer
-                {
-                    public:
-
-                        /// @brief Default TransposedViewIndexer constructor.
-                        TransposedViewIndexer() = default;
-
-                        /**
-                         * @brief Construct a new Transposed View Indexer object
-                         * by calling the memory indexer constructor
-                         * using current array/view.
-                         *
-                         * @param view Pointer to the transposed view.
-                         */
-                        TransposedViewIndexer(const TransposedView* view) :
-                            MemoryIndexer(
-                                view->shape(),
-                                view->strides(),
-                                view->_arr->strides(),
-                                view->indices()),
-                            __axes(&(view->__axes)) {}
-
-                        /// @brief Default TransposedViewIndexer destructor.
-                        ~TransposedViewIndexer() = default;
-
-                        /**
-                         * @copydoc MemoryIndexer::operator()()
-                         *
-                         * Overridden function.
-                         *
-                         * @note The logic is pretty simple. Find the
-                         * coordinates corresponding to the index for the
-                         * transposed view. Multiply these by the reordered data
-                         * array strides.
-                         * @htmlonly
-                         * <br>
-                         * Example,
-                         * <br>(2, 3) - strides(3, 1)
-                         * <br>
-                         * [0, 1, 2],
-                         * <br>
-                         * [3, 4, 5].
-                         * <br>
-                         * Transposed view -
-                         * <br>(3, 2) - strides(2, 1)
-                         * <br>
-                         * [0, 3],
-                         * <br>
-                         * [1, 4],
-                         * <br>
-                         * [2, 5]
-                         * <br>
-                         * Transposed view index 1 would be element 3. Calculate
-                         * coordinates for this - 0th row, 1st column.
-                         * Multiply by these by the reordered strides -
-                         * 0 * 1 + 1 * 3 = 3
-                         * @endhtmlonly
-                         */
-                        size_t operator()(const size_t index) const override
-                        {
-                            size_t pos = 0, c_index = index;
-
-                            for (size_t i = 0; i < this->_shape->size(); ++i)
-                            {
-                                size_t dim_count =
-                                    this->_indices->at(i).first +
-                                    c_index / this->_strides->at(i);
-
-                                pos +=
-                                    (this->_arr_strides->at(
-                                        this->__axes->at(i)) * dim_count);
-                                c_index %= this->_strides->at(i);
-                            }
-
-                            return pos;
-                        }
-
-                    private:
-
-                        /**
-                         * @brief Pointer to the axes order of the transposed
-                         * array.
-                         */
-                        const size_t_v* __axes;
-                };
-
-                /// @brief Transposed view indexer instance.
-                TransposedViewIndexer _memory_indexer;
         };
     }
 }
